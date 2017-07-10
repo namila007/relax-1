@@ -8,9 +8,12 @@ public class PatientAction extends AbstractManagementAction{
 	private static final long serialVersionUID = 1L;
 	
 	private Patient patient;
+
+	public String registrationForm(){
+		return SUCCESS;
+	}
 	
 	public String view(){
-		
 		return SUCCESS;
 	}
 	

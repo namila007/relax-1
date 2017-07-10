@@ -21,7 +21,9 @@
 			
 			<!-- page content -->
 			<div class="right_col" role="main">
-				<h2>Default dashboard items go here</h2>
+				<s:form>
+					Form
+				</s:form>
 			</div>
 			<!-- /page content -->
 

@@ -7,7 +7,6 @@ import com.doerit.action.AbstractManagementAction;
 import com.doerit.exception.SessionNotExist;
 import com.doerit.model.Employee;
 import com.doerit.model.UserAccount;
-import com.doerit.model.type.UserRoleType;
 import com.doerit.service.EmployeeService;
 import com.doerit.service.UserAccountService;
 import com.doerit.util.SessionKey;
@@ -48,7 +47,6 @@ public class SignInAction extends AbstractManagementAction {
 			}
 
 			userAccount = userAccountService.viewByEmailAndPassword(userAccount.getUserName(), userAccount.getUserPassword());
-			System.out.println(userAccount);
 			if (userAccount == null) {
 				addActionError("Invalid credentials");
 				return INPUT;
@@ -61,18 +59,18 @@ public class SignInAction extends AbstractManagementAction {
 				return INPUT;
 			} else {
 				
-				System.out.println(userAccount.getCategoryRelationId());
-				
 				if(userAccount.getCategoryRelationId().equals("EMPLOYEE")) {
 					
 					String foreignKey = userAccount.getRelationId();
 					
 					Employee employee = employeeService.viewById(foreignKey);
-					System.out.println(employee);
+
 					if(employee != null) {
 						su.setRole("EMPLOYEE");
 						su.setRoleName(employee.getUserRole());
+						su.setName(employee.getFirstName() + " " + employee.getSurname());
 						addSessionUser(su);
+						
 					} else {
 						addActionError("Employee does not exist in the employee repo");
 						return INPUT;
@@ -118,7 +116,7 @@ public class SignInAction extends AbstractManagementAction {
 
 	private void clearSessionVariables() {
 		try {
-			removeSessionVariable(SessionKey.SESSION_USER_ACCOUNT);
+			removeSessionVariable(SessionKey.SESSION_USER);
 			removeSessionVariable(SessionKey.RESPONSE);
 			removeSessionVariable(SessionKey.HISTORY_ACTION);
 

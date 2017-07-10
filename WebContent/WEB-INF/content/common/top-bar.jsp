@@ -18,12 +18,14 @@
 				</a>
 					<ul class="dropdown-menu dropdown-usermenu pull-right">
 						<li><a href="javascript:;">Help</a></li>
-						<li><a href="login.html"><span
-								class="fa fa-sign-out pull-right"></span> Log Out</a></li>
+						<li>
+							<s:url var="signOutUrl" namespace="/" action="/sign-out.html"></s:url>
+							<s:a href="%{#signOutUrl}"><span
+								class="fa fa-sign-out pull-right"></span> Log Out</s:a></li>
 					</ul></li>
 
-				<li class="para">Name</li>
-				<li class="para">Role</li>
+				<li class="para" title="<s:property value='%{#session.SESSION_USER.email}'/>"><s:property value="%{#session.SESSION_USER.name}"/></li>
+				<li class="para"><s:property value="%{#session.SESSION_USER.roleName}"/></li>
 			</ul>
 		</nav>
 	</div>

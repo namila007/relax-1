@@ -57,8 +57,6 @@ public class AbstractManagementAction extends AbstractAction implements Preparab
 		return ServletActionContext.getRequest().getRemoteAddr();
 	}
 
-	
-
 	protected void setUserLastAccessDateTime() {
 		String employeeId = getSessionUserId();
 

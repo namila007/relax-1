@@ -95,7 +95,7 @@ public abstract class AbstractAction extends ActionSupport implements SessionAwa
 		try {
 			SessionUser su = getSessionUser();
 			
-			if (su.getRole().equalsIgnoreCase(UserRoleType.ADMIN.getDbId())) {
+			if (su.getRoleName().equalsIgnoreCase(UserRoleType.ADMIN.getDbId())) {
 				return true;
 			}
 		} catch (Exception e) {
@@ -109,7 +109,7 @@ public abstract class AbstractAction extends ActionSupport implements SessionAwa
 		try {
 			SessionUser su = getSessionUser();
 			
-			if (su.getRole().equalsIgnoreCase(UserRoleType.DENTAL_DOCTOR.getDbId())) {
+			if (su.getRoleName().equalsIgnoreCase(UserRoleType.DENTAL_DOCTOR.getDbId())) {
 				return true;
 			}
 		} catch (Exception e) {
@@ -123,7 +123,7 @@ public abstract class AbstractAction extends ActionSupport implements SessionAwa
 		try {
 			SessionUser su = getSessionUser();
 			
-			if (su.getRole().equalsIgnoreCase(UserRoleType.CLERK.getDbId())) {
+			if (su.getRoleName().equalsIgnoreCase(UserRoleType.CLERK.getDbId())) {
 				return true;
 			}
 			

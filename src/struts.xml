@@ -86,6 +86,7 @@
 
 	<include file="./struts/signin.xml" />
 	<include file="./struts/dash-board.xml" />
+	<include file="./struts/patient.xml" />
 	
 </struts>
 

@@ -36,8 +36,8 @@
 						required />
 				</div>
               <div align="left">
-                <s:submit cssClass="btn btn-default submit" >Log in</s:submit>
-                <a class="reset_pass" href="#">Lost your password?</a>s
+                <s:submit cssClass="btn btn-default submit" ></s:submit>
+                <a class="reset_pass" href="#">Lost your password?</a>
               </div>
 
               <div class="clearfix"></div>

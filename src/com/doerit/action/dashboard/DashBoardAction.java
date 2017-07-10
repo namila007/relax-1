@@ -2,7 +2,6 @@ package com.doerit.action.dashboard;
 
 import com.doerit.action.AbstractManagementAction;
 import com.doerit.exception.SessionNotExist;
-import com.doerit.model.type.UserRoleType;
 
 public class DashBoardAction extends AbstractManagementAction {
 
