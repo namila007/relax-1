@@ -17,6 +17,11 @@ public class PatientAction extends AbstractManagementAction{
 		return SUCCESS;
 	}
 	
+	public String save() {
+		//save code
+		return SUCCESS;
+	}
+	
 	public String edit(){
 		
 		return SUCCESS;
