@@ -23,7 +23,7 @@
 			<div class="right_col" role="main">
 				<h2>Patient Registration</h2>
 
-<form action="" method="post">
+<form action="" method="post" class="form-horizontal">
 
     <div >
         <div class="form-group-sm">
@@ -31,37 +31,63 @@
             <input type="text" class="form-control" id="name" name="serial" placeholder="20170312345">
         </div>
 
-        <div class="form-group">
-            <label for="title">Title:</label>
-            <select class="form-control" name="title">
-                <option value="Mr" selected>Mr.</option>
-                <option value="Ms">Ms.</option>
-                <option value="Rev">Rev.</option>
-            </select>			
-        </div>
+		<div class="row form-group">
+	        
+	       	<div class="col-sm-2 control-label">
+	           	<label for="title">Title:</label>
+	        </div>
+	        <div class="col-sm-1">
+	            <select class="form-control" name="title">
+	                <option value="Mr" selected>Mr.</option>
+	                <option value="Ms">Ms.</option>
+	                <option value="Rev">Rev.</option>
+	            </select>	
+	        </div>		
+        
+	       
+	        <div class="col-sm-2 control-label">
+	            <label for="checkbox"> Child :</label>	
+	        </div>
+	        <div class="col-sm-2">	
+	            <input type="checkbox" name="child" class="checkbox-inline" id="check_child" value="child">
+	        </div>
 
-
-        <div class="form-group">
-            <label for="name">Patient Name:</label>
-            <input type="text" id="name" name="surName" class="form-control" placeholder="Surname">
-            <input type="text" id="name" name="iniName" class="form-control" placeholder="Initials">
-            <input type="text" id="name" name="firstName" class="form-control" placeholder="First name">
-
-        </div>
-        <div class="input-group-sm">
-            <br>
-            <label for="nic">NIC number:</label>
-            <input type="text" class="form-control" id="nicfield" name="nic">
-            <label for="checkbox"> Child :</label>		
-            <input type="checkbox" name="child" class="checkbox-inline" id="check_child" value="child">
-        </div>
-
-        <script>
-            document.getElementById('check_child').onchange = function ()
-            {
-                document.getElementById('nicfield').disabled = this.checked;
-            };
-        </script>
+	        <script>
+	            document.getElementById('check_child').onchange = function ()
+	            {
+	                document.getElementById('nicfield').disabled = this.checked;
+	            };
+	        </script>
+	        
+	        <div class="col-sm-2 control-label">
+	            <label for="nic">NIC number:</label>
+	        </div>
+	        
+	        <div class="col-sm-2">
+	            <input type="text" class="form-control" id="nicfield" name="nic">
+	        </div>
+		</div>
+		
+		<div class="row form-group">
+		  <div class="col-xs-2">
+			<label for="name">Patient Name:</label>
+		  </div>
+		  
+		  <div class="col-xs-3">
+		    <input type="text" id="name" name="surName" class="form-control" placeholder="Surname">
+		  </div>
+		  
+		  <div class="col-xs-1">
+		    <input type="text" id="name" name="iniName" class="form-control" placeholder="Initials">
+		  </div>
+		  
+		  <div class="col-xs-2">
+		    <input type="text" id="name" name="firstName" class="form-control" placeholder="First name">
+		  </div>
+		  
+		</div>
+		
+       
 
 
         <div class="form-group">
