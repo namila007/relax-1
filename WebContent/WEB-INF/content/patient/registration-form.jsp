@@ -20,7 +20,7 @@
 			<div class="right_col" role="main">
 				<h4>Patient Registration</h4>
 
-				<s:form namespace="/patient" action="save" method="post">
+				<s:form namespace="/patient" action="registration-save" method="post">
 
 					<div>
 
@@ -46,23 +46,20 @@
 									<label for="name">Patient Name:</label>
 								</div>
 								<div class="col-xs-1">
-									<select class="form-control" name="title">
-										<option value="Mr" selected>Mr.</option>
-										<option value="Ms">Ms.</option>
-										<option value="Rev">Rev.</option>
-									</select>
+									<s:select cssClass="form-control" name="patient.title" list="#{'Mr':'Mr.','Ms':'Ms'}"/>
+										
 								</div>
 								<div class="col-xs-3">
 									<input type="text" class="form-control" id="name"
-										name="surName" placeholder="Surname">
+										name="patient.surname" placeholder="Surname">
 								</div>
 								<div class="col-xs-2">
 									<input type="text" class="form-control" id="name"
-										name="initials" placeholder="Initials">
+										name="patient.initials" placeholder="Initials">
 								</div>
 								<div class="col-xs-3">
 									<input type="text" class="form-control" id="name"
-										name="firstName" placeholder="First name">
+										name="patient.firstName" placeholder="First name">
 								</div>
 							</div>
 						</div>
@@ -73,8 +70,9 @@
 							<div class="row">
 								
 								<div class="col-xs-1">
-									<label for="checkbox">Child</label> <input type="checkbox"
-										name="child" class="checkbox-inline" id="check_child"
+									<label for="checkbox">Child</label> 
+										<input type="checkbox"
+										name="patient.child" class="checkbox-inline" id="check_child"
 										value="child">
 								</div>
 								
@@ -82,7 +80,7 @@
 									<label for="serialNumber">NIC No.:</label>
 								</div>
 								<div class="col-xs-2">
-									<input type="text" class="form-control" id="nic" name="nic"
+									<input type="text" class="form-control" id="nic" name="patient.nic"
 										placeholder="">
 								</div>
 								
@@ -102,7 +100,7 @@
 								</div>
 								<div class="col-xs-2">
 									<input type="date" class="form-control" id="bday"
-										name="birthday">
+										name="patient.birthDayString">
 								</div>
 								<div class="col-xs-5"></div>
 							</div>
@@ -115,10 +113,7 @@
 								</div>
 								<div class="col-xs-4">
 									<div class="form-control">
-										<label class="radio-inline"><input type="radio"
-											name="male">Male</label> <label class="radio-inline"><input
-											type="radio" name="female">Female</label> <label
-											class="radio-inline"><input type="radio" name="other">Other</label>
+										<s:radio label="Answer" name="patient.sex" list="#{'Male':'Male','Female':'Female','Other':'Other'}" />
 									</div>
 								</div>
 								<div class="col-xs-6"></div>
@@ -132,12 +127,7 @@
 								</div>
 
 								<div class="col-xs-2">
-									<select class="form-control">
-										<option value="Sinhala" selected>Sinhala</option>
-										<option value="Tamil">Tamil</option>
-										<option value="Muslim">Muslim</option>
-										<option value="Other">Other</option>
-									</select>
+									<s:select cssClass="form-control"  name="patient.ethnicity" list="#{'Sinhala':'Sinhala','Tamil':'Tamil','Muslim':'Muslim', 'Other':'Other'}" />
 								</div>
 
 								<div class="col-xs-1">
@@ -145,10 +135,10 @@
 								</div>
 								<div class="col-xs-2">
 									<input type="text" class="form-control" id="district_id"
-										name="district" list="districtList">
+										name="patient.districtId" list="districtList">
 									<datalist id="districtList">
 										<label for="districtList"> or pick a districtList </label>
-										<select id="suggestion" name="altDistrict">
+										<select id="suggestion" >
 											<option>Ampara</option>
 											<option>Anuradhapura</option>
 											<option>Badulla</option>
@@ -180,9 +170,6 @@
 							</div>
 						</div>
 
-
-
-
 						<div class="form-group">
 							<div class="row">
 								<div class="col-xs-2">
@@ -205,14 +192,14 @@
 								</div>
 								<div class="col-xs-2">
 									<input type="text" class="form-control" id="phoneNo"
-										name="patient_phoneNo">
+										name="patient.mobile">
 								</div>
 								<div class="col-xs-1">
 									<label for="mail">E-mail:</label>
 								</div>
 								<div class="col-xs-3">
 									<input type="email" class="form-control" id="mail"
-										name="patient_mail">
+										name="patient.email">
 								</div>
 							</div>
 						</div>
@@ -222,9 +209,9 @@
 								<div class="col-xs-2">
 									<label for="address">Address:</label>
 								</div>
-								<div class="col-xs-4">
+								<div class="col-xs-6">
 									<textarea class="form-control" id="address"
-										name="patient_address"></textarea>
+										name="patient.address"></textarea>
 								</div>
 								<div class="col-xs-6"></div>
 							</div>

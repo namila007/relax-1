@@ -12,11 +12,11 @@
 				<param name="namespace">/</param>
 				<param name="actionName">index</param>
 			</result>
-			<result name="error" >/WEB-INF/content/common/error.jsp</result>
+			<!-- <result name="error" >/WEB-INF/content/common/error.jsp</result>
 			<result name="exception" >/WEB-INF/content/common/error.jsp</result>
 			<result name="SQLException">/WEB-INF/content/common/error.jsp</result>
 			<result name="sessionExpired">/WEB-INF/content/common/session-expired.jsp</result> 
-			<result name="invalid">/WEB-INF/content/common/error.jsp</result> 
+			<result name="invalid">/WEB-INF/content/common/error.jsp</result>  -->
 		</global-results>
  
 		<!-- <global-exception-mappings>

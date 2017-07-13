@@ -12,6 +12,11 @@
 			<result name="success">/WEB-INF/content/patient/registration-form.jsp</result>
 		</action>
 		
+		<action name="registration-save" class="com.doerit.action.patient.PatientAction" method="save">
+			<result name="success">/WEB-INF/content/patient/view.jsp</result>
+			<result name="input">/WEB-INF/content/patient/registration-form.jsp</result>
+		</action>
+		
 	</package>
 		
 </struts>
