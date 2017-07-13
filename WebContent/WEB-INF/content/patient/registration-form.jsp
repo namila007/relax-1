@@ -1,12 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<s:include value="/WEB-INF/content/common/meta-tags.jsp"></s:include>
-    <title><s:text name="global.application.title" /></title>
-	<s:include value="/WEB-INF/content/common/css-include.jsp"></s:include>
+<s:include value="/WEB-INF/content/common/meta-tags.jsp"></s:include>
+<title><s:text name="global.application.title" /></title>
+<s:include value="/WEB-INF/content/common/css-include.jsp"></s:include>
 </head>
 
 <body class="nav-md">
@@ -71,13 +72,13 @@
 
 						<div class="form-group">
 							<div class="row">
-								
+
 								<div class="col-xs-1">
 									<label for="checkbox">Child</label> <input type="checkbox"
 										name="child" class="checkbox-inline" id="check_child"
 										value="child">
 								</div>
-								
+
 								<div class="col-xs-1">
 									<label for="serialNumber">NIC No.:</label>
 								</div>
@@ -85,7 +86,7 @@
 									<input type="text" class="form-control" id="nic" name="nic"
 										placeholder="">
 								</div>
-								
+
 							</div>
 
 						</div>
