@@ -2,6 +2,83 @@
 	color: #2A3F54
 }
 
+.login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -60%);
+    transform: translate(-50%, -60%);
+    background-color: #fff;
+    border: 1px solid #70797D;
+    color: #42d1f4;
+    min-width: 270px;
+    border-radius: 10px;
+    background-color: #eee;
+}
+
+.login input {
+    padding: 10px 45px 10px 23px;
+    border-radius: 0;
+    font-style: italic;
+    border: 1px solid #449d44;
+    height: 55px;
+}
+
+.login input:focus {
+    background-color: #f2fb05;
+}
+
+.login .form-group {
+    margin-bottom: 3px;
+    border-radius: 0;
+}
+
+.login .btn-default {
+    color: #fff;
+    background-color: #339CD5;
+    border-color: #42d1f4;
+    -webkit-transition: all linear 0.3s; /* Safari */
+    transition: all linear 0.3s;
+    font-size: 16px;
+}
+
+.login .btn-default:hover, .login .btn-default:focus {
+    color: #42d1f4;
+    background: #fff;
+}
+
+.form-head {
+    background-color: #449d44;
+    border-bottom: 4px solid #FBD705;
+    padding: 30px 0 0;
+    border-radius: 10px 10px 0 0;
+}
+
+.form-head img {
+    display: block;
+    margin: 0 auto;
+    width: 90px;
+    position: relative;
+	top: -11px;
+}
+
+#signInDentalTitle{
+	background-color: green;
+	font-size: 1.5em; 
+	color: white; 
+	text-align: center; 
+	font-family: Droid Serif;
+	padding: 5px;
+}
+
+.form-body {
+    padding: 10px;
+}
+
+.form-body hr {
+    border-top: 1px solid #449d44;
+}
+
 .site_title, .x_title h2, table.tile_info td p {
 	text-overflow: ellipsis
 }

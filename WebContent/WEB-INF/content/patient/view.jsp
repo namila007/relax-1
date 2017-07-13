@@ -19,30 +19,10 @@
 
 			<!-- page content -->
 			<div class="right_col" role="main">
-			
-				<s:include value="/WEB-INF/content/patient/header.jsp"></s:include>
+				<s:include value="/WEB-INF/content/common/title-bar.jsp"></s:include>
 				<h4>Patient Registration</h4>
 
-				<s:form namespace="/patient" action="registration-save" method="post">
-
-					<div>
-
-						<!-- <div class="form-group">
-							<div class="row">
-								<div class="col-xs-9">
-									<label for="serialNumber">Serial Number:</label>
-								</div>
-								<div class="col-xs-3">
-									<input type="text" class="form-control" id="name" name="serial"
-										placeholder="20170312345">
-								</div>
-							</div>
-
-						</div> -->
-
-
-
-						<!--  -->
+				
 						<div class="form-group">
 							<div class="row">
 								<div class="col-xs-2">
@@ -66,9 +46,7 @@
 								</div>
 							</div>
 						</div>
-						<!--  -->
-
-
+					
 						<div class="form-group">
 							<div class="row">
 
@@ -201,9 +179,6 @@
 								<div class="col-xs-6"></div>
 							</div>
 						</div>
-					</div>
-
-				</s:form>
 
 			</div>
 			<!-- /page content -->

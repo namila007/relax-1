@@ -4,6 +4,8 @@ import com.doerit.model.District;
 import com.doerit.model.DistrictExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.ResultMap;
+import org.apache.ibatis.annotations.Select;
 
 public interface DistrictMapper {
     /**
@@ -93,4 +95,8 @@ public interface DistrictMapper {
      * @mbggenerated Sun Jul 09 08:24:40 IST 2017
      */
     int updateByPrimaryKey(District record);
+
+    @Select("SELECT * FROM tbl_district ORDER BY SORT_ORDER, NAME")
+    @ResultMap("BaseResultMap")
+	List<District> findAll();
 }

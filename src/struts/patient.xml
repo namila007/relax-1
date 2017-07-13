@@ -17,6 +17,14 @@
 			<result name="input">/WEB-INF/content/patient/registration-form.jsp</result>
 		</action>
 		
+		<action name="list" class="com.doerit.action.patient.PatientAction" method="viewAll">
+			<result name="success">/WEB-INF/content/patient/list.jsp</result>
+		</action>
+		
+		<action name="view" class="com.doerit.action.patient.PatientAction" method="view">
+			<result name="success">/WEB-INF/content/patient/view.jsp</result>
+		</action>
+		
 	</package>
 		
 </struts>
