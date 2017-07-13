@@ -19,4 +19,5 @@ CREATE TABLE `tbl_patient_guardian` (
   PRIMARY KEY (`ID`),
   KEY `tbl_patient_guardian_ibfk_1` (`PATIENT_ID`),
   CONSTRAINT `tbl_patient_guardian_ibfk_1` FOREIGN KEY (`PATIENT_ID`) REFERENCES `tbl_patient` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+COLLATE=utf8_unicode_ci;
