@@ -74,4 +74,9 @@ public interface PatientMapper {
     		+ "FROM tbl_patient WHERE STATUS = #{status}")
     @ResultMap("BaseResultMap")
 	List<Patient> viewAllByStatus(@Param("status")byte databaseValue);
+
+    @Select("SELECT * "
+    		+ "FROM tbl_patient WHERE SURNAME LIKE #{surname} AND STATUS = #{status}")
+    @ResultMap("BaseResultMap")
+	List<Patient> search(@Param("surname")String searchWord, @Param("status")byte databaseValue);
 }

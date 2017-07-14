@@ -30,4 +30,8 @@ public class PatientService {
 	public List<Patient> viewAll(State state) {
 		return patientMapper.viewAllByStatus(state.getDatabaseValue());
 	}
+
+	public List<Patient> search(String searchKey, String searchWord) {
+		return patientMapper.search("%"+searchWord+"%", State.ACTIVE.getDatabaseValue());
+	}
 }

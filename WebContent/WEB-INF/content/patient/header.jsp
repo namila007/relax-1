@@ -6,6 +6,7 @@
 
     <div class="col-md-8 col-md-offset-1 pull-right"> 
 		
+		<s:form namespace="/patient" action="search.html" id="patientSearchForm" method="post">
 		<div class="input-group">
                
                 <div class="input-group-btn search-panel">
@@ -26,9 +27,10 @@
                 <input type="hidden" name="searchKey" value="all" id="search_param">     
                 <input type="text" class="form-control" name="searchWord" placeholder="Search term...">
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                    <s:submit cssClass="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></s:submit>
                 </span>
             </div>
+            </s:form>
         </div>
 		<div class="col-md-3 pull-right"> 
 			<s:url var="patientListUrl" namespace="/patient" action="list.html"></s:url>

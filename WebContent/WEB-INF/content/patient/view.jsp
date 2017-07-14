@@ -19,166 +19,141 @@
 
 			<!-- page content -->
 			<div class="right_col" role="main">
-				<s:include value="/WEB-INF/content/common/title-bar.jsp"></s:include>
-				<h4>Patient Registration</h4>
+				<s:include value="/WEB-INF/content/patient/header.jsp"></s:include>
+				<h3>Patient Registration summary</h3>
+				<section>
 
-				
-						<div class="form-group">
-							<div class="row">
-								<div class="col-xs-2">
-									<label for="name">Patient Name:</label>
-								</div>
-								<div class="col-xs-1">
-									<s:select cssClass="form-control" name="patient.title" list="#{'Mr':'Mr.','Ms':'Ms'}"/>
-										
-								</div>
-								<div class="col-xs-3">
-									<input type="text" class="form-control" id="name"
-										name="patient.surname" placeholder="Surname">
-								</div>
-								<div class="col-xs-2">
-									<input type="text" class="form-control" id="name"
-										name="patient.initials" placeholder="Initials">
-								</div>
-								<div class="col-xs-3">
-									<input type="text" class="form-control" id="name"
-										name="patient.firstName" placeholder="First name">
-								</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-xs-2">
+								<label for="name">Patient Name:</label>
 							</div>
+							<div class="col-xs-6">
+								<s:property value="%{patient.title}"/>  <s:property value="%{patient.firstName}"/> <s:property value="%{patient.surname}"/>
+							</div>
+
 						</div>
+					</div>
+
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-xs-2">
+								<label for="nic">NIC number:</label>
+							</div>
+							<div class="col-xs-6"><s:property value="%{patient.nic}"/></div>
+
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-xs-2">
+								<label for="name">Date of Birth:</label>
+							</div>
+							<div class="col-xs-6"><s:date name="%{patient.dateOfBirth}" format="yyyy-MM-dd"/></div>
+
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-xs-2">
+								<label for="name">Sex:</label>
+							</div>
+							<div class="col-xs-6"><s:property value="%{patient.sex}"/> </div>
+
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-xs-2">
+								<label for="ethnicity">Ethnicity:</label>
+							</div>
+							<div class="col-xs-6"><s:property value="%{patient.ethnicity}"/> </div>
+
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-xs-2">
+								<label for="district">District:</label>
+							</div>
+							<div class="col-xs-6">to display District</div>
+
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-xs-2">
+								<label for="country">Country:</label>
+							</div>
+							<div class="col-xs-6">to display Country</div>
+
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-xs-2">
+								<label for="phoneNumber">Phone number:</label>
+							</div>
+							<div class="col-xs-6">to display phoneNumber</div>
+
+						</div>
+					</div>
 					
-						<div class="form-group">
-							<div class="row">
-
-								<div class="col-xs-1">
-									<label for="checkbox">Child</label> 
-										<input type="checkbox"
-										name="patient.child" class="checkbox-inline" id="check_child"
-										value="child">
-								</div>
-
-								<div class="col-xs-1">
-									<label for="serialNumber">NIC No.:</label>
-								</div>
-								<div class="col-xs-2">
-									<input type="text" class="form-control" id="nic" name="patient.nic"
-										placeholder="">
-								</div>
-
+					<div class="form-group">
+						<div class="row">
+							<div class="col-xs-2">
+								<label for="email">E-mail:</label>
 							</div>
+							<div class="col-xs-6">to display email</div>
 
 						</div>
-						<script>
-							document.getElementById('check_child').onchange = function() {
-								document.getElementById('nic').disabled = this.checked;
-							};
-						</script>
+					</div>					
+					
+					<div class="form-group">
+						<div class="row">
+							<div class="col-xs-2">
+								<label for="address">Address:</label>
+							</div>
+							<div class="col-xs-6">to display address</div>
 
-						<div class="form-group">
-							<div class="row">
-								<div class="col-xs-2">
-									<label for="birthDay">Date of Birth:</label>
-								</div>
-								<div class="col-xs-2">
-									<input type="date" class="form-control" id="bday"
-										name="patient.birthDayString">
-								</div>
-								<div class="col-xs-5"></div>
+						</div>
+					</div>						
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-xs-2">
+								<label for="referral">Referral:</label>
+							</div>
+							<div class="col-xs-6">to display "referral"</div>
+
+						</div>
+					</div>
+					
+					<br>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-xs-2"></div>
+							<div class="col-xs-1">
+								<s:submit cssClass="btn btn-success" value="Print"></s:submit>
+							</div>
+							<div class="col-xs-1">
+								<s:submit cssClass="btn btn-success" value="Edit"></s:submit>							
 							</div>
 						</div>
-
-						<div class="form-group">
-							<div class="row">
-								<div class="col-xs-2">
-									<label for="sex">Sex: </label>
-								</div>
-								<div class="col-xs-4">
-									<div class="form-control">
-										<s:radio label="Answer" name="patient.sex" list="#{'Male':'Male','Female':'Female','Other':'Other'}" />
-									</div>
-								</div>
-								<div class="col-xs-6"></div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="row">
-								<div class="col-xs-2">
-									<label for="ethnicity">Ethnicity: </label>
-								</div>
-
-								<div class="col-xs-2">
-									<s:select cssClass="form-control"  name="patient.ethnicity" list="#{'Sinhala':'Sinhala','Tamil':'Tamil','Muslim':'Muslim', 'Other':'Other'}" />
-								</div>
-
-								<div class="col-xs-1">
-									<label for="district">District:</label>
-								</div>
-								
-								<div class="col-xs-2">
-									<s:select cssClass="form-control"  name="patient.districtId" listKey="id" listValue="name" list="districts" />
-								</div>
-								
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="row">
-								<div class="col-xs-2">
-									<label for="country">Country: </label>
-								</div>
-								<div class="col-xs-2">
-									<select class="form-control">
-										<option value="Sri Lankan" selected>Sri Lankan</option>
-										<option value="Non Sri Lankan">Non Sri Lankan</option>
-									</select>
-								</div>
-								<div class="col-xs-6"></div>
-							</div>
-						</div>
-						<br>
-						<div class="form-group">
-							<div class="row">
-								<div class="col-xs-2">
-									<label for="phone">Phone number:</label>
-								</div>
-								<div class="col-xs-2">
-									<input type="text" class="form-control" id="phoneNo"
-										name="patient.mobile">
-								</div>
-								<div class="col-xs-1">
-									<label for="mail">E-mail:</label>
-								</div>
-								<div class="col-xs-3">
-									<input type="email" class="form-control" id="mail"
-										name="patient.email">
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="row">
-								<div class="col-xs-2">
-									<label for="address">Address:</label>
-								</div>
-								<div class="col-xs-6">
-									<textarea class="form-control" id="address"
-										name="patient.address"></textarea>
-								</div>
-								<div class="col-xs-6"></div>
-							</div>
-						</div>
-
-						<br>
-						<div class="form-group">
-							<div class="row">
-								<div class="col-xs-2"></div>
-								<div class="col-xs-4">
-									<s:submit cssClass="btn btn-success" label="Submit"></s:submit>
-								</div>
-								<div class="col-xs-6"></div>
-							</div>
-						</div>
+					</div>					
+					
+					
+					
+				</section>
+	
 
 			</div>
 			<!-- /page content -->
@@ -188,5 +163,7 @@
 
 	<!-- Custom Theme Scripts -->
 	<s:include value="/WEB-INF/content/common/js-include.jsp"></s:include>
+	
+	
 </body>
 </html>

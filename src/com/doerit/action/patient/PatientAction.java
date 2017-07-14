@@ -20,6 +20,8 @@ public class PatientAction extends AbstractManagementAction {
 
 	private Patient patient;
 	private List<Patient> patients;
+	private String searchKey;
+	private String searchWord;
 	
 	public String registrationForm() {
 		return SUCCESS;
@@ -36,6 +38,12 @@ public class PatientAction extends AbstractManagementAction {
 	
 	public String viewAll() {
 		this.patients = patientService.viewAll(State.ACTIVE);
+		return SUCCESS;
+	}
+	
+	public String search() {
+		
+		patients = patientService.search(this.searchKey, this.searchWord);
 		return SUCCESS;
 	}
 
@@ -99,5 +107,22 @@ public class PatientAction extends AbstractManagementAction {
 	public void setPatients(List<Patient> patients) {
 		this.patients = patients;
 	}
+
+	public String getSearchKey() {
+		return searchKey;
+	}
+
+	public void setSearchKey(String searchKey) {
+		this.searchKey = searchKey;
+	}
+
+	public String getSearchWord() {
+		return searchWord;
+	}
+
+	public void setSearchWord(String searchWord) {
+		this.searchWord = searchWord;
+	}
+	
 	
 }

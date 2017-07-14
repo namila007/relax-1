@@ -35,13 +35,22 @@
   							<th>Events</th>
   						</tr>
 						<s:iterator value="patients" status="rowIndex">
+						  <tr>
 							<td><s:property value="%{#rowIndex.index + 1}" /> </td>
   							<td><s:property value="firstName" /> <s:property value="surname" /> </td>
   							<td><s:property value="sex" /></td>
   							<td><s:date name="dateOfBirth" nice="true"/></td>
   							<td><s:property value="mobile" /></td>
   							<td><s:property value="address" /></td>
-  							<td>Events</td>
+  							<td>
+  								<s:url var="patientViewUrl" namespace="/patient" action="view.html">
+  									<s:param value="%{id}" name="id"></s:param>
+  								</s:url>
+			
+								<s:a href="%{#patientViewUrl}" cssClass="btn btn-primary" role="button">View</s:a>
+  								
+  							</td>
+  						  </tr>
 						</s:iterator>
 					</table>
 				</s:if>

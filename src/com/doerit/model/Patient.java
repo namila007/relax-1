@@ -253,7 +253,7 @@ public class Patient {
 	public void setBirthDayString(String birthDayString) {
 		this.birthDayString = birthDayString;
 		
-		if(this.birthDayString != null) {
+		if(this.birthDayString != null && !this.birthDayString.isEmpty()) {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			try {
 				Date date = sdf.parse(this.birthDayString);
@@ -262,6 +262,8 @@ public class Patient {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		} else {
+			this.dateOfBirth = null;
 		}
 	}
 	

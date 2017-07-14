@@ -25,6 +25,10 @@
 			<result name="success">/WEB-INF/content/patient/view.jsp</result>
 		</action>
 		
+		<action name="search" class="com.doerit.action.patient.PatientAction" method="search">
+			<result name="success">/WEB-INF/content/patient/list.jsp</result>
+		</action>
+		
 	</package>
 		
 </struts>
