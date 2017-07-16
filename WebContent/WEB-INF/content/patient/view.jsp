@@ -82,7 +82,7 @@
 							<div class="col-xs-2">
 								<label for="district">District:</label>
 							</div>
-							<div class="col-xs-6">to display District</div>
+							<div class="col-xs-6"><s:property value="%{patient.getDistrictId()}"/></div>
 
 						</div>
 					</div>
@@ -92,7 +92,7 @@
 							<div class="col-xs-2">
 								<label for="country">Country:</label>
 							</div>
-							<div class="col-xs-6">to display Country</div>
+							<div class="col-xs-6"><s:property value="%{patient.getCountry()}"/></div>
 
 						</div>
 					</div>
@@ -102,7 +102,7 @@
 							<div class="col-xs-2">
 								<label for="phoneNumber">Phone number:</label>
 							</div>
-							<div class="col-xs-6">to display phoneNumber</div>
+							<div class="col-xs-6"><s:property value="%{patient.mobile}"/></div>
 
 						</div>
 					</div>
@@ -112,7 +112,7 @@
 							<div class="col-xs-2">
 								<label for="email">E-mail:</label>
 							</div>
-							<div class="col-xs-6">to display email</div>
+							<div class="col-xs-6"><s:property value="%{patient.email}"/></div>
 
 						</div>
 					</div>					
@@ -122,7 +122,7 @@
 							<div class="col-xs-2">
 								<label for="address">Address:</label>
 							</div>
-							<div class="col-xs-6">to display address</div>
+							<div class="col-xs-6"><s:property value="%{patient.address}"/></div>
 
 						</div>
 					</div>						
@@ -132,7 +132,7 @@
 							<div class="col-xs-2">
 								<label for="referral">Referral:</label>
 							</div>
-							<div class="col-xs-6">to display "referral"</div>
+							<div class="col-xs-6"><s:property value="%{patient.referral}"/></div>
 
 						</div>
 					</div>

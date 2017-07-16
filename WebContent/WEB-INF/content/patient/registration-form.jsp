@@ -156,7 +156,7 @@
 											<label for="country">Country: </label>
 										</div>
 										<div class="col-xs-6 col-md-2">
-											<select class="form-control">
+											<select class="form-control" name="patient.country">
 												<option value="Sri Lankan" selected>Sri Lankan</option>
 												<option value="Non Sri Lankan">Non Sri Lankan</option>
 											</select>

@@ -47,7 +47,7 @@
   									<s:param value="%{id}" name="id"></s:param>
   								</s:url>
 			
-								<s:a href="%{#patientViewUrl}" cssClass="btn btn-primary" role="button">View</s:a>
+								<s:a href="%{#patientViewUrl}" cssClass="btn btn-primary btn-xs" role="button">View</s:a>
   								
   							</td>
   						  </tr>
