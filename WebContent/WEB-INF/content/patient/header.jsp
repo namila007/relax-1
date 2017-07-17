@@ -14,18 +14,17 @@
                     	<span id="search_concept">Search By</span> <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                      <li><a href="#all">Serial Number</a></li>	
-                      <li><a href="#contains">Surname</a></li>
-                      <li><a href="#its_equal">First name</a></li>
+                      <li><a href="#serial">Serial Number</a></li>	
+                      <li><a href="#surname">Surname</a></li>
+                      <li><a href="#firstname">First name</a></li>
                       
                       <li class="divider"></li>
-                      <li><a href="#greather_than">Mobile</a></li>
-                      <li><a href="#less_than">Email</a></li>
-                     
+                      <li><a href="#mobile">Mobile</a></li>
+                      <li><a href="#email">Email</a></li>                     
                     </ul>
                 </div>
-                <input type="hidden" name="searchKey" value="all" id="search_param">     
-                <input type="text" class="form-control" name="searchWord" placeholder="Search term...">
+                <input type="hidden" name="searchKey" value="serial" id="search_param">     
+                <input type="text" class="form-control" name="searchWord" placeholder="default is serial">
                 <span class="input-group-btn">
                     <s:submit cssClass="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></s:submit>
                 </span>
@@ -35,11 +34,11 @@
 		<div class="col-md-3 pull-right"> 
 			<s:url var="patientListUrl" namespace="/patient" action="list.html"></s:url>
 			<s:url var="patientAddUrl" namespace="/patient" action="registration-form.html"></s:url>
-			<s:url var="patientDeletedUrl" namespace="/patient" action="list.html"></s:url>
+			<s:url var="patientHiddenUrl" namespace="/patient" action="hidden-list.html"></s:url>
 			
 			<s:a href="%{#patientAddUrl}" cssClass="btn btn-primary" role="button">Add New</s:a>
 			<s:a href="%{#patientListUrl}" cssClass="btn btn-success" role="button">List</s:a>
-			<s:a href="#" cssClass="btn btn-info" role="button">Deleted</s:a>
+			<s:a href="%{#patientHiddenUrl}" cssClass="btn btn-info" role="button">Deleted</s:a>
 		</div>
 
 </div>

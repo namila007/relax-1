@@ -28,6 +28,7 @@
   						<tr>
   							<th>Index</th>
   							<th>Name</th>
+  							<th>Serial No.</th>
   							<th>Sex</th>
   							<th>Birth (Age)</th>
   							<th>Mobile</th>
@@ -38,6 +39,7 @@
 						  <tr>
 							<td><s:property value="%{#rowIndex.index + 1}" /> </td>
   							<td><s:property value="firstName" /> <s:property value="surname" /> </td>
+  							<td title="Registered: <s:date name='insertDatetime' format='yyyy/MM/dd hh:mm'/>"><s:property value="serialNumber" /></td>
   							<td><s:property value="sex" /></td>
   							<td><s:date name="dateOfBirth" nice="true"/></td>
   							<td><s:property value="mobile" /></td>
@@ -47,15 +49,19 @@
   									<s:param value="%{id}" name="id"></s:param>
   								</s:url>
 			
-								<s:a href="%{#patientViewUrl}" cssClass="btn btn-primary" role="button">View</s:a>
+								<s:a href="%{#patientViewUrl}" cssClass="btn btn-xs btn-primary" role="button">View</s:a>
   								
+								<s:url var="patientEditUrl" namespace="/patient" action="edit">
+									<s:param name="id" value="%{id}"></s:param>
+								</s:url>
+								<s:a href="%{#patientEditUrl}" cssClass="btn btn-xs btn-warning">Edit</s:a>	
   							</td>
   						  </tr>
 						</s:iterator>
 					</table>
 				</s:if>
 				<s:else>
-					<div class="bg-info text-white">No patients registered yet</div>				
+					<div class="bg-info text-white">No patients found</div>				
 				</s:else> 
 				
 			</div>

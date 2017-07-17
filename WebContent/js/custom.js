@@ -6,6 +6,11 @@
  *     // code here
  * });
  */
+
+$('[data-toggle=confirmation]').confirmation();
+$('[data-toggle=confirmation-singleton]').confirmation({ singleton:true });
+$('[data-toggle=confirmation-popout]').confirmation({ popout: true });
+
 (function($,sr){
     // debouncing function from John Hann
     // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/

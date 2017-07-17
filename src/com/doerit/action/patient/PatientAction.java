@@ -1,5 +1,6 @@
 package com.doerit.action.patient;
 
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.doerit.action.AbstractManagementAction;
 import com.doerit.model.District;
 import com.doerit.model.Patient;
+import com.doerit.model.PatientAdditionalProperty;
 import com.doerit.service.DistrictService;
+import com.doerit.service.PatientAdditionalPropertyService;
 import com.doerit.service.PatientService;
 import com.doerit.util.State;
 
@@ -17,9 +20,11 @@ public class PatientAction extends AbstractManagementAction {
 
 	@Autowired PatientService patientService;
 	@Autowired DistrictService districtService;
+	@Autowired PatientAdditionalPropertyService patientAdditionalPropertyService;
 
 	private Patient patient;
 	private List<Patient> patients;
+	private List<PatientAdditionalProperty> patientAdditionalProperties;
 	private String searchKey;
 	private String searchWord;
 	
@@ -36,8 +41,22 @@ public class PatientAction extends AbstractManagementAction {
 		return SUCCESS;
 	}
 	
+	public String viewProperties() {
+		if(getId() != null) {
+			patientAdditionalProperties = patientAdditionalPropertyService.viewByPatientId(getId());
+		} else {
+			addActionError("Invalid access");
+		}
+		return SUCCESS;
+	}
+	
 	public String viewAll() {
 		this.patients = patientService.viewAll(State.ACTIVE);
+		return SUCCESS;
+	}
+	
+	public String viewAllHidden() {
+		this.patients = patientService.viewAll(State.DELETED);
 		return SUCCESS;
 	}
 	
@@ -56,18 +75,21 @@ public class PatientAction extends AbstractManagementAction {
 				int updated = patientService.update(patient);
 
 				if (updated == 1) {
-					addActionMessage("Inserted");
+					addActionMessage("Updated");
+					addUpdateSettings(patient);
 					this.id = patient.getId();
 					return view();
 				} else {
-					addActionError("Not inserted");
+					addActionError("Not updated");
 					return INPUT;
 				}
 			} else {
 				patient.setId(generatePrimaryKey());
-				
+				patient.setSerialNumber(createSerialNumber());
+				addInsertSettings(patient);
+				patient.setStatus(State.ACTIVE.getDatabaseValue());
 				int inserted = patientService.save(patient);
-				System.out.println(inserted);
+				
 				if (inserted == 1) {
 					addActionMessage("Inserted");
 					
@@ -84,8 +106,48 @@ public class PatientAction extends AbstractManagementAction {
 	}
 
 	public String edit() {
-
-		return SUCCESS;
+		return view();
+	}
+	
+	public String deleteTemporary(){
+		
+		view();
+		
+		if(patient != null){
+			patient.setStatus(State.DELETED.getDatabaseValue());
+			return save();
+		} 
+		
+		addActionError("Record was not updated");
+		return viewAll();
+	}
+	
+	public String deletePermonent(){
+		
+		if(getId() != null) {
+			patientService.delete(getId());
+		}
+		
+		return viewAll();
+	}
+	
+	private String createSerialNumber() {
+		Calendar calendar = Calendar.getInstance();
+		int year = calendar.get(Calendar.YEAR) % 100; //take last two digits
+		int month = calendar.get(Calendar.MONTH) + 1; //java month zero basis
+		
+		String serial = String.valueOf(year);
+		if(month < 9){
+			serial += "0";  //make month two digits
+		}
+		serial += String.valueOf(month);
+		
+		int previousCount = patientService.findMonthlyCount(serial);
+		previousCount++;
+		
+		serial += String.format("%04d", previousCount);  //make count 4 digits
+		
+		return serial;
 	}
 
 	public Patient getPatient() {
@@ -123,6 +185,13 @@ public class PatientAction extends AbstractManagementAction {
 	public void setSearchWord(String searchWord) {
 		this.searchWord = searchWord;
 	}
-	
-	
+
+	public List<PatientAdditionalProperty> getPatientAdditionalProperties() {
+		return patientAdditionalProperties;
+	}
+
+	public void setPatientAdditionalProperties(List<PatientAdditionalProperty> patientAdditionalProperties) {
+		this.patientAdditionalProperties = patientAdditionalProperties;
+	}
+		
 }

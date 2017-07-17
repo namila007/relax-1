@@ -7,4 +7,5 @@
 <script src="<s:url value="/vendors/bootstrap/dist/js/bootstrap.min.js" includeParams="none"/>"></script>
 <script src="<s:url value="/vendors/fastclick/lib/fastclick.js" includeParams="none"/>"></script>
 <script src="<s:url value="/vendors/nprogress/nprogress.js" includeParams="none"/>"></script>
+<script src="<s:url value="/js/bootstrap-confirmation.min.js" includeParams="none"/>"></script>
 <script src="<s:url value="/js/custom.min.js" includeParams="none"/>"></script>

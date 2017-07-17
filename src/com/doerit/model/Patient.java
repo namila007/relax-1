@@ -4,8 +4,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Patient {
+public class Patient implements InsertUpdate {
 
+	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	
 	private String id;
 	private String serialNumber;
 	private String fileNumber;
@@ -247,6 +249,9 @@ public class Patient {
 	}
 
 	public String getBirthDayString() {
+		if(this.dateOfBirth != null) {
+			birthDayString = sdf.format(this.dateOfBirth);
+		}
 		return birthDayString;
 	}
 
@@ -254,7 +259,7 @@ public class Patient {
 		this.birthDayString = birthDayString;
 		
 		if(this.birthDayString != null && !this.birthDayString.isEmpty()) {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			
 			try {
 				Date date = sdf.parse(this.birthDayString);
 				this.dateOfBirth = date;
