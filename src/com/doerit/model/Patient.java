@@ -27,6 +27,7 @@ public class Patient implements InsertUpdate {
 	private String maritalStatus;
 	private String comment;
 	private String districtId;
+	private String provinceName;
 	private Byte status;
 	private Integer sortOrder;
 	private String insertUserId;
@@ -270,6 +271,14 @@ public class Patient implements InsertUpdate {
 		} else {
 			this.dateOfBirth = null;
 		}
+	}
+
+	public String getProvinceName() {
+		return provinceName;
+	}
+
+	public void setProvinceName(String provinceName) {
+		this.provinceName = provinceName;
 	}
 	
 	

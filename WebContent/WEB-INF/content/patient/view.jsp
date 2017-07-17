@@ -97,8 +97,11 @@
 									<div class="col-xs-2">
 										<label for="district">District:</label>
 									</div>
-									<div class="col-xs-6"><s:property value="%{patient.districtId}"/> </div>
-		
+									<div class="col-xs-4"><s:property value="%{patient.districtId}"/> </div>
+									<div class="col-xs-2">
+										<label for="district">Province: </label>
+									</div>
+									<div class="col-xs-4"><s:property value="%{patient.name}"/> </div>		
 								</div>
 							</div>
 		
