@@ -83,7 +83,7 @@
 
 						<div class="form-group">
 							<div class="row">
-								<div class="col-md-2 col-sm-4 col-xs-12">
+								<div class="col-md-2 col-sm-2 col-xs-12">
 									<label for="birthDay">Date of Birth:</label>
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12">
@@ -95,7 +95,7 @@
 
 						<div class="form-group">
 							<div class="row">
-								<div class="col-md-2 col-sm-4 col-xs-12">
+								<div class="col-md-2 col-sm-2 col-xs-12">
 									<label for="sex">Sex: </label>
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12">
@@ -160,7 +160,7 @@
 
 						<div class="form-group">
 							<div class="row">
-								<div class="col-md-2 col-sm-4 col-xs-12">
+								<div class="col-md-2 col-sm-2 col-xs-12">
 									<label for="address">Address:</label>
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12">
