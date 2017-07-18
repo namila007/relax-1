@@ -27,15 +27,17 @@ public class Patient implements InsertUpdate {
 	private String maritalStatus;
 	private String comment;
 	private String districtId;
-	private String districtName;	
+	private String districtName;
 	private String provinceId;
+	private String provinceName;
 	private Byte status;
 	private Integer sortOrder;
 	private String insertUserId;
 	private String updateUserId;
 	private Date insertDatetime;
 	private Date updateDatetime;
-
+	
+	districtName = "kandy";
 	private String birthDayString;
 	
 	public String getId() {
@@ -289,6 +291,14 @@ public class Patient implements InsertUpdate {
 
 	public void setDistrictName(String districtName) {
 		this.districtName = districtName;
+	}
+
+	public String getProvinceId() {
+		return provinceId;
+	}
+
+	public void setProvinceId(String provinceId) {
+		this.provinceId = provinceId;
 	}
 	
 	
