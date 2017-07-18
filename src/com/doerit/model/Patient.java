@@ -27,7 +27,8 @@ public class Patient implements InsertUpdate {
 	private String maritalStatus;
 	private String comment;
 	private String districtId;
-	private String provinceName;
+	private String districtName;	
+	private String provinceId;
 	private Byte status;
 	private Integer sortOrder;
 	private String insertUserId;
@@ -244,6 +245,7 @@ public class Patient implements InsertUpdate {
 				+ nic + ", child=" + child + ", dateOfBirth=" + dateOfBirth + ", sex=" + sex + ", ethnicity="
 				+ ethnicity + ", country=" + country + ", mobile=" + mobile + ", email=" + email + ", address="
 				+ address + ", maritalStatus=" + maritalStatus + ", comment=" + comment + ", districtId=" + districtId
+				+", districtName=" + districtName
 				+ ", status=" + status + ", sortOrder=" + sortOrder + ", insertUserId=" + insertUserId
 				+ ", updateUserId=" + updateUserId + ", insertDatetime=" + insertDatetime + ", updateDatetime="
 				+ updateDatetime + "]";
@@ -279,6 +281,14 @@ public class Patient implements InsertUpdate {
 
 	public void setProvinceName(String provinceName) {
 		this.provinceName = provinceName;
+	}
+
+	public String getDistrictName() {
+		return districtName;
+	}
+
+	public void setDistrictName(String districtName) {
+		this.districtName = districtName;
 	}
 	
 	
