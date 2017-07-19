@@ -21,8 +21,9 @@
 			<div class="right_col" role="main">
 			
 			
-				<s:include value="/WEB-INF/content/patient/header.jsp"></s:include>
+ 				<s:include value="/WEB-INF/content/patient/header.jsp"></s:include>
 				<h3>Patient Registration Summary</h3>
+				<hr>
 				<section>
 					<div class="row">
 					  <div class="col-sm-8">
@@ -101,7 +102,7 @@
 									<div class="col-xs-2">
 										<label for="district">Province: </label>
 									</div>
-									<div class="col-xs-4"><s:property value="%{patient.name}"/> </div>		
+									<div class="col-xs-4"><s:property value="%{patient.provinceId}"/> </div>		
 								</div>
 							</div>
 		
@@ -160,7 +161,7 @@
 										</s:url>
 										<s:a href="%{#patientEditUrl}" cssClass="btn btn-success">Edit</s:a>	
 									</div>
-									
+									<div class="col-xs-4"></div>
 									<div class="col-xs-1">
 										<s:url var="patietHideUrl" namespace="/patient" action="hide.html">
 											<s:param name="id" value="%{patient.id}"></s:param>
@@ -176,12 +177,19 @@
 									</div>
 								</div>
 							</div>					
-					
+<button onclick="myFunction()">Print this page</button>
+
+<script>
+function myFunction() {
+    window.print();
+}
+</script>					
 					  
 					  </div>
 					  <div class="col-sm-4">
 							<img style="width: 200px; height: 80px" src="<s:url namespace="/image" action='bar-code.html?q=%{patient.serialNumber}' />" />
 					  </div>
+					  
 					</div>
 					
 					
