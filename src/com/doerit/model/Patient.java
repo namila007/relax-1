@@ -26,7 +26,7 @@ public class Patient implements InsertUpdate {
 	private String address;
 	private String maritalStatus;
 	private String comment;
-	private String districtId;
+	private String districtId = "14";
 	private String districtName;
 	private String provinceId;
 	private String provinceName;
@@ -35,9 +35,8 @@ public class Patient implements InsertUpdate {
 	private String insertUserId;
 	private String updateUserId;
 	private Date insertDatetime;
-	private Date updateDatetime;
+	private Date updateDatetime;	
 	
-	districtName = "kandy";
 	private String birthDayString;
 	
 	public String getId() {
