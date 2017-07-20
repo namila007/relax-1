@@ -72,7 +72,7 @@
 
 		</div>
 	</div>
-
+	<s:include value="/WEB-INF/content/common/footer.jsp"></s:include>
 	<!-- Custom Theme Scripts -->
 	<s:include value="/WEB-INF/content/common/js-include.jsp"></s:include>
 </body>
