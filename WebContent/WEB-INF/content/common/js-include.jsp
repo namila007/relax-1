@@ -9,3 +9,4 @@
 <script src="<s:url value="/vendors/nprogress/nprogress.js" includeParams="none"/>"></script>
 <script src="<s:url value="/js/bootstrap-confirmation.min.js" includeParams="none"/>"></script>
 <script src="<s:url value="/js/custom.min.js" includeParams="none"/>"></script>
+<script src="<s:url value="/js/print-view.js" includeParams="none"/>"></script>

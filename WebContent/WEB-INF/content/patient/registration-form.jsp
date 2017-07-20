@@ -178,10 +178,10 @@
 										
 								</div>
 								<div class="col-md-3 col-sm-3 col-xs-12">
-									<s:textfield type="text" cssClass="form-control" id="remarks" name="patient.remarks" placeholder="ReferralBody" />
+									<s:textfield type="text" cssClass="form-control" id="remarks" name="patient.propertyValue" placeholder="ReferralBody" />
 								</div>
 								<div class="col-md-3 col-sm-3 col-xs-12">
-									<s:textfield type="text" cssClass="form-control" id="remarks" name="patient.remarks" placeholder="Remarks" />
+									<s:textfield type="text" cssClass="form-control" id="remarks" name="patient.propertyValue" placeholder="Remarks" />
 								</div>
 							</div>
 
@@ -218,7 +218,7 @@
 
 			</div>
 			<!-- /page content -->
-
+				<s:include value="/WEB-INF/content/common/footer.jsp"></s:include>
 		</div>
 	</div>
 

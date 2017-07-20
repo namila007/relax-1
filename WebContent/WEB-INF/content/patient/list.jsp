@@ -8,6 +8,7 @@
 <s:include value="/WEB-INF/content/common/meta-tags.jsp"></s:include>
 <title><s:text name="global.application.title" /></title>
 <s:include value="/WEB-INF/content/common/css-include.jsp"></s:include>
+
 </head>
 
 <body class="nav-md">
@@ -23,8 +24,9 @@
 				<h4>Patients</h4>
 				
 				<s:if test="patients.size > 0">
+
 				
-					<table class="table table-condensed">
+					<table class="table table-condensed" id="patient_tbl">
   						<tr>
   							<th>Index</th>
   							<th>Name</th>
@@ -63,6 +65,7 @@
 				<s:else>
 					<div class="bg-info text-white">No patients found</div>				
 				</s:else> 
+
 				
 			</div>
 			<!-- /page content -->

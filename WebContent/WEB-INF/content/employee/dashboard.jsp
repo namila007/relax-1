@@ -31,13 +31,19 @@
 				<div class="form-group">
 					<div class="row">
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<button type="button" class="btn btn-info btn-block"><strong>Modification </strong>
-							<span class="glyphicon glyphicon-edit"></span>							
+							<button type="button" class="btn btn-info btn-block">
+							<strong><h2>Modification
+							<span class="glyphicon glyphicon-edit"></span>								
+							</h2> </strong>
+						
 							</button> 
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-12">
-							<button type="button" class="btn btn-info btn-block"><strong>Registration </strong>
-							<span class="fa fa-user-plus"></span>
+							<button type="button" class="btn btn-info btn-block">
+							<strong><h2>Registration
+							<span class="fa fa-user-plus"></span>							
+							</h2> </strong>
+
 							</button> 
 						</div>
 					</div>
@@ -45,8 +51,8 @@
 				</div>
 				
 				
-				<div class="row" style="margin-top:20px">
-	               <div class="col-md-4 clientes">
+				<div class="row" style="margin-top:50px">
+	               <div class="col-md-4 col-sm-6 col-xs-12 clientes">
 				    <div class="clientes-content">
 				    	<div class="content-title">
 				            <span style="padding-left:10px">Registrations (This Week)</span>
@@ -63,7 +69,7 @@
 				    </div>
 				  </div>
 				  
-				  <div class="col-md-4 concorrentes" style="padding:0 10px">
+				  <div class="col-md-4 col-sm-6 col-xs-12 concorrentes" style="padding:0 10px">
 				    <div class="concorrentes-content">
 				        <div class="content-title">
 				            <span style="padding-left:10px">New Intakes (Today)</span>
@@ -80,7 +86,7 @@
 				    </div>
 				  </div>
 				  
-				  <div class="col-md-4 clientes">
+				  <div class="col-md-4 col-sm-6 col-xs-12 clientes">
 				    <div class="clientes-content">
 				    	<div class="content-title">
 				            <span style="padding-left:10px">Planed Surgeries (Today)</span>
@@ -117,5 +123,6 @@
 
 	<!-- Custom Theme Scripts -->
 	<s:include value="/WEB-INF/content/common/js-include.jsp" ></s:include>
+	<s:include value="/WEB-INF/content/common/footer.jsp"></s:include>
 </body>
 </html>
