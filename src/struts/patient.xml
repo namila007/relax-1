@@ -11,6 +11,10 @@
 		<action name="registration-form" class="com.doerit.action.patient.PatientAction" method="registrationForm">
 			<result name="success">/WEB-INF/content/patient/registration-form.jsp</result>
 		</action>
+
+		<action name="registration-form-guardian" class="com.doerit.action.patient.PatientAction" method="registrationGuardianForm">
+			<result name="success">/WEB-INF/content/patient/registration-form-guardian.jsp</result>
+		</action>
 		
 		<action name="registration-save" class="com.doerit.action.patient.PatientAction" method="save">
 			<result name="success">/WEB-INF/content/patient/view.jsp</result>

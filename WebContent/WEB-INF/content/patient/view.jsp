@@ -34,9 +34,14 @@
 									<div class="col-xs-2" id="serialNo1">
 										<label>Serial Number:</label>
 									</div>
-									<div class="col-xs-2" id="serialNo2">
+									<div class="col-xs-4" id="serialNo2">
 										<s:property value="%{patient.serialNumber}"/>
 									</div>
+
+									<div class="col-xs-4" id="barcode">
+										<img id="barcodeImage" style="width: 200px; height: 50px" src="<s:url namespace="/image" action='bar-code.html?q=%{patient.serialNumber}' />" />									
+									</div>									
+								
 								</div>
 							</div>
 							
@@ -99,7 +104,7 @@
 									<div class="col-xs-2">
 										<label for="district">District:</label>
 									</div>
-									<div class="col-xs-4"><s:property value="%{patient.districtId.name}"/> </div>
+									<div class="col-xs-4"><s:property value="%{patient.districtId}"/> </div>
 									<div class="col-xs-2">
 										<label for="district">Province: </label>
 									</div>
@@ -181,9 +186,9 @@
 								</div>
 							</div>							  
 					  </div>
-					  <div class="col-sm-4" id="barcode">
+<%-- 					  <div class="col-sm-4" id="barcode">
 							<img id="barcodeImage" style="width: 200px; height: 80px" src="<s:url namespace="/image" action='bar-code.html?q=%{patient.serialNumber}' />" />
-					  </div>
+					  </div> --%>
 					  
 					</div>
 					

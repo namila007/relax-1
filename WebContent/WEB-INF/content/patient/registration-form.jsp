@@ -172,7 +172,7 @@
 						<div class="form-group" id="remarks-div">
 							<div class="row">
 
-								<div class="col-md-2 col-sm-3 col-xs-12">
+								<div class="col-md-2 col-sm-2 col-xs-12">
 									<label for="checkbox">Referral</label> 
 										<input type="checkbox" class="checkbox-inline" id="check-referral" value="referral">
 										
@@ -192,19 +192,22 @@
 							};
 						</script>	
 
-						<br>
+						<hr>
 						<div class="form-group">
 							<div class="row">
-								<div class="col-md-3 col-sm-4 col-xs-12"></div>
+								<div class="col-md-2 col-sm-2 col-xs-12"></div>
 								<s:if test="patient.id != null && !patient.id.empty">
-									<div class="col-md-3 col-sm-4 col-xs-12">
+									<div class="col-md-3 col-sm-2 col-xs-12">
 										<s:submit cssClass="btn btn-warning" value="Update"></s:submit>
 									</div>
 								</s:if>
 								<s:else>
-									<div class="col-md-3 col-sm-4 col-xs-12">
-										<s:submit cssClass="btn btn-success" value="Register"></s:submit>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<s:submit cssClass="btn btn-default" value="Add guardian info"></s:submit>									
 									</div>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<s:submit cssClass="btn btn-success" value="Register and Finish"></s:submit>									
+									</div>									
 								</s:else>
 								
 							</div>

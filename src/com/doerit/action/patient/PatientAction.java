@@ -31,7 +31,10 @@ public class PatientAction extends AbstractManagementAction {
 	public String registrationForm() {
 		return SUCCESS;
 	}
-
+	public String registrationGuardianForm() {
+		return "jj";
+	}
+	
 	public String view() {
 		if(getId() != null) {
 			patient = patientService.viewById(getId());

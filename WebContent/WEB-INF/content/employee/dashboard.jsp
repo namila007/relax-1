@@ -27,13 +27,13 @@
 				<hr>
 				
 				<div class="row">
-	            	<div class="col-md-4" style="padding: 10px;">
+	            	<div class="col-md-6 col-sm-6 col-xs-12" style="padding: 10px;">
 	            		<s:url var="patientAddUrl" namespace="/patient" action="registration-form.html"></s:url>
 				     	<s:a href="%{#patientAddUrl}" cssClass="mainSelect blue">
 						    <i class="fa fa-user-plus" style="padding: 10px;"></i>Registration Desk
 						</s:a>
 	            	</div>
-	            	<div class="col-md-4" style="padding: 10px;">
+	            	<div class="col-md-6 col-sm-6 col-xs-12" style="padding: 10px;">
 	            		<s:url var="patientListUrl" namespace="/patient" action="list.html"></s:url>
 				     	<s:a href="%{#patientListUrl}" cssClass="mainSelect green">
 						    <i class="glyphicon glyphicon-edit" style="padding: 10px;"></i>Patients' Modifications
