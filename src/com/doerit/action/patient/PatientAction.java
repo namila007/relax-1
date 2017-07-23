@@ -31,13 +31,11 @@ public class PatientAction extends AbstractManagementAction {
 	public String registrationForm() {
 		return SUCCESS;
 	}
-	public String registrationGuardianForm() {
-		return "jj";
-	}
 	
 	public String view() {
 		if(getId() != null) {
 			patient = patientService.viewById(getId());
+			viewProperties();
 		} else {
 			addActionError("Invalid access");
 		}
@@ -72,7 +70,7 @@ public class PatientAction extends AbstractManagementAction {
 	public String save() {
 
 		if (patient != null) {
-
+			
 			if (patient.getId() != null && !patient.getId().isEmpty()) {
 				
 				int updated = patientService.update(patient);
@@ -92,7 +90,7 @@ public class PatientAction extends AbstractManagementAction {
 				addInsertSettings(patient);
 				patient.setStatus(State.ACTIVE.getDatabaseValue());
 				int inserted = patientService.save(patient);
-				
+				saveAdditionalProperties();
 				if (inserted == 1) {
 					addActionMessage("Inserted");
 					
@@ -103,8 +101,22 @@ public class PatientAction extends AbstractManagementAction {
 					return INPUT;
 				}
 			}
+			
+			
 		} else {
 			return INPUT;
+		}
+	}
+	
+	private void saveAdditionalProperties() {
+		for(PatientAdditionalProperty p: patientAdditionalProperties) {
+			p.setPatientId(patient.getId());
+			p.setId(generatePrimaryKey());
+			addInsertSettings(p);
+			p.setStatus(State.ACTIVE.getDatabaseValue());
+			p.setName(p.getNameKey());
+			
+			patientAdditionalPropertyService.save(p);
 		}
 	}
 

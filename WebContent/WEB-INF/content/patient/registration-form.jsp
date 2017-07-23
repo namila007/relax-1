@@ -178,10 +178,12 @@
 										
 								</div>
 								<div class="col-md-3 col-sm-3 col-xs-12">
-									<s:textfield type="text" cssClass="form-control" id="remarks" name="patient.propertyValue" placeholder="ReferralBody" />
+									<s:hidden name="patientAdditionalProperties[0].nameKey" value="Rererral"></s:hidden>
+									<s:textfield type="text" cssClass="form-control" id="remarks" name="patientAdditionalProperties[0].propertyValue" placeholder="ReferralBody" />
 								</div>
 								<div class="col-md-3 col-sm-3 col-xs-12">
-									<s:textfield type="text" cssClass="form-control" id="remarks" name="patient.propertyValue" placeholder="Remarks" />
+									<s:hidden name="patientAdditionalProperties[1].nameKey" value="Rererral-Remarks"></s:hidden>
+									<s:textfield type="text" cssClass="form-control" id="remarks" name="patientAdditionalProperties[1].propertyValue" placeholder="Remarks" />
 								</div>
 							</div>
 
@@ -202,9 +204,9 @@
 									</div>
 								</s:if>
 								<s:else>
-									<div class="col-md-3 col-sm-3 col-xs-12">
+									<%-- <div class="col-md-3 col-sm-3 col-xs-12">
 										<s:submit cssClass="btn btn-default" value="Add guardian info"></s:submit>									
-									</div>
+									</div> --%>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<s:submit cssClass="btn btn-success" value="Register and Finish"></s:submit>									
 									</div>									

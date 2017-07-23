@@ -23,7 +23,14 @@
 			
 			
  				<s:include value="/WEB-INF/content/patient/header.jsp"></s:include>
-				<h3>Patient Registration Summary</h3>
+				<div class="row">
+					<div class="col-sm-4">
+						<h3>Patient Registration Summary</h3>
+					</div>
+					<div class="col-sm-4">
+						<img id="barcodeImage" style="width: 200px; height: 50px" src="<s:url namespace="/image" action='bar-code.html?q=%{patient.serialNumber}' />" />
+					</div>
+				</div>
 				<hr>
 				<section id="info">
 					<div class="row" style="padding:0 0 10px 0px">
@@ -57,9 +64,9 @@
 										<s:property value="%{patient.serialNumber}"/>
 									</div>
 
-									<div class="col-xs-4" id="barcode">
+									<%-- <div class="col-xs-4" id="barcode">
 										<img id="barcodeImage" style="width: 200px; height: 50px" src="<s:url namespace="/image" action='bar-code.html?q=%{patient.serialNumber}' />" />									
-									</div>									
+									</div>		 --%>							
 								
 								</div>
 							</div>
@@ -206,9 +213,23 @@
 								</div>
 							</div>							  
 					  </div>
-<%-- 					  <div class="col-sm-4" id="barcode">
-							<img id="barcodeImage" style="width: 200px; height: 80px" src="<s:url namespace="/image" action='bar-code.html?q=%{patient.serialNumber}' />" />
-					  </div> --%>
+ 					  <div class="col-sm-4" id="barcode">
+ 					  		<div class="row"><h4>Additional Information</h4></div>
+							<table class="table table-condensed">
+								<tr>
+									<td></td>
+							  		<th>Information</th>
+							  		<th>Value</th>
+							  	</tr>
+								<s:iterator value="patientAdditionalProperties" status="rowIndex">
+									<tr>
+										<td><s:property value="%{#rowIndex.index + 1}"/></td>
+										<td><s:property value="%{nameKey}"/></td>
+										<td><s:property value="%{propertyValue}"/></td>
+									</tr>
+								</s:iterator>
+							</table>
+					  </div> 
 					  
 					</div>
 					
