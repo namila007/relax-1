@@ -28,19 +28,19 @@
 				<div class="row">
 	            	<div class="col-md-4 col-sm-4 col-xs-12" style="padding: 10px;">
 	            		<s:url var="patientAddUrl" namespace="/patient" action="registration-form.html"></s:url>
-				     	<s:a href="%{#patientAddUrl}" cssClass="mainSelect blue">
+				     	<s:a href="#" cssClass="mainSelect blue">
 						    <i class="fa fa-user-plus" style="padding: 10px;"></i>Weekly Reports
 						</s:a>
 	            	</div>
 	            	<div class="col-md-4 col-sm-4 col-xs-12" style="padding: 10px;">
 	            		<s:url var="patientListUrl" namespace="/patient" action="list.html"></s:url>
-				     	<s:a href="%{#patientListUrl}" cssClass="mainSelect green">
+				     	<s:a href="#" cssClass="mainSelect green">
 						    <i class="glyphicon glyphicon-edit" style="padding: 10px;"></i>Monthly Reports
 						</s:a>
 	            	</div>
 	            	<div class="col-md-4 col-sm-4 col-xs-12" style="padding: 10px;">
 	            		<s:url var="patientListUrl" namespace="/patient" action="list.html"></s:url>
-				     	<s:a href="%{#patientListUrl}" cssClass="mainSelect yellow">
+				     	<s:a href="#" cssClass="mainSelect yellow">
 						    <i class="glyphicon glyphicon-edit" style="padding: 10px;"></i>Annual Report
 						</s:a>
 	            	</div>
