@@ -38,6 +38,7 @@ public class Patient implements InsertUpdate {
 	private Date updateDatetime;	
 	
 	private String birthDayString;
+
 	
 	public String getId() {
 		return id;

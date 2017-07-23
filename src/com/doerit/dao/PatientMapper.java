@@ -15,47 +15,61 @@ public interface PatientMapper {
     int insert(Patient record);
     int insertSelective(Patient record);
     List<Patient> selectByExample(PatientExample example);
-    Patient selectByPrimaryKey(String id);
+    
     int updateByExampleSelective(@Param("record") Patient record, @Param("example") PatientExample example);
     int updateByExample(@Param("record") Patient record, @Param("example") PatientExample example);
     int updateByPrimaryKeySelective(Patient record);
     int updateByPrimaryKey(Patient record);
 
-    @Select("SELECT * "
-    		+ "FROM tbl_patient WHERE STATUS = #{status}")
+    @Select("SELECT c.*, d.NAME as DISTRICT_NAME, p.NAME as PROVINCE_NAME " + 
+    		" FROM tbl_patient c LEFT JOIN tbl_district d " +  
+    		" ON c.DISTRICT_ID = d.ID LEFT JOIN tbl_province p " + 
+    		" ON d.PROVINCE_ID = p.ID  WHERE c.ID = #{id}")
+    @ResultMap("BaseResultMap")
+    Patient viewByPrimaryKey(@Param("id")String id);
+    
+    @Select("SELECT c.* " + 
+    		" FROM tbl_patient c " +  
+    		" WHERE c.STATUS = #{status}")
     @ResultMap("BaseResultMap")
 	List<Patient> viewAllByStatus(@Param("status")byte databaseValue);
 
-    @Select("SELECT * "
-    		+ "FROM tbl_patient WHERE SURNAME LIKE #{surname} AND STATUS = #{status}")
+    @Select("SELECT c.* " + 
+    		" FROM tbl_patient c " +  
+    		" WHERE c.SURNAME LIKE #{surname} AND c.STATUS = #{status}")
     @ResultMap("BaseResultMap")
 	List<Patient> search(@Param("surname")String searchWord, @Param("status")byte databaseValue);
 
     @Select("SELECT count(*) FROM tbl_patient WHERE SERIAL_NUMBER LIKE #{yearMonthPrefix}")
     Integer findMonthlyRegistrations(@Param("yearMonthPrefix")String serialPrefix);
 	
-    @Select("SELECT * "
-    		+ "FROM tbl_patient WHERE SERIAL_NUMBER LIKE #{searchValue} AND STATUS = #{status}")
+    @Select("SELECT c.* " + 
+    		" FROM tbl_patient c " +  
+    		" WHERE c.SERIAL_NUMBER LIKE #{searchValue} AND c.STATUS = #{status}")
     @ResultMap("BaseResultMap")
     List<Patient> searchBySerial(@Param("searchValue")String likeSearchValue, @Param("status")byte databaseValue);
     
-    @Select("SELECT * "
-    		+ "FROM tbl_patient WHERE SURNAME LIKE #{searchValue} AND STATUS = #{status}")
+    @Select("SELECT c.* " + 
+    		" FROM tbl_patient c " +  
+    		" WHERE c.SURNAME LIKE #{searchValue} AND c.STATUS = #{status}")
     @ResultMap("BaseResultMap")
     List<Patient> searchBySurname(@Param("searchValue")String likeSearchValue, @Param("status")byte databaseValue);
     
-    @Select("SELECT * "
-    		+ "FROM tbl_patient WHERE FIRST_NAME LIKE #{searchValue} AND STATUS = #{status}")
+    @Select("SELECT c.* " + 
+    		" FROM tbl_patient c " +  
+    		" WHERE c.FIRST_NAME LIKE #{searchValue} AND c.STATUS = #{status}")
     @ResultMap("BaseResultMap")
     List<Patient> searchByFirstName(@Param("searchValue")String likeSearchValue, @Param("status")byte databaseValue);
     
-    @Select("SELECT * "
-    		+ "FROM tbl_patient WHERE MOBILE LIKE #{searchValue} AND STATUS = #{status}")
+    @Select("SELECT c.* " + 
+    		" FROM tbl_patient c " +  
+    		" WHERE c.MOBILE LIKE #{searchValue} AND c.STATUS = #{status}")
     @ResultMap("BaseResultMap")
     List<Patient> searchByMobile(@Param("searchValue")String likeSearchValue, @Param("status")byte databaseValue);
     
-    @Select("SELECT * "
-    		+ "FROM tbl_patient WHERE EMAIL LIKE #{searchValue} AND STATUS = #{status}")
+    @Select("SELECT c.* " + 
+    		" FROM tbl_patient c " +  
+    		" WHERE c.EMAIL LIKE #{searchValue} AND c.STATUS = #{status}")
     @ResultMap("BaseResultMap")
     List<Patient> searchByEmail(@Param("searchValue")String likeSearchValue, @Param("status")byte databaseValue);
     

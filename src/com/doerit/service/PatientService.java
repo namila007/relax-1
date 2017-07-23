@@ -17,7 +17,7 @@ public class PatientService {
 	private PatientMapper patientMapper;
 	
 	public Patient viewById(String id) {
-		return patientMapper.selectByPrimaryKey(id);
+		return patientMapper.viewByPrimaryKey(id);
 	}
 	
 	public int save(Patient patient) {

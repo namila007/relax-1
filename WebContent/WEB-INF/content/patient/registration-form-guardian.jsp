@@ -21,46 +21,67 @@
 			<div class="right_col" role="main">
 			
 				<s:include value="/WEB-INF/content/patient/header.jsp"></s:include>
-				<h4>Guardian information</h4>
-				<hr>
+				<h4>Patient information
+					<s:url var="patientViewUrl" namespace="/patient" action="view.html">
+						<s:param value="%{patient.id}" name="id"></s:param>
+					</s:url>
 
-				<s:form namespace="/patient" action="registration-save" method="post">
+				 <s:a href="%{#patientViewUrl}" cssClass="btn btn-xs btn-primary" role="button">View</s:a>
+  								
+				</h4>
+				
+				<div>
+					<table class="table table-condensed" id="patient_tbl">
+  						<tr>
+  							<th>Name</th>
+  							<th>Serial No.</th>
+  							<th>Sex</th>
+  							<th>Birth</th>
+  							<th>Mobile</th>
+  							<th>Address</th>
+  						</tr>
+						<tr>
+  							<td><s:property value="patient.firstName" /> <s:property value="patient.surname" /> </td>
+  							<td><s:property value="patient.serialNumber" /></td>
+  							<td><s:property value="patient.sex" /></td>
+  							<td><s:date name="patient.dateOfBirth" nice="true"/></td>
+  							<td><s:property value="patient.mobile" /></td>
+  							<td><s:property value="patient.address" /></td>
+  						  </tr>
+					</table>
+				
+				</div>
+
+				<h4>Guardian information</h4>
+				
+				<hr />
+				
+				<s:form namespace="/patient-guardian" action="save" method="post">
 
 					<s:hidden name="patient.id" value="%{patient.id}"></s:hidden>
 					<div>
 
 						<div class="form-group">
 							<div class="row">
-								<div class="col-md-12 col-sm-12 col-xs-6">
-									<label for="name">Guardian Name:</label>
-								</div>
-								<div class="col-md-2 col-sm-4 col-xs-12">
-									<s:select cssClass="form-control" name="patient.title" list="#{'Mr':'Mr.','Ms':'Ms.','Rev':'Rev.'}"/>
-										
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-12">
-									<s:textfield required="required" title="Surname" type="text" cssClass="form-control" id="name" name="patient.surname" placeholder="Surname"/>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-12">
-									<s:textfield title="Initials" type="text" cssClass="form-control" id="name"
-										name="patient.initials" placeholder="Initials" />
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-12">
-									<s:textfield required="required" title="First name" type="text" cssClass="form-control" id="name"
-										name="patient.firstName" placeholder="First name" />
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="row">
-								<div class="col-md-12 col-sm-12 col-xs-6">
+								<div class="col-md-2 col-sm-12 col-xs-6">
 									<label for="name">Guardian Relation:</label>
 								</div>
-								<div class="col-md-2 col-sm-4 col-xs-12">
-									<s:select cssClass="form-control" name="patient.title" list="#{'Relative':'Relative','Institute':'Institute'}"/>										
+								<div class="col-md-3 col-sm-4 col-xs-12">
+									<s:select cssClass="form-control" name="patientGuardian.relationship" list="#{'Relative':'Relative','Institute':'Institute'}"/>										
 								</div>
+								
+								<div class="col-md-2 col-sm-12 col-xs-6">
+									<label for="name">Guardian Name:</label>
+								</div>
+								
+								<div class="col-md-3 col-sm-4 col-xs-12">
+									<s:textfield required="required" title="Name" type="text" 
+									cssClass="form-control" id="name" name="patientGuardian.name" placeholder="Name"/>
+								</div>
+								
 							</div>
 						</div>
+						
 
 						<div class="form-group">
 							<div class="row">
@@ -68,14 +89,14 @@
 									<label for="phone">Phone number:</label>
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12">
-									<input type="text" class="form-control" id="phoneNo" pattern=".{10,}" title="Phone number should be Ten or more characters" name="patient.mobile" value="<s:property value='%{patient.mobile}' />">
+									<input type="text" class="form-control" id="phoneNo" pattern=".{10,}" title="Phone number should be ten or more characters" name="patientGuardian.telephoneMobile" >
 								</div>
 								<div class="col-md-2 col-sm-2 col-xs-12">
 									<label for="mail">E-mail:</label>
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12">
 									<input type="email" class="form-control" id="mail"
-										name="patient.email" value="<s:property value='%{patient.email}' />" />
+										name="patientGuardian.email" />
 								</div>
 							</div>
 						</div>
@@ -87,7 +108,7 @@
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12">
 									<textarea class="form-control" id="address"
-										name="patient.address"><s:property value='%{patient.address}' /></textarea>
+										name="patientGuardian.address"><s:property value='%{patientGuardian.address}' /></textarea>
 								</div>
 							</div>
 						</div>
@@ -97,15 +118,15 @@
 						<br>
 						<div class="form-group">
 							<div class="row">
-								<div class="col-md-3 col-sm-4 col-xs-12"></div>
-								<s:if test="patient.id != null && !patient.id.empty">
+								<div class="col-md-2 col-sm-4 col-xs-12"></div>
+								<s:if test="patientGuardian.id != null && !patientGuardian.id.empty">
 									<div class="col-md-3 col-sm-4 col-xs-12">
 										<s:submit cssClass="btn btn-warning" value="Update"></s:submit>
 									</div>
 								</s:if>
 								<s:else>
-									<div class="col-md-3 col-sm-4 col-xs-12">
-										<s:submit cssClass="btn btn-success" value="Register"></s:submit>
+									<div class="col-md-2 col-sm-4 col-xs-12">
+										<s:submit cssClass="btn btn-success" value="Insert"></s:submit>
 									</div>
 								</s:else>							
 							</div>

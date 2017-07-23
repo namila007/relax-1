@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="patient-guardian" namespace="/patient-guardian" extends="json-default, authorized">
+	
+		<action name="form" class="com.doerit.action.patient.PatientGuardianAction" method="form">
+			<result name="success">/WEB-INF/content/patient/registration-form-guardian.jsp</result>
+		</action>
+		
+	</package>
+		
+</struts>

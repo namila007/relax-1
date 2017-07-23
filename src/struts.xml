@@ -88,6 +88,8 @@
 	<include file="./struts/dash-board.xml" />
 	<include file="./struts/patient.xml" />
 	<include file="./struts/image.xml" />
+	<include file="./struts/report.xml" />
+	<include file="./struts/patient-guardian.xml" />
 	
 </struts>
 

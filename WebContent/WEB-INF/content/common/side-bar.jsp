@@ -21,13 +21,13 @@
 			</li>
 			<li><a><i class="fa fa-users"></i> Patients</a>
 			<li><a><i class="fa fa-institution"></i> Departments</a>
-			<li><a><i class="fa fa-file"></i> Reports <span
-					class="fa fa-chevron-down"></span></a>
-				<ul class="nav child_menu">
-					<li><a href="#">Daily Patients</a></li>
-					<li><a href="#">Clinics</a></li>
-					<li><a href="#">Monthly Stats</a></li>
-				</ul></li>
+			<li>
+			
+				<s:url var="reportDashboardUrl" action="dashboard.html" namespace="/report"></s:url>
+				<s:a href="%{#reportDashboardUrl}">
+					<i class="fa fa-file"></i>Report
+				</s:a>
+				
 			<li><a><i class="fa fa-user"></i>Users</a>
 			<li><a><i class="fa fa-calendar"></i>ICU</a>
 			

@@ -26,6 +26,25 @@
 				<h3>Patient Registration Summary</h3>
 				<hr>
 				<section id="info">
+					<div class="row" style="padding:0 0 10px 0px">
+						<div class="col-8">
+							<a href="#" class="btn btn-success">
+						      <span class="glyphicon glyphicon-print"></span> Print - A4 
+						    </a>
+						    
+						    <a href="#" class="btn btn-success">
+						      <span class="glyphicon glyphicon-barcode"></span>
+						      <span class="glyphicon glyphicon-print"></span>
+						       Card Sticker 
+						    </a>
+						    
+						    <a href="#" class="btn btn-success">
+						      <span class="glyphicon glyphicon-barcode"></span>
+						      <span class="glyphicon glyphicon-print"></span>
+						       Folder Sticker 
+						    </a>
+						</div>
+					</div>
 					<div class="row">
 					  <div class="col-sm-8">
 					  
@@ -104,11 +123,11 @@
 									<div class="col-xs-2">
 										<label for="district">District:</label>
 									</div>
-									<div class="col-xs-4"><s:property value="%{patient.districtId}"/> </div>
+									<div class="col-xs-4"><s:property value="%{patient.districtName}"/> </div>
 									<div class="col-xs-2">
 										<label for="district">Province: </label>
 									</div>
-									<div class="col-xs-4"><s:property value="%{patient.provinceId}"/> </div>		
+									<div class="col-xs-4"><s:property value="%{patient.provinceName}"/> </div>		
 								</div>
 							</div>
 		
@@ -155,28 +174,29 @@
 						
 
 							<div class="form-group">
-								<div class="row">
-									<div class="col-xs-6">
+								<div class="row" style="margin-bottom: 30px">
+									<!-- <div class="col-xs-6">
 										<div class="btn-group">
 										  <button type="button" class="btn btn-default" onclick="PopupPatientCard()">Print full detail</button>
 										  <button type="button" class="btn btn-default" onclick="PrintPatientCard2(full)">Print label for file</button>
 										  <button type="button" class="btn btn-default" onclick="">Print label for card</button>
 										</div>									
-									</div>
+									</div> -->
 									<div class="col-xs-2">
 										<s:url var="patientEditUrl" namespace="/patient" action="edit.html">
 											<s:param name="id" value="%{patient.id}"></s:param>
 										</s:url>
-										<s:a href="%{#patientEditUrl}" cssClass="btn btn-success">Edit</s:a>	
-									</div>
-									<div class="col-xs-4"></div>
-<%-- 									<div class="col-xs-1">
-										<s:url var="patietHideUrl" namespace="/patient" action="hide.html">
-											<s:param name="id" value="%{patient.id}"></s:param>
-										</s:url>
-										<s:a href="%{#patietHideUrl}" cssClass="btn btn-warning" data-toggle="confirmation">Hide</s:a>							
+										<s:a href="%{#patientEditUrl}" cssClass="btn btn-success" cssStyle="width:120px">
+										<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit </s:a>	
 									</div>
 									
+ 									<div class="col-xs-2">
+										<s:url var="addGuardianUrl" namespace="/patient-guardian" action="form.html">
+											<s:param name="patientId" value="%{patient.id}"></s:param>
+										</s:url>
+										<s:a href="%{#addGuardianUrl}" cssClass="btn btn-info">Add Guardian</s:a>							
+									</div>
+<%--									
 									<div class="col-xs-1">
 										<s:url var="patietDeleteUrl" namespace="/patient" action="delete.html">
 											<s:param name="id" value="%{patient.id}"></s:param>

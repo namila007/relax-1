@@ -18,7 +18,7 @@
 	
 		<div class="login">
             <div class="form-head">
-                <img src="images/dentist-icon.png" alt="Relax Patients">
+                <img src="images/sign-in.png" alt="Relax Patients">
             </div>
             
             <s:actionerror cssStyle=""/>
