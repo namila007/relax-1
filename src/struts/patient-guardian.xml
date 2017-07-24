@@ -18,7 +18,7 @@
 			<result name="success" type="redirectAction">
 				<param name="actionName">view</param>
 				<param name="namespace">/patient</param>
-				<param name="patientId">1499582453961</param>
+				<param name="id">${patientId}</param>
 			</result>
 		</action>
 		

@@ -83,7 +83,15 @@
 		
 								</div>
 							</div>
-		
+							
+							<div class="form-group">
+								<div class="row" id="fileNo">
+									<div class="col-xs-3">
+										<label for="name">Phy. File No.:</label>
+									</div>
+									<div class="col-xs-4"><s:property value="%{patient.fileNumber}"/> </div>
+								</div>
+							</div>		
 		
 							<div class="form-group">
 								<div class="row" id="nic">
@@ -104,7 +112,7 @@
 		
 								</div>
 							</div>
-		
+							
 							<div class="form-group">
 								<div class="row" id="sex">
 									<div class="col-xs-3">
@@ -131,7 +139,7 @@
 										<label for="district">District:</label>
 									</div>
 									<div class="col-xs-4"><s:property value="%{patient.districtName}"/>
-									(Province: <s:property value="%{patient.provinceName}"/>)
+									(<b>Province</b>: <s:property value="%{patient.provinceName}"/>)
 									</div>
 									
 								</div>

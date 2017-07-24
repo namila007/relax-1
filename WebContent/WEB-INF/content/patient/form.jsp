@@ -56,7 +56,20 @@
     
 						<div class="form-group">
 							<div class="row">
-
+								<s:if test="patient.id != null">
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-2 col-sm-2 col-xs-12">
+												<label for="ethnicity">File No.: </label>
+											</div>
+			
+											<div class="col-md-3 col-sm-4 col-xs-12">
+												<s:textfield type="text" cssClass="form-control" id="fileNumber" name="patient.fileNumber" />
+											</div>
+											
+										</div>
+									</div>
+								</s:if>
 								<div class="col-md-2 col-sm-2 col-xs-12">
 									<label for="checkbox">Child</label> 
 										<s:checkbox 
@@ -115,12 +128,10 @@
 								<div class="col-md-3 col-sm-4 col-xs-8">
 									<s:select cssClass="form-control"  name="patient.ethnicity" list="#{'Sinhala':'Sinhala','Tamil':'Tamil','Muslim':'Muslim', 'Other':'Other'}" />
 								</div>
-
-
 								
 							</div>
 						</div>
-
+						
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-2 col-sm-2 col-xs-4">
@@ -185,6 +196,13 @@
 									<s:hidden name="patientAdditionalProperties[1].nameKey" value="Rererral-Remarks"></s:hidden>
 									<s:textfield type="text" cssClass="form-control" id="remarks" name="patientAdditionalProperties[1].propertyValue" placeholder="Remarks" />
 								</div>
+								
+								<s:if test="patient.id != null">
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<s:hidden name="patientAdditionalProperties[2].nameKey" value="Payment"></s:hidden>
+										<s:textfield type="text" cssClass="form-control" id="remarks" name="patientAdditionalProperties[2].propertyValue" placeholder="Payments" />
+									</div>
+								</s:if>
 							</div>
 
 						</div>
@@ -214,8 +232,6 @@
 								
 							</div>
 						</div>
-						
-					
 						
 					</div>
 
