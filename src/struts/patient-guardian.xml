@@ -14,7 +14,12 @@
 		
 		<action name="save" class="com.doerit.action.patient.PatientGuardianAction" method="save">
 			<result name="input">/WEB-INF/content/patient/guardian/form.jsp</result>
-			<result name="success">/WEB-INF/content/patient/guardian/view.jsp</result>
+			
+			<result name="success" type="redirectAction">
+				<param name="actionName">view</param>
+				<param name="namespace">/patient</param>
+				<param name="patientId">1499582453961</param>
+			</result>
 		</action>
 		
 		<action name="view" class="com.doerit.action.patient.PatientGuardianAction" method="view">

@@ -26,6 +26,6 @@ public interface PatientGuardianMapper {
     int updateByPrimaryKey(PatientGuardian record);
 
     @Select("SELECT * FROM tbl_patient_guardian WHERE PATIENT_ID = #{patientId}")
-    @ResultMap("BaseResultMap")
+    @ResultMap("ResultMapWithBLOBs")
 	List<PatientGuardianWithBLOBs> findByPatientId(@Param("patientId")String patientId);
 }

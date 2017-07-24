@@ -131,9 +131,7 @@
 								</s:else>							
 							</div>
 						</div>
-						
-					
-						
+
 					</div>
 
 				</s:form>

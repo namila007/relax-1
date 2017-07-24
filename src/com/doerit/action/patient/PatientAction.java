@@ -9,8 +9,10 @@ import com.doerit.action.AbstractManagementAction;
 import com.doerit.model.District;
 import com.doerit.model.Patient;
 import com.doerit.model.PatientAdditionalProperty;
+import com.doerit.model.PatientGuardianWithBLOBs;
 import com.doerit.service.DistrictService;
 import com.doerit.service.PatientAdditionalPropertyService;
+import com.doerit.service.PatientGuardianService;
 import com.doerit.service.PatientService;
 import com.doerit.util.State;
 
@@ -21,10 +23,12 @@ public class PatientAction extends AbstractManagementAction {
 	@Autowired PatientService patientService;
 	@Autowired DistrictService districtService;
 	@Autowired PatientAdditionalPropertyService patientAdditionalPropertyService;
-
+	@Autowired PatientGuardianService patientGuardianService;
+	
 	private Patient patient;
 	private List<Patient> patients;
 	private List<PatientAdditionalProperty> patientAdditionalProperties;
+	private List<PatientGuardianWithBLOBs> patientGuardians;
 	private String searchKey;
 	private String searchWord;
 	
@@ -36,15 +40,25 @@ public class PatientAction extends AbstractManagementAction {
 		if(getId() != null) {
 			patient = patientService.viewById(getId());
 			viewProperties();
+			viewGuardians();
 		} else {
 			addActionError("Invalid access");
 		}
 		return SUCCESS;
 	}
 	
-	public String viewProperties() {
+	private String viewProperties() {
 		if(getId() != null) {
 			patientAdditionalProperties = patientAdditionalPropertyService.viewByPatientId(getId());
+		} else {
+			addActionError("Invalid access");
+		}
+		return SUCCESS;
+	}
+	
+	private String viewGuardians() {
+		if(getId() != null) {
+			patientGuardians = patientGuardianService.viewByPatientId(getId());
 		} else {
 			addActionError("Invalid access");
 		}
@@ -208,5 +222,15 @@ public class PatientAction extends AbstractManagementAction {
 	public void setPatientAdditionalProperties(List<PatientAdditionalProperty> patientAdditionalProperties) {
 		this.patientAdditionalProperties = patientAdditionalProperties;
 	}
+
+	public List<PatientGuardianWithBLOBs> getPatientGuardians() {
+		return patientGuardians;
+	}
+
+	public void setPatientGuardians(List<PatientGuardianWithBLOBs> patientGuardians) {
+		this.patientGuardians = patientGuardians;
+	}
+
+	
 		
 }
