@@ -9,7 +9,20 @@
 	<package name="patient-guardian" namespace="/patient-guardian" extends="json-default, authorized">
 	
 		<action name="form" class="com.doerit.action.patient.PatientGuardianAction" method="form">
-			<result name="success">/WEB-INF/content/patient/registration-form-guardian.jsp</result>
+			<result name="success">/WEB-INF/content/patient/guardian/form.jsp</result>
+		</action>
+		
+		<action name="save" class="com.doerit.action.patient.PatientGuardianAction" method="save">
+			<result name="input">/WEB-INF/content/patient/guardian/form.jsp</result>
+			<result name="success">/WEB-INF/content/patient/guardian/view.jsp</result>
+		</action>
+		
+		<action name="view" class="com.doerit.action.patient.PatientGuardianAction" method="view">
+			<result name="success">/WEB-INF/content/patient/guardian/view.jsp</result>
+		</action>
+		
+		<action name="delete" class="com.doerit.action.patient.PatientGuardianAction" method="delete">
+			<result name="success">/WEB-INF/content/patient/guardian/view.jsp</result>
 		</action>
 		
 	</package>

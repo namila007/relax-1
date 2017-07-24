@@ -58,7 +58,8 @@
 				
 				<s:form namespace="/patient-guardian" action="save" method="post">
 
-					<s:hidden name="patient.id" value="%{patient.id}"></s:hidden>
+					<s:hidden name="patientId" value="%{patient.id}"></s:hidden>
+					
 					<div>
 
 						<div class="form-group">
@@ -89,14 +90,15 @@
 									<label for="phone">Phone number:</label>
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12">
-									<input type="text" class="form-control" id="phoneNo" pattern=".{10,}" title="Phone number should be ten or more characters" name="patientGuardian.telephoneMobile" >
+									<s:textfield type="text" cssClass="form-control" 
+										id="phoneNo" pattern=".{10,}" title="Phone number should be ten or more characters" name="patientGuardian.telephoneMobile" />
 								</div>
 								<div class="col-md-2 col-sm-2 col-xs-12">
-									<label for="mail">E-mail:</label>
+									<label for="mail">NIC:</label>
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12">
-									<input type="email" class="form-control" id="mail"
-										name="patientGuardian.email" />
+									<s:textfield type="text" cssClass="form-control" 
+										name="patientGuardian.nic" />
 								</div>
 							</div>
 						</div>
@@ -107,13 +109,11 @@
 									<label for="address">Address:</label>
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12">
-									<textarea class="form-control" id="address"
-										name="patientGuardian.address"><s:property value='%{patientGuardian.address}' /></textarea>
+									<s:textarea cssClass="form-control" id="address"
+										name="patientGuardian.address"><s:property value='%{patientGuardian.address}' /></s:textarea>
 								</div>
 							</div>
 						</div>
-
-
 
 						<br>
 						<div class="form-group">
