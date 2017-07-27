@@ -8,6 +8,17 @@
 <s:include value="/WEB-INF/content/common/meta-tags.jsp"></s:include>
 <title><s:text name="global.application.title" /></title>
 <s:include value="/WEB-INF/content/common/css-include.jsp"></s:include>
+
+<style type="text/css">
+.form-group.required .control-label:after {
+	content:"*";
+	color:red;
+	font-family: 'FontAwesome';
+	font-weight: normal;
+	font-size: 14px;  
+}
+</style>
+
 </head>
 
 <body class="nav-md">
@@ -29,25 +40,26 @@
 					<s:hidden name="patient.id" value="%{patient.id}"></s:hidden>
 					<div>
 
-						<div class="form-group">
+						<div class="form-group required">
 							<div class="row">
 								<div class="col-md-12 col-sm-12 col-xs-6">
-									<label for="name">Patient Name:</label>
+									<label class="control-label" for="name">Patient Name:</label>
 								</div>
 								<div class="col-md-2 col-sm-4 col-xs-12">
 									<s:select cssClass="form-control" name="patient.title" list="#{'Mr':'Mr.','Ms':'Ms.','Rev':'Rev.'}"/>
 										
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12">
-									<s:textfield required="required" title="Surname" type="text" cssClass="form-control" id="name" name="patient.surname" placeholder="Surname"/>
+									<s:textfield required="required" title="Surname" type="text" cssClass="form-control" id="name" 
+									name="patient.surname" placeholder="Surname" style="text-transform:capitalize"/>
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12">
 									<s:textfield title="Initials" type="text" cssClass="form-control" id="name"
-										name="patient.initials" placeholder="Initials" />
+										name="patient.initials" placeholder="Initials" style="text-transform:uppercase"/>
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12">
-									<s:textfield required="required" title="First name" type="text" cssClass="form-control" id="name"
-										name="patient.firstName" placeholder="First name" />
+									<s:textfield title="First name" type="text" cssClass="form-control" id="name"
+										name="patient.firstName" placeholder="First name" style="text-transform:capitalize"/>
 								</div>
 							</div>
 						</div>
@@ -94,22 +106,22 @@
 							};
 						</script>
 
-						<div class="form-group">
+						<div class="form-group required">
 							<div class="row">
 								<div class="col-md-2 col-sm-2 col-xs-12">
-									<label for="birthDay">Date of Birth:</label>
+									<label for="birthDay" class="control-label">Date of Birth:</label>
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12">
-									<input type="date" class="form-control" id="bday"
+									<input type="date" required="required" class="form-control" id="bday"
 										name="patient.birthDayString" value="<s:property value='%{patient.birthDayString}' />">
 								</div>
 							</div>
 						</div>
 
-						<div class="form-group">
+						<div class="form-group required">
 							<div class="row">
 								<div class="col-md-2 col-sm-2 col-xs-12">
-									<label for="sex">Sex: </label>
+									<label for="sex" class="control-label">Sex: </label>
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12">
 									<div class="form-control">
@@ -142,7 +154,7 @@
 									<s:select cssClass="form-control"  name="patient.districtId" listKey="id" listValue="name" list="districts" value="14"/>
 								</div>							
 								<div class="col-md-2 col-sm-2 col-xs-4">
-									<label for="country">Country: </label>
+									<label for="country">Nationality: </label>
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-8">
 									<s:select name="patient.country" cssClass="form-control" list="#{'Sri Lankan':'Sri Lankan','Non Sri Lankan':'Non Sri Lankan'}">
