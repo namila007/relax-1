@@ -8,9 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import com.doerit.model.ActivityLogger;
 import com.doerit.model.InsertUpdate;
 import com.doerit.model.StatusModel;
+import com.doerit.service.ActivityLoggerService;
 import com.doerit.util.Pager;
 import com.doerit.util.Searcher;
 import com.doerit.util.SessionKey;
@@ -25,6 +28,7 @@ public class AbstractManagementAction extends AbstractAction implements Preparab
 	private static Logger logger = Logger.getLogger(AbstractManagementAction.class);
 	private Random random = new Random(1000);
 	
+	@Autowired private ActivityLoggerService activityLoggerService; 
 	public enum Mode {
 		ADD, EDIT, DIRECT
 	}
@@ -250,4 +254,43 @@ public class AbstractManagementAction extends AbstractAction implements Preparab
 	public String upperUnderToCamel(String s) {
 		return CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, s);
 	}
+	
+	protected void addLoggerMessage(String relateKey, String messageType, String message, String description) {
+
+		ActivityLogger logger = new ActivityLogger();
+		logger.setRelateKey(relateKey);
+		logger.setMessageType(messageType);
+		logger.setMessage(message);
+		logger.setDescription(description);
+		logger.setAccessHost(getClientIPAddress());
+		logger.setId(String.valueOf(System.currentTimeMillis()));
+		logger.setInsertDatetime(Calendar.getInstance().getTime());
+		logger.setInsertUserId(getSessionUserId());
+
+		try{
+			activityLoggerService.save(logger);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	protected void addLoggerMessage(String userId, String relateKey, String messageType, String message, String description) {
+
+		ActivityLogger logger = new ActivityLogger();
+		logger.setRelateKey(relateKey);
+		logger.setMessageType(messageType);
+		logger.setMessage(message);
+		logger.setDescription(description);
+		logger.setAccessHost(getClientIPAddress());
+		logger.setId(String.valueOf(System.currentTimeMillis()));
+		logger.setInsertDatetime(Calendar.getInstance().getTime());
+		logger.setInsertUserId(userId);
+
+		try{
+			activityLoggerService.save(logger);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }

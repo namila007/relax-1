@@ -1,12 +1,14 @@
 package com.doerit.action.signin;
 
 import org.apache.log4j.Logger;
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.doerit.action.AbstractManagementAction;
 import com.doerit.exception.SessionNotExist;
 import com.doerit.model.Employee;
 import com.doerit.model.UserAccount;
+import com.doerit.model.ActivityLogger.MessageType;
 import com.doerit.service.EmployeeService;
 import com.doerit.service.UserAccountService;
 import com.doerit.util.SessionKey;
@@ -58,6 +60,9 @@ public class SignInAction extends AbstractManagementAction {
 				addActionError("User not found in the respective user category");
 				return INPUT;
 			} else {
+				
+				addLoggerMessage("tbl_user_account", MessageType.SIGN_IN.toString(),
+						"SUCCESS", "Email: " + su.getName() + ", Host: " + ServletActionContext.getRequest().getRemoteHost());
 				
 				if(userAccount.getCategoryRelationId().equals("EMPLOYEE")) {
 					

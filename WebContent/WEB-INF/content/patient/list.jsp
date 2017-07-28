@@ -23,8 +23,9 @@
 			<s:include value="/WEB-INF/content/patient/header.jsp"></s:include>
 				<h4>Patients</h4>
 				
-				<s:if test="patients.size > 0">
-
+				<s:actionerror cssClass="errorMessage"/>
+			
+				<s:if test="pager != null && pager.list != null && pager.list.size != 0">
 				
 					<table class="table table-condensed" id="patient_tbl">
   						<tr>
@@ -37,7 +38,7 @@
   							<th>Address</th>
   							<th>Events</th>
   						</tr>
-						<s:iterator value="patients" status="rowIndex">
+						<s:iterator value="pager.list" status="rowIndex">
 						  <tr>
 							<td><s:property value="%{#rowIndex.index + 1}" /> </td>
   							<td><s:property value="firstName" /> <s:property value="surname" /> </td>
@@ -61,6 +62,10 @@
   						  </tr>
 						</s:iterator>
 					</table>
+					
+					<div class="text-center">
+	                   <s:include value="/WEB-INF/content/common/pager.jsp" ></s:include>
+	                </div>
 				</s:if>
 				<s:else>
 					<div class="bg-info text-white">No patients found</div>				

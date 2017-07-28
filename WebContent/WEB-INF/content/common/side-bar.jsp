@@ -5,7 +5,7 @@
 <div id="sidebar-menu"
 	class="main_menu_side hidden-print main_menu">
 	<div class="menu_section">
-		<h3>Modules</h3>
+		<h3><s:text name="global.menu.module"></s:text> </h3>
 		<ul class="nav side-menu">
 			<li>
 				<s:url var="dashboardUrl" action="dashboard.html" namespace="/"></s:url>

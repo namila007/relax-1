@@ -2,6 +2,9 @@ package com.doerit.dao;
 
 import com.doerit.model.Patient;
 import com.doerit.model.PatientExample;
+import com.doerit.model.criteria.SearchCriteria;
+import com.doerit.util.Pager;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
@@ -30,9 +33,15 @@ public interface PatientMapper {
     
     @Select("SELECT c.* " + 
     		" FROM tbl_patient c " +  
-    		" WHERE c.STATUS = #{status}")
+    		" WHERE c.STATUS = #{status} " + 
+    		" LIMIT #{pager.start}, #{pager.limit}")
     @ResultMap("BaseResultMap")
-	List<Patient> viewAllByStatus(@Param("status")byte databaseValue);
+	List<Patient> viewAllByStatus(@Param("pager")Pager pager,  @Param("status")byte status);
+    
+    @Select("SELECT count(0) " + 
+    		" FROM tbl_patient c " +  
+    		" WHERE c.STATUS = #{status}")
+	Integer countAllByStatus(@Param("status")byte status);
 
     @Select("SELECT c.* " + 
     		" FROM tbl_patient c " +  
@@ -72,5 +81,12 @@ public interface PatientMapper {
     		" WHERE c.EMAIL LIKE #{searchValue} AND c.STATUS = #{status}")
     @ResultMap("BaseResultMap")
     List<Patient> searchByEmail(@Param("searchValue")String likeSearchValue, @Param("status")byte databaseValue);
+	
+    @Select("SELECT c.* " + 
+    		" FROM tbl_patient c " +  
+    		" WHERE c.STATUS = #{status}")
+    @ResultMap("BaseResultMap")
+    List<? extends Object> viewAllBySearch(SearchCriteria criteria);
     
+	
 }
