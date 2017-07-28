@@ -8,10 +8,11 @@ import org.springframework.stereotype.Service;
 
 import com.doerit.dao.PatientMapper;
 import com.doerit.model.Patient;
+import com.doerit.util.Pager;
 import com.doerit.util.State;
 
 @Service
-public class PatientService {
+public class PatientService extends AbstractService {
 
 	@Autowired
 	private PatientMapper patientMapper;
@@ -28,9 +29,6 @@ public class PatientService {
 		return patientMapper.updateByPrimaryKeySelective(patient);
 	}
 	
-	public List<Patient> viewAll(State state) {
-		return patientMapper.viewAllByStatus(state.getDatabaseValue());
-	}
 
 	public List<Patient> search(String searchKey, String searchWord) { 
 		
@@ -57,5 +55,13 @@ public class PatientService {
 	
 	public int findMonthlyCount(String yearMonthPrefix) {
 		return patientMapper.findMonthlyRegistrations(yearMonthPrefix + "%");
+	}
+	
+	public Pager viewAllByPagerAndStatus(Pager p, byte state) {
+		
+		p.setList(patientMapper.viewAllByStatus(p, state));
+		p.setTotal(patientMapper.countAllByStatus(state));
+		
+		return p;
 	}
 }

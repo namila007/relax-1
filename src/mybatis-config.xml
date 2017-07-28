@@ -15,6 +15,7 @@
 		</environment>
 	</environments>
 	<mappers>
+		<mapper resource="com/doerit/dao/xml/ActivityLoggerMapper.xml" />		
 		<mapper resource="com/doerit/dao/xml/ActionMapper.xml" />
 		<mapper resource="com/doerit/dao/xml/ActionTemplateMapper.xml" />
 		<mapper resource="com/doerit/dao/xml/ActionTemplateValueMapper.xml" />

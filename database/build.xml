@@ -18,6 +18,7 @@
 			</classpath>
 
 			<transaction src="${db.dir}/create/database.sql"/>
+			<transaction src="${db.dir}/create/tbl_activity_logger.sql"/> 
 			<transaction src="${db.dir}/create/tbl_action.sql"/> 
 			<transaction src="${db.dir}/create/tbl_province.sql"/> 
 			<transaction src="${db.dir}/create/tbl_district.sql"/> 

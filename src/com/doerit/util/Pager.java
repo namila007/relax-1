@@ -5,9 +5,9 @@ import java.util.List;
 public class Pager extends UrlWrapper {
 
 	private static final long serialVersionUID = 1L;
-	public static final int DEFAULT_PAGE_SIZE = 10;
+	public static final int DEFAULT_PAGE_SIZE = 15;
 	public static final int DEFAULT_PAGE_START = 0;
-	public static final int DEFAULT_PAGE_LIMIT = 10;
+	public static final int DEFAULT_PAGE_LIMIT = 15;
 
 	private Integer start = 0; //default
 	private Integer size = DEFAULT_PAGE_SIZE; //default

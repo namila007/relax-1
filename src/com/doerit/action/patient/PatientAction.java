@@ -65,15 +65,29 @@ public class PatientAction extends AbstractManagementAction {
 		return SUCCESS;
 	}
 	
-	public String viewAll() {
+	/*public String viewAll() {
 		this.patients = patientService.viewAll(State.ACTIVE);
+		return SUCCESS;
+	}*/
+	
+	public String viewAll() {
+		try {
+			beforeAction();
+			pager = patientService.viewAllByPagerAndStatus(pager, State.ACTIVE.getDatabaseValue());
+			pager = setActionContext(pager);
+		} catch (Exception e) {
+			addActionError("Exception occur");
+			//logger
+			e.printStackTrace();
+		}
 		return SUCCESS;
 	}
 	
-	public String viewAllHidden() {
+	/*public String viewAllHidden() {
 		this.patients = patientService.viewAll(State.DELETED);
 		return SUCCESS;
 	}
+	*/
 	
 	public String search() {
 		
