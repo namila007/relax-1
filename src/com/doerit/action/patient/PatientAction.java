@@ -1,10 +1,17 @@
 package com.doerit.action.patient;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.doerit.action.AbstractDownloadManamentAction;
+import com.doerit.action.AbstractFileAction;
 import com.doerit.action.AbstractManagementAction;
 import com.doerit.model.District;
 import com.doerit.model.Patient;
@@ -14,9 +21,10 @@ import com.doerit.service.DistrictService;
 import com.doerit.service.PatientAdditionalPropertyService;
 import com.doerit.service.PatientGuardianService;
 import com.doerit.service.PatientService;
+import com.doerit.util.PdfPatientInformation;
 import com.doerit.util.State;
 
-public class PatientAction extends AbstractManagementAction {
+public class PatientAction extends AbstractDownloadManamentAction {
 
 	private static final long serialVersionUID = 1L;
 
@@ -91,7 +99,14 @@ public class PatientAction extends AbstractManagementAction {
 	
 	public String search() {
 		
-		patients = patientService.search(this.searchKey, this.searchWord);
+		try{
+			beforeAction();
+			pager = patientService.search(pager, this.searchKey, this.searchWord);
+			pager = setActionContext(pager);
+		}catch (Exception e) {
+			addActionError("Exception occur");
+			e.printStackTrace();
+		}
 		return SUCCESS;
 	}
 
@@ -174,6 +189,30 @@ public class PatientAction extends AbstractManagementAction {
 		return viewAll();
 	}
 	
+	public String patientInformationPdf() {
+		view();
+		
+		PdfPatientInformation pdfPatientInformation = new PdfPatientInformation();
+		try {
+			ByteArrayOutputStream baos = pdfPatientInformation.createPdf(patient);
+			return download(baos, patient.getSerialNumber());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return SUCCESS;
+	}
+	
+	private String download(ByteArrayOutputStream baos, String prefix) {
+		byte[] pdfFile = baos.toByteArray();
+		setFileInputStream(new ByteArrayInputStream(pdfFile));
+
+		String dateString = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+		setFileName(prefix + dateString + ".pdf");
+		return SUCCESS;
+	}
+	
 	private String createSerialNumber() {
 		Calendar calendar = Calendar.getInstance();
 		int year = calendar.get(Calendar.YEAR) % 100; //take last two digits
@@ -244,7 +283,5 @@ public class PatientAction extends AbstractManagementAction {
 	public void setPatientGuardians(List<PatientGuardianWithBLOBs> patientGuardians) {
 		this.patientGuardians = patientGuardians;
 	}
-
-	
 		
 }

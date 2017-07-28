@@ -49,6 +49,16 @@
 			<result name="success">/WEB-INF/content/patient/list.jsp</result>
 		</action>
 		
+		<action name="patient-information-pdf" class="com.doerit.action.patient.PatientAction" method="patientInformationPdf">
+			<result name="success" type="stream">
+			  <param name="contentType">application/pdf</param>
+			  <param name="inputName">fileInputStream</param>
+			  <param name="contentDisposition">filename="${fileName}"</param>
+			  <param name="bufferSize">1024</param>
+			</result>
+			<result name="input">/WEB-INF/content/common/error.jsp</result>		
+		</action>
+		
 	</package>
 		
 </struts>

@@ -30,22 +30,31 @@ public class PatientService extends AbstractService {
 	}
 	
 
-	public List<Patient> search(String searchKey, String searchWord) { 
+	public Pager search(Pager p, String searchKey, String searchWord) { 
+		
+		List<Patient> patients = new ArrayList<>(0); 
 		
 		switch (searchKey) {
 			case "serial":
-				return patientMapper.searchBySerial("%" + searchWord + "%", State.ACTIVE.getDatabaseValue());
+				patients = patientMapper.searchBySerial("%" + searchWord + "%", State.ACTIVE.getDatabaseValue());
+				break;
 			case "surname":
-				return patientMapper.searchBySurname("%" + searchWord + "%", State.ACTIVE.getDatabaseValue());
+				patients = patientMapper.searchBySurname("%" + searchWord + "%", State.ACTIVE.getDatabaseValue());
+				break;
 			case "firstname":
-				return patientMapper.searchByFirstName("%" + searchWord + "%", State.ACTIVE.getDatabaseValue());
+				patients = patientMapper.searchByFirstName("%" + searchWord + "%", State.ACTIVE.getDatabaseValue());
+				break;
 			case "mobile":
-				return patientMapper.searchByMobile("%" + searchWord + "%", State.ACTIVE.getDatabaseValue());
+				patients = patientMapper.searchByMobile("%" + searchWord + "%", State.ACTIVE.getDatabaseValue());
+				break;
 			case "email":
-				return patientMapper.searchByEmail("%" + searchWord + "%", State.ACTIVE.getDatabaseValue());
+				patients = patientMapper.searchByEmail("%" + searchWord + "%", State.ACTIVE.getDatabaseValue());
+				break;
 		}
 		
-		return new ArrayList<>();
+		p.setList(patients);
+		p.setTotal(patients.size());
+		return p;
 		
 	}
 

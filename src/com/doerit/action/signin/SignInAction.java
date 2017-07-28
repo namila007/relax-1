@@ -61,8 +61,6 @@ public class SignInAction extends AbstractManagementAction {
 				return INPUT;
 			} else {
 				
-				addLoggerMessage("tbl_user_account", MessageType.SIGN_IN.toString(),
-						"SUCCESS", "Email: " + su.getName() + ", Host: " + ServletActionContext.getRequest().getRemoteHost());
 				
 				if(userAccount.getCategoryRelationId().equals("EMPLOYEE")) {
 					
@@ -75,6 +73,9 @@ public class SignInAction extends AbstractManagementAction {
 						su.setRoleName(employee.getUserRole());
 						su.setName(employee.getFirstName() + " " + employee.getSurname());
 						addSessionUser(su);
+						
+						addLoggerMessage("tbl_user_account", MessageType.SIGN_IN.toString(),
+								"SUCCESS", "Email: " + su.getName() + ", Host: " + ServletActionContext.getRequest().getRemoteHost());
 						
 					} else {
 						addActionError("Employee does not exist in the employee repo");
