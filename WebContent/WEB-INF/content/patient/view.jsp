@@ -35,7 +35,15 @@
 				<section id="info">
 					<div class="row" style="padding:0 0 10px 0px">
 						<div class="col-8">
-							<a href="#" class="btn btn-success">
+ 									<div class="col-xs-3">
+										<s:url var="printUrl" namespace="/patient" action="view-print.jsp">
+											<s:param name="patientId" value="%{patient.id}"></s:param>
+										</s:url>
+										<s:a href="/view-print.jsp" cssClass="btn btn-info">Print A4</s:a>							
+									</div>
+									
+															
+							<a href="view-print.jsp" class="btn btn-success">
 						      <span class="glyphicon glyphicon-print"></span> Print - A4 
 						    </a>
 						    
@@ -148,7 +156,7 @@
 							<div class="form-group">
 								<div class="row" id="country">
 									<div class="col-xs-3">
-										<label for="country">Country:</label>
+										<label for="country">Nationality:</label>
 									</div>
 									<div class="col-xs-4"><s:property value="%{patient.country}"/> </div>
 		
