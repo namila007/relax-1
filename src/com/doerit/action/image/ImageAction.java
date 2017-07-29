@@ -30,7 +30,7 @@ public class ImageAction extends ActionSupport {
 		BufferedImage originalImage;
 		try {
 			
-			originalImage = BarCodeImageUtility.createBarCode(this.q);
+			originalImage = BarCodeImageUtility.createBarCode(this.q, 60f);
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			ImageIO.write(originalImage, "png", baos);
 			baos.flush();

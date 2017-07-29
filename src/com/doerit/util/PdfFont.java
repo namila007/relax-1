@@ -116,10 +116,12 @@ public class PdfFont {
 	
 	public static final Font SuperScriptItalic = FontFactory.getFont("Monotype Corsiva", 8, Font.ITALIC);
 	public static final Font SuperScriptNormal = FontFactory.getFont("Times New Roman", 9, Font.NORMAL);
-	public static final Font FontHeader = FontFactory.getFont("Vijaya", 10, Font.NORMAL);
+	public static final Font FontHeader = FontFactory.getFont("Times New Roman", 14, Font.BOLD);
 	//public static final Font FontTitleNormal = FontFactory.getFont("Times New Roman", 12, Font.BOLD);
 	//public static final Font FontTitleItelic = FontFactory.getFont("Times New Roman", 12, Font.BOLD|Font.ITALIC);
-	public static final Font FontAuthors = FontFactory.getFont("Times New Roman", 11, Font.BOLD);
+	public static final Font Level1Header = FontFactory.getFont("Times New Roman", 12, Font.BOLD);
+	public static final Font Level2Header = FontFactory.getFont("Times New Roman", 11, Font.BOLD);
+	public static final Font Level2Value= FontFactory.getFont("Times New Roman", 11, Font.NORMAL);
 	public static final Font FontAuthorsAffiliation = FontFactory.getFont("Times New Roman", 11, Font.NORMAL);
 	public static final Font FontFooterAffiliation = FontFactory.getFont("Times New Roman", 10, Font.NORMAL);
 	//public static final Font FontContentNormal = FontFactory.getFont("Times New Roman", 11, Font.NORMAL);

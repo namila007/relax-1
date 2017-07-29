@@ -9,10 +9,10 @@ import com.itextpdf.text.pdf.Barcode128;
 
 public class BarCodeImageUtility {
 
-	public static BufferedImage createBarCode(String text) {
+	public static BufferedImage createBarCode(String text, float height) {
 		Barcode128 barCode = new Barcode128();
 		barCode.setCode(text);
-		barCode.setBarHeight(60f);
+		barCode.setBarHeight(height); //default 60f
 		barCode.setX(5f);
 		
 		Image image = barCode.createAwtImage(Color.BLACK, Color.WHITE);

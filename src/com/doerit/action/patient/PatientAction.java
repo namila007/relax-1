@@ -2,7 +2,6 @@ package com.doerit.action.patient;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -11,8 +10,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.doerit.action.AbstractDownloadManamentAction;
-import com.doerit.action.AbstractFileAction;
-import com.doerit.action.AbstractManagementAction;
 import com.doerit.model.District;
 import com.doerit.model.Patient;
 import com.doerit.model.PatientAdditionalProperty;
@@ -190,18 +187,12 @@ public class PatientAction extends AbstractDownloadManamentAction {
 	}
 	
 	public String patientInformationPdf() {
+		
 		view();
-		
 		PdfPatientInformation pdfPatientInformation = new PdfPatientInformation();
-		try {
-			ByteArrayOutputStream baos = pdfPatientInformation.createPdf(patient);
-			return download(baos, patient.getSerialNumber());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		ByteArrayOutputStream baos = pdfPatientInformation.createPdf(patient);
+		return download(baos, patient.getSerialNumber());
 		
-		return SUCCESS;
 	}
 	
 	private String download(ByteArrayOutputStream baos, String prefix) {

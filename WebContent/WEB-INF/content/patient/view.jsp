@@ -42,7 +42,7 @@
 								<s:a href="/view-print.jsp" cssClass="btn btn-info">Print A4</s:a>							
 							</div>
 							
-							<s:url var="printA4Url" namespace="/patient" action=" patient-information-pdf.html">
+							<s:url var="printA4Url" namespace="/patient" action="information-pdf">
 								<s:param name="id" value="%{patient.id}"></s:param>
 							</s:url>
 								

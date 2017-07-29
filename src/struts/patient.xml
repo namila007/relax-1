@@ -53,7 +53,7 @@
 			<result name="success">/WEB-INF/content/patient/list.jsp</result>
 		</action>
 		
-		<action name="patient-information-pdf" class="com.doerit.action.patient.PatientAction" method="patientInformationPdf">
+		<action name="information-pdf" class="com.doerit.action.patient.PatientAction" method="patientInformationPdf">
 			<result name="success" type="stream">
 			  <param name="contentType">application/pdf</param>
 			  <param name="inputName">fileInputStream</param>

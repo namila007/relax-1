@@ -19,7 +19,7 @@
 			<result name="invalid">/WEB-INF/content/common/error.jsp</result>
 		</global-results>
  
-		<global-exception-mappings>
+			<global-exception-mappings>
 			<exception-mapping exception="java.sql.SQLException" result="SQLException" />
 			<exception-mapping exception="java.lang.Exception" result="exception" /> 
 		</global-exception-mappings>
