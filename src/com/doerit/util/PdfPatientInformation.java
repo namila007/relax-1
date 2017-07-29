@@ -158,7 +158,7 @@ public class PdfPatientInformation {
 		try{
 			table.addCell(createCellValue(sdf.format(patient.getDateOfBirth()), PdfFont.Level2Value));
 		}catch(Exception e) {
-			table.addCell("Invalid birthday format");
+			table.addCell(createCellValue("", PdfFont.FontFooterAffiliation));
 		}
 		table.addCell(""); // offset
 		table.addCell(createCellValue("Sex:", PdfFont.Level2Header));
@@ -174,7 +174,7 @@ public class PdfPatientInformation {
 	private PdfPTable createLocationInformationTable() throws DocumentException, IOException {
 
 		PdfPTable table = new PdfPTable(5);
-		table.setWidths(new float[] { 0.5f, 2, 2, 1, 2 });
+		table.setWidths(new float[] { 0.5f, 2, 3, 2, 1 });
 		table.getDefaultCell().setBorder(0);
 
 		table.addCell(""); // offset
@@ -202,7 +202,7 @@ public class PdfPatientInformation {
 	private PdfPTable createContactInformationTable() throws DocumentException, IOException {
 
 		PdfPTable table = new PdfPTable(5);
-		table.setWidths(new float[] { 0.5f, 2, 2, 1, 2 });
+		table.setWidths(new float[] { 0.5f, 2, 3, 2, 1  });
 		table.getDefaultCell().setBorder(0);
 
 		table.addCell(""); // offset
