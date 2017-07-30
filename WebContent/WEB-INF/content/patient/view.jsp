@@ -193,7 +193,17 @@
 									<div class="col-xs-4"><s:property value="%{patient.address}"/> </div>
 		
 								</div>
-							</div>							
+							</div>	
+							
+							<div class="form-group">
+								<div class="row" id="dob">
+									<div class="col-xs-3">
+										<label for="name">Date of Registration:</label>
+									</div>
+									<div class="col-xs-4"><s:date name="%{patient.insertDatetime}" format="yyyy-MM-dd"/></div>
+		
+								</div>
+							</div>						
 							</div>
 						
 
@@ -220,6 +230,8 @@
 										</s:url>
 										<s:a href="%{#addGuardianUrl}" cssClass="btn btn-info">Add Guardian</s:a>							
 									</div>
+									
+									
 <%--									
 									<div class="col-xs-1">
 										<s:url var="patietDeleteUrl" namespace="/patient" action="delete.html">
