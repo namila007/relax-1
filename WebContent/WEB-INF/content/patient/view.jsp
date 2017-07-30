@@ -35,12 +35,12 @@
 				<section id="info">
 					<div class="row" style="padding:0 0 10px 0px">
 						<div class="col-8">
-							<div class="col-xs-3">
+							<%-- <div class="col-xs-3">
 								<s:url var="printUrl" namespace="/patient" action="view-print.jsp">
 									<s:param name="patientId" value="%{patient.id}"></s:param>
 								</s:url>
 								<s:a href="/view-print.jsp" cssClass="btn btn-info">Print A4</s:a>							
-							</div>
+							</div> --%>
 							
 							<s:url var="printA4Url" namespace="/patient" action="information-pdf">
 								<s:param name="id" value="%{patient.id}"></s:param>
@@ -49,18 +49,17 @@
 							<s:a href="%{#printA4Url}" cssClass="btn btn-success" target="_blank"> 
 								<span class="glyphicon glyphicon-print"></span> Print - A4 
 							</s:a>	
-						    
-						    <a href="#" class="btn btn-success">
-						      <span class="glyphicon glyphicon-barcode"></span>
+							
+						    <s:url var="printStickerUrl" namespace="/patient" action="sticker-pdf">
+								<s:param name="id" value="%{patient.id}"></s:param>
+							</s:url>
+							
+							<s:a href="%{#printStickerUrl}" cssClass="btn btn-success" target="_blank"> 
+							  <span class="glyphicon glyphicon-barcode"></span>
 						      <span class="glyphicon glyphicon-print"></span>
 						       Card Sticker 
-						    </a>
+							</s:a>	
 						    
-						    <a href="#" class="btn btn-success">
-						      <span class="glyphicon glyphicon-barcode"></span>
-						      <span class="glyphicon glyphicon-print"></span>
-						       Folder Sticker 
-						    </a>
 						</div>
 					</div>
 					<div class="row">
@@ -89,7 +88,7 @@
 										<label for="name">Patient Name:</label>
 									</div>
 									<div class="col-xs-4">
-										<s:property value="%{patient.title}"/>.  <s:property value="%{patient.firstName}"/> <s:property value="%{patient.surname}"/>
+										<s:property value="%{patient.printName}"/> (First name: <s:property value="%{patient.firstName}"/> )
 									</div>
 		
 								</div>

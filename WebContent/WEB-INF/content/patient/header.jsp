@@ -24,7 +24,7 @@
                     </ul>
                 </div>
                 <input type="hidden" name="searchKey" value="serial" id="search_param">     
-                <input type="text" class="form-control" name="searchWord" placeholder="default is serial">
+                <input type="text" class="form-control" name="searchWord" placeholder="default is serial" autofocus>
                 <span class="input-group-btn">
                     <s:submit cssClass="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></s:submit>
                 </span>
@@ -34,11 +34,11 @@
 		<div class="col-md-3 pull-right"> 
 			<s:url var="patientListUrl" namespace="/patient" action="list.html"></s:url>
 			<s:url var="patientAddUrl" namespace="/patient" action="registration-form.html"></s:url>
-			<s:url var="patientHiddenUrl" namespace="/patient" action="hidden-list.html"></s:url>
-			
+			<%-- <s:url var="patientHiddenUrl" namespace="/patient" action="hidden-list.html"></s:url>
+			 --%>
 			<s:a href="%{#patientAddUrl}" cssClass="btn btn-primary" role="button">Add New</s:a>
 			<s:a href="%{#patientListUrl}" cssClass="btn btn-success" role="button">List</s:a>
-			<s:a href="%{#patientHiddenUrl}" cssClass="btn btn-info" role="button">Deleted</s:a>
+			<%-- <s:a href="%{#patientHiddenUrl}" cssClass="btn btn-info" role="button">Deleted</s:a> --%>
 		</div>
 
 </div>

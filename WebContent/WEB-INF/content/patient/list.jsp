@@ -30,7 +30,7 @@
 					<table class="table table-condensed" id="patient_tbl">
   						<tr>
   							<th>Index</th>
-  							<th>Name</th>
+  							<th>Name (Title, First Name)</th>
   							<th>Serial No.</th>
   							<th>Sex</th>
   							<th>Birth (Age)</th>
@@ -41,7 +41,8 @@
 						<s:iterator value="pager.list" status="rowIndex">
 						  <tr>
 							<td><s:property value="%{#rowIndex.index + 1}" /> </td>
-  							<td><s:property value="firstName" /> <s:property value="surname" /> </td>
+  							<td><s:property value="%{surname}"/> <s:property value="%{initials}"/> 
+  								(<s:property value="%{title}"/>, <s:property value="%{firstName}"/> )</td>
   							<td title="Registered: <s:date name='insertDatetime' format='yyyy/MM/dd hh:mm'/>"><s:property value="serialNumber" /></td>
   							<td><s:property value="sex" /></td>
   							<td><s:date name="dateOfBirth" nice="true"/></td>
@@ -58,6 +59,23 @@
 									<s:param name="id" value="%{id}"></s:param>
 								</s:url>
 								<s:a href="%{#patientEditUrl}" cssClass="btn btn-xs btn-warning">Edit</s:a>	
+  							
+  								<s:url var="printA4Url" namespace="/patient" action="information-pdf">
+								<s:param name="id" value="%{id}"></s:param>
+							</s:url>
+								
+							<s:a href="%{#printA4Url}" cssClass="btn btn-xs btn-success" target="_blank"> 
+								<span class="glyphicon glyphicon-print">A4</span> 
+							</s:a>	
+							
+						    <s:url var="printStickerUrl" namespace="/patient" action="sticker-pdf">
+								<s:param name="id" value="%{id}"></s:param>
+							</s:url>
+							
+							<s:a href="%{#printStickerUrl}" cssClass="btn btn-xs btn-success" target="_blank"> 
+							  <span class="glyphicon glyphicon-barcode"></span>
+						      <span class="glyphicon glyphicon-print"></span>
+							</s:a>	
   							</td>
   						  </tr>
 						</s:iterator>

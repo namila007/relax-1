@@ -46,7 +46,7 @@
 									<label class="control-label" for="name">Patient Name:</label>
 								</div>
 								<div class="col-md-2 col-sm-4 col-xs-12">
-									<s:select cssClass="form-control" name="patient.title" list="#{'Mr':'Mr.','Ms':'Ms.','Rev':'Rev.'}"/>
+									<s:select cssClass="form-control" name="patient.title" list="#{'Mr':'Mr.','Ms':'Ms.','Rev':'Rev.'}" />
 										
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12">
@@ -202,7 +202,7 @@
 								</div>
 								<div class="col-md-3 col-sm-3 col-xs-12">
 									<s:hidden name="patientAdditionalProperties[0].nameKey" value="Rererral"></s:hidden>
-									<s:textfield type="text" cssClass="form-control" id="remarks" name="patientAdditionalProperties[0].propertyValue" placeholder="ReferralBody" />
+									<s:textfield type="text" cssClass="form-control" id="remarks" name="patientAdditionalProperties[0].propertyValue" placeholder="Referral Body" />
 								</div>
 								<div class="col-md-3 col-sm-3 col-xs-12">
 									<s:hidden name="patientAdditionalProperties[1].nameKey" value="Rererral-Remarks"></s:hidden>

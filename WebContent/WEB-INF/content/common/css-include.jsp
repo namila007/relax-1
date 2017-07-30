@@ -3,8 +3,8 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <title><s:text name="global.application.title" /></title>
-<link rel="icon" type="image/png" sizes="16x16" href="<s:url value='/images/favicon-16x16.png' />/">
-
+<link rel="icon" type="image/png" sizes="16x16" href="<s:url value='/images/favicon-16x16.png' />" />
+<%-- <link rel="icon" href="<s:url value='/images/favicon.ico' />"> --%>
 <link href="<s:url value="/vendors/bootstrap/dist/css/bootstrap.min.css" includeParams="none"/>" rel="stylesheet">
 <link href="<s:url value="/vendors/font-awesome/css/font-awesome.min.css" includeParams="none"/>" rel="stylesheet">
 <link href="<s:url value="/vendors/nprogress/nprogress.css" includeParams="none"/>" rel="stylesheet" type="text/css">

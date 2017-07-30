@@ -1,3 +1,3 @@
 <footer>
-	Copyright © All Rights Reserved - University Of Peradeniya - Faculty Of Dental Sciences.    
+	Copyright © All Rights Reserved - University of Peradeniya - Faculty of Dental Sciences.    
 </footer>

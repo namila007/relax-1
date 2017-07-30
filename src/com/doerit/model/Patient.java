@@ -7,6 +7,7 @@ import java.util.Date;
 public class Patient implements InsertUpdate {
 
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	private static final int NUMBER_OF_SURNAME_CHAR_STICKER = 19;
 	
 	private String id;
 	private String serialNumber;
@@ -301,7 +302,51 @@ public class Patient implements InsertUpdate {
 		this.provinceId = provinceId;
 	}
 	
+	public String getPrintName() {
+		
+		String title = "";
+		String surname = "";
+		String initials = "";
+		
+		if(this.getInitials() != null) {
+			initials = this.getInitials();
+		}
+		
+		if(this.getSurname() != null) {
+			surname = this.getSurname();
+		}
+		
+		if(this.getTitle() != null) {
+			title = this.getTitle() + ".";
+		}
+		
+		return title + " " + surname + " " + initials.toUpperCase();
+	}
 	
+	public String getPrintNameForSticker() {
+		
+		String title = "";
+		String surname = "";
+		String initials = "";
+		
+		if(this.getInitials() != null) {
+			initials = this.getInitials();
+		}
+		
+		if(this.getSurname() != null) {
+			surname = this.getSurname();
+			
+			if(surname.length() > NUMBER_OF_SURNAME_CHAR_STICKER) {
+				surname = surname.substring(0, NUMBER_OF_SURNAME_CHAR_STICKER - 1) + ".";
+			}
+		}
+		
+		if(this.getTitle() != null) {
+			title = this.getTitle() + ".";
+		}
+		
+		return title + " " + surname + " " + initials.toUpperCase();
+	}
 	
 	
 }

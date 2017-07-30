@@ -2,6 +2,7 @@ package com.doerit.action.patient;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -19,7 +20,9 @@ import com.doerit.service.PatientAdditionalPropertyService;
 import com.doerit.service.PatientGuardianService;
 import com.doerit.service.PatientService;
 import com.doerit.util.PdfPatientInformation;
+import com.doerit.util.PdfPatientSticker;
 import com.doerit.util.State;
+import com.itextpdf.text.DocumentException;
 
 public class PatientAction extends AbstractDownloadManamentAction {
 
@@ -188,10 +191,41 @@ public class PatientAction extends AbstractDownloadManamentAction {
 	
 	public String patientInformationPdf() {
 		
-		view();
-		PdfPatientInformation pdfPatientInformation = new PdfPatientInformation();
-		ByteArrayOutputStream baos = pdfPatientInformation.createPdf(patient);
-		return download(baos, patient.getSerialNumber());
+		try {
+			view();
+			PdfPatientInformation pdfPatientInformation = new PdfPatientInformation();
+			ByteArrayOutputStream baos = pdfPatientInformation.createPdf(patient);
+			return download(baos, patient.getSerialNumber());
+			
+		} catch (DocumentException e) {
+			e.printStackTrace();
+			addActionError(e.getMessage());
+			return INPUT;
+		} catch (IOException e) {
+			e.printStackTrace();
+			addActionError(e.getMessage());
+			return INPUT;
+		}
+		
+	}
+	
+	public String patientStickerPdf() {
+		
+		try {
+			view();
+			PdfPatientSticker pdfPatientSticker = new PdfPatientSticker();
+			ByteArrayOutputStream baos;
+			baos = pdfPatientSticker.createPdf(patient);
+			return download(baos, patient.getSerialNumber());
+		} catch (DocumentException e) {
+			e.printStackTrace();
+			addActionError(e.getMessage());
+			return INPUT;
+		} catch (IOException e) {
+			e.printStackTrace();
+			addActionError(e.getMessage());
+			return INPUT;
+		}
 		
 	}
 	

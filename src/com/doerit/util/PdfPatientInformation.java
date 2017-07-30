@@ -20,8 +20,6 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
-import com.itextpdf.text.pdf.ColumnText;
-import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfPageEventHelper;
@@ -33,7 +31,7 @@ public class PdfPatientInformation {
 	private Patient patient;
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 	
-	public ByteArrayOutputStream createPdf(Patient patient) {
+	public ByteArrayOutputStream createPdf(Patient patient) throws DocumentException, IOException {
 		
 		this.patient = patient;
 		
@@ -48,39 +46,35 @@ public class PdfPatientInformation {
 		Document document = new Document(PageSize.A4, left, right, top, bottom);
 		ByteArrayOutputStream baosPDF = new ByteArrayOutputStream();
 
-		try {
-			PdfWriter writer = PdfWriter.getInstance(document, baosPDF);
-			//writer.setPageEvent(new PdfPatientHeaderFooter());
-			document.open();
+		
+		PdfWriter writer = PdfWriter.getInstance(document, baosPDF);
+		//writer.setPageEvent(new PdfPatientHeaderFooter());
+		document.open();
 
-			Chunk headerChunk1 = new Chunk("Dental Hospital (Teaching) - Peradeniya");
-			headerChunk1.setUnderline(1.2f, -6.0f);
-	        Paragraph headerLine1 = new Paragraph(headerChunk1);
-	        headerChunk1.setFont(PdfFont.FontHeader);
-	        headerLine1.setAlignment(Element.ALIGN_CENTER);
-	        document.add(headerLine1);
-	        
-	        Chunk headerChunk2 = new Chunk("Patient Central Record");
-			headerChunk2.setUnderline(1.2f, -6.0f);
-	        Paragraph headerLine2 = new Paragraph(headerChunk2);
-	        headerChunk2.setFont(PdfFont.FontHeader);
-	        headerLine2.setAlignment(Element.ALIGN_CENTER);
-	        document.add(headerLine2);
-	        
-			Paragraph dateLabel = new Paragraph(sdf.format(new Date()), PdfFont.getTitleNormal());
-			dateLabel.setAlignment(Element.ALIGN_LEFT);
-			dateLabel.setSpacingAfter(18);
-			document.add(dateLabel);
-			
-			prepareTables(document);
-			
-			document.close();
+		Chunk headerChunk1 = new Chunk("Dental Hospital (Teaching) - Peradeniya");
+		headerChunk1.setUnderline(1.2f, -6.0f);
+        Paragraph headerLine1 = new Paragraph(headerChunk1);
+        headerChunk1.setFont(PdfFont.FontHeader);
+        headerLine1.setAlignment(Element.ALIGN_CENTER);
+        document.add(headerLine1);
+        
+        Chunk headerChunk2 = new Chunk("Patient Central Record");
+		headerChunk2.setUnderline(1.2f, -6.0f);
+        Paragraph headerLine2 = new Paragraph(headerChunk2);
+        headerChunk2.setFont(PdfFont.FontHeader);
+        headerLine2.setAlignment(Element.ALIGN_CENTER);
+        document.add(headerLine2);
+        
+		Paragraph dateLabel = new Paragraph(sdf.format(new Date()), PdfFont.getTitleNormal());
+		dateLabel.setAlignment(Element.ALIGN_LEFT);
+		dateLabel.setSpacingAfter(18);
+		document.add(dateLabel);
+		
+		prepareTables(document);
+		
+		document.close();
 
-		} catch (DocumentException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		
 
 		return baosPDF;
 	}
@@ -133,7 +127,7 @@ public class PdfPatientInformation {
 
 		table.addCell(""); // offset
 		table.addCell(createCellValue("Patient Name:", PdfFont.Level2Header));
-		PdfPCell nameCell = createCellValue(patient.getTitle() + ". " + patient.getSurname() + " " + patient.getInitials() , PdfFont.Level2Value);
+		PdfPCell nameCell = createCellValue(patient.getPrintName() , PdfFont.Level2Value);
 		nameCell.setColspan(3);
 		table.addCell(nameCell);
 
@@ -158,7 +152,7 @@ public class PdfPatientInformation {
 		try{
 			table.addCell(createCellValue(sdf.format(patient.getDateOfBirth()), PdfFont.Level2Value));
 		}catch(Exception e) {
-			table.addCell(createCellValue("", PdfFont.FontFooterAffiliation));
+			table.addCell(createCellValue("", PdfFont.TenNormal));
 		}
 		table.addCell(""); // offset
 		table.addCell(createCellValue("Sex:", PdfFont.Level2Header));
