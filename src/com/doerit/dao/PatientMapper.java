@@ -34,6 +34,7 @@ public interface PatientMapper {
     @Select("SELECT c.* " + 
     		" FROM tbl_patient c " +  
     		" WHERE c.STATUS = #{status} " + 
+    		" ORDER BY INSERT_DATETIME DESC " +
     		" LIMIT #{pager.start}, #{pager.limit}")
     @ResultMap("BaseResultMap")
 	List<Patient> viewAllByStatus(@Param("pager")Pager pager,  @Param("status")byte status);

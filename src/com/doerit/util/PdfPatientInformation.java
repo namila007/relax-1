@@ -39,7 +39,7 @@ public class PdfPatientInformation {
 		FontFactory.registerDirectories();
 
 		float left = PdfSettings.LEFT; // 30 mm with 72 px/inch
-		float right = PdfSettings.LEFT; // 30 mm
+		float right = PdfSettings.RIGHT; // 30 mm
 		float top = PdfSettings.TOP; // 20 mm
 		float bottom = PdfSettings.BOTTOM; // 20 mm
 		
@@ -65,26 +65,25 @@ public class PdfPatientInformation {
         headerLine2.setAlignment(Element.ALIGN_CENTER);
         document.add(headerLine2);
         
-		Paragraph dateLabel = new Paragraph(sdf.format(new Date()), PdfFont.getTitleNormal());
-		dateLabel.setAlignment(Element.ALIGN_LEFT);
-		dateLabel.setSpacingAfter(18);
-		document.add(dateLabel);
-		
 		prepareTables(document);
 		
 		document.close();
-
-		
 
 		return baosPDF;
 	}
 
 	private void prepareTables(Document document) throws DocumentException, IOException {
+		
+		document.add(createDateAndBarCode());
+		
+		Paragraph gap = new Paragraph();
+		gap.setSpacingBefore(5);
+		document.add(gap);
+		
 		LineSeparator ls = new LineSeparator();
 		ls.setLineColor(new BaseColor(200, 200, 200));
 
 		document.add(ls);
-		Paragraph gap = new Paragraph();
 		gap.setSpacingBefore(5);
 		document.add(gap);
 
@@ -134,13 +133,15 @@ public class PdfPatientInformation {
 		table.addCell(""); // offset
 		table.addCell(createCellValue("NIC Number:", PdfFont.Level2Header));
 		table.addCell(createCellValue(patient.getNic(), PdfFont.Level2Value));
-		BufferedImage bufferedImage = BarCodeImageUtility.createBarCode(patient.getSerialNumber(), 40f);
+		
+		/*BufferedImage bufferedImage = BarCodeImageUtility.createBarCode(patient.getSerialNumber(), 40f);
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
 		ImageIO.write(bufferedImage, "png", baos);
 		Image iTextImage = Image.getInstance(baos.toByteArray());
 
-		PdfPCell imageCell = new PdfPCell(iTextImage);
+		*/
+		PdfPCell imageCell = new PdfPCell(new Phrase(""));
 		imageCell.setBorder(0);
 		imageCell.setRowspan(4);
 		imageCell.setColspan(2);
@@ -218,6 +219,34 @@ public class PdfPatientInformation {
 		addressCell.setColspan(3);
 		table.addCell(addressCell);
 
+		return table;
+
+	}
+	
+	private PdfPTable createDateAndBarCode() throws DocumentException, IOException {
+
+		PdfPTable table = new PdfPTable(2);
+		table.setWidths(new float[] { 8, 2 });
+		table.getDefaultCell().setBorder(0);
+
+		Paragraph dateLabel = new Paragraph(sdf.format(new Date()), PdfFont.getTitleNormal());
+		dateLabel.setAlignment(Element.ALIGN_BOTTOM);
+		//dateLabel.setSpacingAfter(18);
+		PdfPCell dateCell = new PdfPCell(dateLabel); // new Phrase(12, dateLabel, PdfFont.Level1Header));
+		dateCell.setBorder(0);
+		
+		table.addCell(dateCell);
+
+		BufferedImage bufferedImage = BarCodeImageUtility.createBarCode(patient.getSerialNumber(), 40f);
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+		ImageIO.write(bufferedImage, "png", baos);
+		Image iTextImage = Image.getInstance(baos.toByteArray());
+
+		PdfPCell imageCell = new PdfPCell(iTextImage);
+		imageCell.setBorder(0);
+		table.addCell(imageCell);
+		
 		return table;
 
 	}

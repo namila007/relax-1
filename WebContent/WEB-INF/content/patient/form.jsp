@@ -75,7 +75,7 @@
 												<label for="ethnicity">File No.: </label>
 											</div>
 			
-											<div class="col-md-3 col-sm-4 col-xs-12">
+											<div class="col-md-3 col-sm-3 col-xs-12">
 												<s:textfield type="text" cssClass="form-control" id="fileNumber" name="patient.fileNumber" />
 											</div>
 											
