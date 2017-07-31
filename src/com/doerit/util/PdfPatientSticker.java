@@ -28,7 +28,7 @@ public class PdfPatientSticker {
 
 		float left = 0;
 		float right = 0;
-		float top = 5;
+		float top = 10;
 		float bottom = 5;
 		float stickerWidth = 300;
 		float stickerHeight = 70;
