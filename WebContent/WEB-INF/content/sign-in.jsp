@@ -34,7 +34,7 @@
 						placeholder='<s:property value="%{getText('user.login.email')}"/>'
 						class="form-control" required autofocus
                 		autocomplete="off"
-                		value="doctor@dental.lk" />
+                		value="" />
               </div>
               <div class="form-group">
                 <input 
@@ -44,7 +44,7 @@
 						placeholder="<s:property value="%{getText('user.login.password')}"/>"
 						required 
                 		autocomplete="off"
-						value="abc123"/>
+						value=""/>
               </div>
               <hr />
               
