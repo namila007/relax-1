@@ -46,7 +46,7 @@
 									<label class="control-label" for="name">Patient Name:</label>
 								</div>
 								<div class="col-md-2 col-sm-4 col-xs-12">
-									<s:select cssClass="form-control" name="patient.title" list="#{'Mr':'Mr.','Ms':'Ms.','Rev':'Rev.'}" />
+									<s:select cssClass="form-control" name="patient.title" list="#{'Mr':'Mr.','Ms':'Ms.','Rev':'Rev.','Master':'Master.','Miss':'Miss.'}" />
 										
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12">
