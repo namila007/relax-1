@@ -8,17 +8,6 @@
 <s:include value="/WEB-INF/content/common/meta-tags.jsp"></s:include>
 <title><s:text name="global.application.title" /></title>
 <s:include value="/WEB-INF/content/common/css-include.jsp"></s:include>
-
-<style type="text/css">
-.form-group.required .control-label:after {
-	content:"*";
-	color:red;
-	font-family: 'FontAwesome';
-	font-weight: normal;
-	font-size: 14px;  
-}
-</style>
-
 </head>
 
 <body class="nav-md">
@@ -209,12 +198,13 @@
 									<s:textfield type="text" cssClass="form-control" id="remarks" name="patientAdditionalProperties[1].propertyValue" placeholder="Remarks" />
 								</div>
 								
-								<s:if test="patient.id != null">
+								<%-- <s:if test="patient.id != null">
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<s:hidden name="patientAdditionalProperties[2].nameKey" value="Payment"></s:hidden>
-										<s:textfield type="text" cssClass="form-control" id="remarks" name="patientAdditionalProperties[2].propertyValue" placeholder="Payments" />
+										
+										<s:textfield type="text" cssClass="form-control" id="remarks" name="patientAdditionalProperties[2].propertyValue" placeholder="Payments" /> 
 									</div>
-								</s:if>
+								</s:if> --%>
 							</div>
 
 						</div>

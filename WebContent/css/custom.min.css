@@ -2,6 +2,14 @@
 	color: #2A3F54
 }
 
+.form-group.required .control-label:after {
+	content:"*";
+	color:red;
+	font-family: 'FontAwesome';
+	font-weight: normal;
+	font-size: 14px;  
+}
+
 .login {
     position: absolute;
     top: 50%;
