@@ -17,7 +17,8 @@
                       <li><a href="#serial">Serial Number</a></li>	
                       <li><a href="#surname">Surname</a></li>
                       <li><a href="#firstname">First name</a></li>
-                      
+                      <li><a href="#nic">NIC</a></li>
+                                            
                       <li class="divider"></li>
                       <li><a href="#mobile">Mobile</a></li>
                       <li><a href="#email">Email</a></li>                     

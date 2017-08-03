@@ -44,6 +44,9 @@ public class PatientService extends AbstractService {
 			case "firstname":
 				patients = patientMapper.searchByFirstName("%" + searchWord + "%", State.ACTIVE.getDatabaseValue());
 				break;
+			case "nic":
+				patients = patientMapper.searchByNic("%" + searchWord + "%", State.ACTIVE.getDatabaseValue());
+				break;				
 			case "mobile":
 				patients = patientMapper.searchByMobile("%" + searchWord + "%", State.ACTIVE.getDatabaseValue());
 				break;

@@ -70,6 +70,12 @@ public interface PatientMapper {
     		" WHERE c.FIRST_NAME LIKE #{searchValue} AND c.STATUS = #{status}")
     @ResultMap("BaseResultMap")
     List<Patient> searchByFirstName(@Param("searchValue")String likeSearchValue, @Param("status")byte databaseValue);
+
+    @Select("SELECT c.* " + 
+    		" FROM tbl_patient c " +  
+    		" WHERE c.NIC LIKE #{searchValue} AND c.STATUS = #{status}")
+    @ResultMap("BaseResultMap")
+    List<Patient> searchByNic(@Param("searchValue")String likeSearchValue, @Param("status")byte databaseValue);    
     
     @Select("SELECT c.* " + 
     		" FROM tbl_patient c " +  
