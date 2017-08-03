@@ -35,7 +35,7 @@
 									<label class="control-label" for="name">Patient Name:</label>
 								</div>
 								<div class="col-md-2 col-sm-4 col-xs-12">
-									<s:select cssClass="form-control" name="patient.title" list="#{'Mr':'Mr.','Ms':'Ms.','Rev':'Rev.','Master':'Master.','Miss':'Miss.'}" />
+									<s:select cssClass="form-control" name="patient.title" list="#{'Mr':'Mr.','Ms':'Ms.','Rev':'Rev.','Dr':'Dr.',' ':' '}" />
 										
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12">
@@ -158,7 +158,7 @@
 									<label for="phone">Phone number:</label>
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12">
-									<input type="text" class="form-control" id="phoneNo" pattern=".{10,}" title="Phone number should be Ten or more characters" name="patient.mobile" value="<s:property value='%{patient.mobile}' />">
+									<input type="text" class="form-control" id="phoneNo" pattern=".{10,}" title="Phone number should be 10 or more characters" name="patient.mobile" value="<s:property value='%{patient.mobile}' />">
 								</div>
 								<div class="col-md-2 col-sm-2 col-xs-12">
 									<label for="mail">E-mail:</label>
