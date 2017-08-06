@@ -5,7 +5,7 @@
   <classPathEntry  location="E:\DIT Projects\DIT Sampath\Eclipse Projects\DoerIT_Tracker_Srv\tracker-srv\WebContent\WEB-INF\lib\mysql-connector-java-5.1.30.jar" />
   
   <context id="ctx" targetRuntime="MyBatis3">
-    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/tracker_db" userId="root" password="root" />
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/tracker_db" userId="relax" password="root" />
 
     <javaModelGenerator targetPackage="com.doerit.model" targetProject="tracker-srv">
     	 <property name="enableSubPackages" value="true"/>

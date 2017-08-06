@@ -28,12 +28,18 @@ public class DashBoardAction extends AbstractManagementAction {
 				
 			} else if (userRole.equals("PATIENT")) {
 				userDashboard();
+			} else if (userRole.equals("DEPARTMENT")) {
+				departmentDashboard();
 			} 
+			
 		} catch (SessionNotExist e) {
 			e.printStackTrace();
 		}
 				
 		return userRole;
+	}
+
+	private void departmentDashboard() {		
 	}
 
 	private void employeeDashboard() { 
