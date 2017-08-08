@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.doerit.dao.PatientGuardianMapper;
-import com.doerit.model.PatientGuardian;
 import com.doerit.model.PatientGuardianWithBLOBs;
 
 @Service

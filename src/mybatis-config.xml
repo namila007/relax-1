@@ -24,6 +24,8 @@
 		<mapper resource="com/doerit/dao/xml/PatientGuardianMapper.xml" />
 		<mapper resource="com/doerit/dao/xml/PatientAdditionalPropertyMapper.xml" />
 		<mapper resource="com/doerit/dao/xml/PatientMapper.xml" />
+		<mapper resource="com/doerit/dao/xml/PatientVisitMapper.xml" />
+		<mapper resource="com/doerit/dao/xml/DepartmentMapper.xml" />
 		<mapper resource="com/doerit/dao/xml/ProvinceMapper.xml" />
 		<mapper resource="com/doerit/dao/xml/UserAccountActionMapper.xml" />
 		<mapper resource="com/doerit/dao/xml/UserAccountMapper.xml" />
