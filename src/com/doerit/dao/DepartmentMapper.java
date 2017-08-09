@@ -2,7 +2,6 @@ package com.doerit.dao;
 
 import com.doerit.model.Department;
 import com.doerit.model.DepartmentExample;
-import com.doerit.model.District;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
