@@ -83,6 +83,27 @@ public class SignInAction extends AbstractManagementAction {
 					}
 				}
 				
+				else if(userAccount.getCategoryRelationId().equals("DEPARTMENT")) {
+					
+					String foreignKey = userAccount.getRelationId();
+					
+					Employee employee = employeeService.viewById(foreignKey);
+
+					if(employee != null) {
+						su.setRole("DEPARTMENT");
+						su.setRoleName(employee.getUserRole());
+						su.setName(employee.getFirstName() + " " + employee.getSurname());
+						addSessionUser(su);
+						
+						addLoggerMessage("tbl_user_account", MessageType.SIGN_IN.toString(),
+								"SUCCESS", "Email: " + su.getName() + ", Host: " + ServletActionContext.getRequest().getRemoteHost());
+						
+					} else {
+						addActionError("Employee does not exist in the employee repo");
+						return INPUT;
+					}
+				}				
+				
 				/*addLoggerMessage(su.getId(), ActivityLogger.MessageType.SIGN_IN.toString(), "Web Application",
 						su.getEmail());*/
 				return SUCCESS;
