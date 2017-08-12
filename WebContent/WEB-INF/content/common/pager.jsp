@@ -4,6 +4,9 @@
 
 <s:if test="pager != null && pager.list != null && pager.list.size != 0">
 	<hr style="margin: 0px;"/>
+	<div class="center" style="text-align:center;">
+		Total Records: <s:property value="pager.total"/>
+	</div>
 	<div class="center" title="Total : <s:property value="pager.total"/>" style="text-align:center;">
 	   			
 		<ul class="pagination pagination-sm">
@@ -97,10 +100,10 @@
 			<s:else>
 			 	<li class="disabled"><a href="#">Last</a></li>
 			</s:else>
-			
-			
 		</ul>
 	</div>
+	
+	
 	
 	<script type="text/javascript">
 		function getURLParameter(url, name) {

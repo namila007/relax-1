@@ -79,6 +79,11 @@ public class Patient implements InsertUpdate {
 
 	public void setSurname(String surname) {
 		this.surname = surname == null ? null : surname.trim();
+		
+		if(this.surname != null && this.surname.length() > 1) {
+			this.surname = Character.toUpperCase(
+					this.surname.charAt(0)) + this.surname.substring(1).toLowerCase();
+		}
 	}
 
 	public String getInitials() {
@@ -87,6 +92,10 @@ public class Patient implements InsertUpdate {
 
 	public void setInitials(String initials) {
 		this.initials = initials == null ? null : initials.trim();
+		
+		if(this.initials != null) {
+			this.initials = this.initials.toUpperCase();
+		}
 	}
 
 	public String getFirstName() {
@@ -95,6 +104,11 @@ public class Patient implements InsertUpdate {
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName == null ? null : firstName.trim();
+		
+		if(this.firstName != null && this.firstName.length() > 1) {
+			this.firstName = Character.toUpperCase(
+					this.firstName.charAt(0)) + this.firstName.substring(1).toLowerCase();
+		}
 	}
 
 	public String getNic() {
