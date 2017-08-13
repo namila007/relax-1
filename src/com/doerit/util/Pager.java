@@ -14,6 +14,7 @@ public class Pager extends UrlWrapper {
 	private Integer limit = DEFAULT_PAGE_LIMIT;
 	
 	private Integer total;
+	//private Integer totalCount;
 	private List<? extends Object> list;
 	
 	public Pager() {

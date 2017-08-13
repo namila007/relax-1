@@ -3,8 +3,10 @@ package com.doerit.dao;
 import com.doerit.model.Patient;
 import com.doerit.model.PatientExample;
 import com.doerit.model.criteria.SearchCriteria;
+import com.doerit.model.TotalRegistrations;
 import com.doerit.util.Pager;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
@@ -31,6 +33,14 @@ public interface PatientMapper {
     @ResultMap("BaseResultMap")
     Patient viewByPrimaryKey(@Param("id")String id);
     
+    @Select("SELECT COUNT(*) AS total,"+
+    		"SUM(sex='male') AS maleTotal," +
+    		"SUM(sex='female') AS femaleTotal," +
+    		"SUM(child='true') AS childTotal" +
+    		" FROM tbl_patient")
+    @ResultMap("totalResultMap")
+    TotalRegistrations viewTotalByDate(@Param("date")String date);
+    
     @Select("SELECT c.* " + 
     		" FROM tbl_patient c " +  
     		" WHERE c.STATUS = #{status} " + 
@@ -43,6 +53,12 @@ public interface PatientMapper {
     		" FROM tbl_patient c " +  
     		" WHERE c.STATUS = #{status}")
 	Integer countAllByStatus(@Param("status")byte status);
+    
+    @Select("SELECT count(0) " + 
+    		" FROM tbl_patient c " +  
+    		" WHERE c.INSERT_DATETIME LIKE '${dateValue}"+"%'" )
+	Integer countAllByDate(@Param("dateValue")String date);
+
 
     @Select("SELECT c.* " + 
     		" FROM tbl_patient c " +  
@@ -94,6 +110,14 @@ public interface PatientMapper {
     		" WHERE c.STATUS = #{status}")
     @ResultMap("BaseResultMap")
     List<? extends Object> viewAllBySearch(SearchCriteria criteria);
+    
+    @Select("SELECT c.*  " + 
+    		" FROM tbl_patient c " +  
+    		" WHERE c.INSERT_DATETIME LIKE '${date}"+"%'" )
+    @ResultMap("BaseResultMap")
+	List<? extends Object> ViewAllByDate(@Param("pager")Pager p, @Param("date")String date);
+	
+    
     
 	
 }

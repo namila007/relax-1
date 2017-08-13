@@ -12,6 +12,16 @@
 			<result name="success">/WEB-INF/content/report/dashboard.jsp</result>
 		</action>
 		
+		<action name="reports-daily" class="com.doerit.action.report.ReportAction" method="dailyReport">
+			
+			<result name="success">/WEB-INF/content/report/Daily.jsp</result>
+		</action>	
+		
+		<action name="reports-weekly" class="com.doerit.action.report.ReportAction" method="weeklyReport">
+			<result name="success">/WEB-INF/content/report/Weekly.jsp</result>
+		</action>	
+		
+		
 	</package>
 		
 </struts>
