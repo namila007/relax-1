@@ -14,27 +14,6 @@
 	background-color: #fff;
 }
 
-.labelCustom {
-	padding: 8px;
-	position: relative;
-	//background-color: #000000;
-	text-align: center;
-}
-
-.flexRow {
-	display: -webkit-flex;
-    display: flex;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
-}
-
-.flexTotal {
-	display: -webkit-flex;
-    display: flex;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
-}
-
 .blue {
 	background-color: #337AB7;
 	border:1px solid #337AB7;

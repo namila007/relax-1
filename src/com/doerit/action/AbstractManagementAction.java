@@ -15,7 +15,6 @@ import com.doerit.model.InsertUpdate;
 import com.doerit.model.StatusModel;
 import com.doerit.service.ActivityLoggerService;
 import com.doerit.util.Pager;
-import com.doerit.model.TotalRegistrations;
 import com.doerit.util.Searcher;
 import com.doerit.util.SessionKey;
 import com.doerit.util.State;
@@ -37,7 +36,6 @@ public class AbstractManagementAction extends AbstractAction implements Preparab
 	private String timeChar;
 	protected String id;
 	protected Pager pager;
-	protected TotalRegistrations RegTotal= new TotalRegistrations();
 	protected Integer pageStart = Pager.DEFAULT_PAGE_START;
 	protected Integer pageSize = Pager.DEFAULT_PAGE_SIZE;
 	protected Boolean paging = false;
@@ -45,7 +43,6 @@ public class AbstractManagementAction extends AbstractAction implements Preparab
 	protected UrlWrapper urlWrapper;
 	protected Searcher searcher;
 
-	
 	protected Mode mode = Mode.ADD; // default
 
 	public Mode getMode() {

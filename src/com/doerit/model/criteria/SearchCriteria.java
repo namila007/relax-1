@@ -8,7 +8,6 @@ import com.doerit.util.Pager;
 public class SearchCriteria {
 
 	protected Pager pager;
-	protected String date;
 	protected String client;
 	protected String business;
 	protected String owner;
@@ -24,14 +23,6 @@ public class SearchCriteria {
 	
 	public void setPager(Pager pager) {
 		this.pager = pager;
-	}
-	
-	public String getDate() {
-		return date;
-	}
-	
-	public void setDate(String date) {
-		this.date = date;
 	}
 
 	public String getClient() {
