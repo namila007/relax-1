@@ -40,7 +40,7 @@
   						</tr>
 						<s:iterator value="pager.list" status="rowIndex">
 						  <tr>
-							<td><s:property value="%{#rowIndex.index + 1}" /> </td>
+							<td><s:property value="%{pager.start + #rowIndex.index + 1}" /> </td>
   							<td><s:property value="%{surname}"/> <s:property value="%{initials}"/> 
   								(<s:property value="%{title}"/>, <s:property value="%{firstName}"/> )</td>
   							<td title="Registered: <s:date name='insertDatetime' format='yyyy/MM/dd hh:mm'/>"><s:property value="serialNumber" /></td>
