@@ -31,22 +31,34 @@
 				<hr>
 
 				<div class="row">
-	            	<div class="col-md-3 col-sm-3 col-xs-12"  >
+	            	
 	       			<% String ss = new SimpleDateFormat("yyyy-MM-dd").format(new Date()); 
 	       				
 	       			%>
 						<%-- <input type="date" class="form-control" id="report-Date" 
 							name="customReportDaily" value='<s:property value='%{customReport.daily}' default='2017-12-01'/>'> --%>
-							<input type="date" class="form-control" id="report-Date" name="customReportDaily" value=<%=ss %>>
-					</div>
-	            	<div class="col-md-3 col-sm-3 col-xs-12"  >
-	            		<s:url var="dailyPrint" namespace="/report" action="#"></s:url>
+							
+					<s:form namespace="/report" action="report-pdf" method="post">
+						<div class="col-md-3 col-sm-3 col-xs-12"  >
+						   <input type="date" class="form-control" id="report-Date" name=customDate value='<s:property value='%{customDate}'/>'>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-12"  >	  
+							<s:submit cssClass="btn btn-primary" value="Print" />
+						</div>	
+					</s:form>		
+						
+							
+					
+	            	<%-- <div class="col-md-3 col-sm-3 col-xs-12"  >
+	            		<s:url var="dailyPrint" namespace="/report" action="report-pdf">
+	            			<s:param name="customDate" value="%{customDate}"></s:param>
+	            		</s:url>
 				
 						<s:a href="%{#dailyPrint}" cssClass="btn btn-primary" style="padding: 6px 60px;" role="button">
 							<i class="glyphicon glyphicon-print" style="padding: 0px;"></i>
 							Print
 						</s:a>
-					</div>						
+					</div>		 --%>				
 	            	
 			    </div>
 			    
@@ -89,16 +101,16 @@
 	            	
 	            		<!-- Here How to obtain the data from the ReportAction.java class which is called from report.xml reports-daily action -->
 	            		<div class="row flexRow">
-			            	<h5 ><b>Total Patients: </b></h5><h5><s:property value="%{report.totalCount}"/></h5>
+			            	<h5 ><b>Total Patients: </b></h5><h5><s:property value="%{register.total}"/></h5>
 			            </div>
 	            		<div class="row flexRow">
-			            	<h5><b>Total Males: </b></h5><h5><s:property value="%{RegTotal.maleCount}"/></h5>
+			            	<h5><b>Total Males: </b></h5><h5><s:property value="%{register.maleTotal}"/></h5>
 			            </div>
 			            <div class="row flexRow">
-			            	<h5><b>Total Females: </b></h5><h5><s:property value="%{RegTotal.femaleCount}"/></h5>
+			            	<h5><b>Total Females: </b></h5><h5><s:property value="%{register.femaleTotal}"/></h5>
 			            </div>
 			            <div class="row flexRow">
-			            	<h5><b>Total Children: </b></h5><h5><s:property value="%{RegTotal.childCount}"/></h5>
+			            	<h5><b>Total Children: </b></h5><h5><s:property value="%{register.childTotal}"/></h5>
 			            </div>
 	            		
 	            	</div>

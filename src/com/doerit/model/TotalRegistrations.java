@@ -12,6 +12,9 @@ public class TotalRegistrations {
 	private Integer childCount;
 	private List<Integer> totalCounts;
 	
+	private Integer DEFAULT_VALUE = 0;
+	
+	
 	public Integer getTotal() {
 		return totalCount;
 	}
@@ -33,19 +36,19 @@ public class TotalRegistrations {
 	}
 
 	public void setTotal(Integer total) {
-		this.totalCount = total;
+		this.totalCount = total != null? total: DEFAULT_VALUE;
 	}
 	
 	public void setMaleTotal(Integer total) {
-		this.maleCount = total;
+		this.maleCount = total != null? total: DEFAULT_VALUE;
 	}
 	
 	public void setFemaleTotal(Integer total) {
-		this.femaleCount = total;
+		this.femaleCount = total != null? total: DEFAULT_VALUE;
 	}
 
 	public void setChildTotal(Integer total) {
-		this.childCount = total;
+		this.childCount = total != null? total: DEFAULT_VALUE;
 	}
 	
 	public void setTotalCounts(List<Integer> l) {

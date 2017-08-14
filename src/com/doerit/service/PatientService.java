@@ -82,7 +82,7 @@ public class PatientService extends AbstractService {
 	
 	public Pager viewAllByPagerAndDate(Pager p, String date) {
 		
-			p.setList(patientMapper.ViewAllByDate(p,date));
+			p.setList(patientMapper.viewAllByDateAndPage(p,date));
 			p.setTotal(patientMapper.countAllByDate(date));
 	
 		return p;
@@ -94,5 +94,9 @@ public class PatientService extends AbstractService {
 		t = patientMapper.viewTotalByDate(date);
 		//t.setTotalCounts(patientMapper.viewTotalByDate(date));
 		return t;
+	}
+	
+	public List<Patient> viewAllByDate(String date){
+		return patientMapper.viewAllByDate(date);
 	}
 }

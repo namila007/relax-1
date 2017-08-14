@@ -1,30 +1,44 @@
 package com.doerit.action.report;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.doerit.action.AbstractManagementAction;
+import com.doerit.action.AbstractDownloadManamentAction;
+import com.doerit.model.Patient;
 import com.doerit.model.TotalRegistrations;
 import com.doerit.service.PatientService;
+import com.doerit.util.PdfReportInformation;
 import com.doerit.util.State;
+import com.itextpdf.text.DocumentException;
 
-public class ReportAction extends AbstractManagementAction{ 
+public class ReportAction extends AbstractDownloadManamentAction{ 
 	
 	private static final long serialVersionUID = 1L;
-	private String customReportDate;
+	private String customDate;
 	private TotalRegistrations register;
 	
 	@Autowired private PatientService patientService;
 	
-	public String getDaily() {
-		return customReportDate;
+	public TotalRegistrations getRegister() {
+		return register;
 	}
 
-	public void setDaily(String dailyDay) {
-		this.customReportDate = dailyDay;
+	public void setRegister(TotalRegistrations register) {
+		this.register = register;
+	}
+	
+	public String getCustomDate() {
+		return customDate;
+	}
+
+	public void setCustomDate(String dailyDay) {
+		this.customDate = dailyDay;
 	}
 	
 	public String dashboard() {
@@ -35,18 +49,17 @@ public class ReportAction extends AbstractManagementAction{
 		return SUCCESS;
 	}
 	
+	
+	
 	public String dailyReport() {
 		
 		try {
 			
-			if(this.customReportDate == null) {
-				this.customReportDate = new SimpleDateFormat("yyy-MM-dd").format(new Date());
-			}
-			
+			setDefaultDate();
 			beforeAction();
-			pager = patientService.viewAllByPagerAndDate(pager, this.customReportDate);
+			pager = patientService.viewAllByPagerAndDate(pager, this.customDate);
 			pager = setActionContext(pager);
-			register = patientService.getTotals(RegTotal, "2017-08-09");
+			setRegister(patientService.getTotals(RegTotal, this.customDate));
 			//System.out.println(RegTotal.getTotal());
 			
 		} catch (Exception e) {
@@ -55,6 +68,45 @@ public class ReportAction extends AbstractManagementAction{
 			e.printStackTrace();
 		}
 		return SUCCESS;
+	}
+
+	public String patientReportPdf() {	
+	
+		try {
+			setDefaultDate();
+			List<Patient> patients = patientService.viewAllByDate(this.customDate);
+			setRegister(patientService.getTotals(RegTotal, this.customDate));
+			
+			PdfReportInformation pdfReporttInformation = new PdfReportInformation();
+			ByteArrayOutputStream baos = pdfReporttInformation.createPdf(patients, this.register, this.customDate);
+			return download(baos, "Daily");
+			
+		} catch (DocumentException e) {
+			e.printStackTrace();
+			addActionError(e.getMessage());
+			return SUCCESS;
+		} catch (IOException e) {
+			e.printStackTrace();
+			addActionError(e.getMessage());
+			return SUCCESS;
+		}
+		
+		
+	}
+	
+	private String download(ByteArrayOutputStream baos, String prefix) {
+		byte[] pdfFile = baos.toByteArray();
+		setFileInputStream(new ByteArrayInputStream(pdfFile));
+
+		String dateString = new SimpleDateFormat("yyyyMMdd_HHmm").format(new Date());
+		setFileName(prefix + dateString + ".pdf");
+		return SUCCESS;
+	}
+	
+	public void setDefaultDate() {
+		if(this.customDate == null) {
+			this.customDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+		}
 	}
 	
 	

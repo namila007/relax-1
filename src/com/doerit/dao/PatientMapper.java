@@ -34,10 +34,11 @@ public interface PatientMapper {
     Patient viewByPrimaryKey(@Param("id")String id);
     
     @Select("SELECT COUNT(*) AS total,"+
-    		"SUM(sex='male') AS maleTotal," +
-    		"SUM(sex='female') AS femaleTotal," +
-    		"SUM(child='true') AS childTotal" +
-    		" FROM tbl_patient")
+    		" SUM(sex='male') AS maleTotal," +
+    		" SUM(sex='female') AS femaleTotal," +
+    		" SUM(child='true') AS childTotal" +
+    		" FROM tbl_patient" +
+    		" WHERE INSERT_DATETIME LIKE '${date}"+"%'")
     @ResultMap("totalResultMap")
     TotalRegistrations viewTotalByDate(@Param("date")String date);
     
@@ -107,15 +108,15 @@ public interface PatientMapper {
 	
     @Select("SELECT c.* " + 
     		" FROM tbl_patient c " +  
-    		" WHERE c.STATUS = #{status}")
+    		" WHERE c.INSERT_DATETIME LIKE '${date}"+"%'")
     @ResultMap("BaseResultMap")
-    List<? extends Object> viewAllBySearch(SearchCriteria criteria);
+    List<Patient> viewAllByDate(@Param("date")String date);
     
     @Select("SELECT c.*  " + 
     		" FROM tbl_patient c " +  
     		" WHERE c.INSERT_DATETIME LIKE '${date}"+"%'" )
     @ResultMap("BaseResultMap")
-	List<? extends Object> ViewAllByDate(@Param("pager")Pager p, @Param("date")String date);
+	List<? extends Object> viewAllByDateAndPage(@Param("pager")Pager p, @Param("date")String date);
 	
     
     

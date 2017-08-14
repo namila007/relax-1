@@ -195,8 +195,7 @@ public class PatientAction extends AbstractDownloadManamentAction {
 			view();
 			PdfPatientInformation pdfPatientInformation = new PdfPatientInformation();
 			ByteArrayOutputStream baos = pdfPatientInformation.createPdf(patient);
-			return download(baos, patient.getSerialNumber());
-			
+			return download(baos, patient.getSerialNumber());			
 		} catch (DocumentException e) {
 			e.printStackTrace();
 			addActionError(e.getMessage());

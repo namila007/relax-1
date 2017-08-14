@@ -47,7 +47,7 @@
 						
 						<s:url var="patientAddUrl" namespace="/patient" action="registration-form.html"></s:url>
 				
-						<s:a href="%{#patientAddUrl}" cssClass="btn btn-primary" style="padding: 6px 60px;" role="button">
+						<s:a href="%{#}" cssClass="btn btn-primary" style="padding: 6px 60px;" role="button">
 							<i class="glyphicon glyphicon-print" style="padding: 0px;"></i>
 							Print
 						</s:a>
