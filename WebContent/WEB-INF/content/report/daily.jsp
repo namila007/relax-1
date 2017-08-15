@@ -32,15 +32,13 @@
 
 				<div class="row">
 	            	
-	       			<% String ss = new SimpleDateFormat("yyyy-MM-dd").format(new Date()); 
-	       				
-	       			%>
 						<%-- <input type="date" class="form-control" id="report-Date" 
 							name="customReportDaily" value='<s:property value='%{customReport.daily}' default='2017-12-01'/>'> --%>
 							
 					<s:form namespace="/report" action="report-pdf" method="post">
 						<div class="col-md-3 col-sm-3 col-xs-12"  >
 						   <input type="date" class="form-control" id="report-Date" name=customDate value='<s:property value='%{customDate}'/>'>
+						   <s:hidden name="viewType" value="D"/>
 						</div>
 						<div class="col-md-3 col-sm-3 col-xs-12"  >	  
 							<s:submit cssClass="btn btn-primary" value="Print" />

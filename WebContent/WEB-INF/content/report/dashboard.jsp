@@ -81,15 +81,15 @@
 				<div class="row">
 				
 	            	<div class="col-md-6 col-sm-6 col-xs-12" style="padding: 10px;">
-	            		<s:url var="patientListUrl" namespace="/patient" action="list.html"></s:url>
-				     	<s:a href="#" cssClass="mainSelect green">
+	            		<s:url var="monthlyReports" namespace="/report" action="reports-monthly.html"></s:url>
+				     	<s:a href="%{#monthlyReports}" cssClass="mainSelect green">
 						    <i class="glyphicon glyphicon-list-alt" style="padding: 10px;"></i>Monthly Reports
 						</s:a>
 	            	</div>
 	            
 	            	<div class="col-md-6 col-sm-6 col-xs-12" style="padding: 10px;">
-	            		<s:url var="patientListUrl" namespace="/patient" action="list.html"></s:url>
-				     	<s:a href="#" cssClass="mainSelect yellow">
+	            		<s:url var="annualReports" namespace="/report" action="reports-annual.html"></s:url>
+				     	<s:a href="%{#annualReports}" cssClass="mainSelect yellow">
 						    <i class="glyphicon glyphicon-list-alt" style="padding: 10px 20px 10px 0px;"></i>Annual Report
 						</s:a>
 	            	</div>

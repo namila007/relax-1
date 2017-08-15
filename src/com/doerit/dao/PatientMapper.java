@@ -42,6 +42,15 @@ public interface PatientMapper {
     @ResultMap("totalResultMap")
     TotalRegistrations viewTotalByDate(@Param("date")String date);
     
+    @Select("SELECT COUNT(*) AS total,"+
+    		" SUM(sex='male') AS maleTotal," +
+    		" SUM(sex='female') AS femaleTotal," +
+    		" SUM(child='true') AS childTotal" +
+    		" FROM tbl_patient" +
+    		" WHERE INSERT_DATETIME BETWEEN '${sDate}"+"%' AND '${eDate}" + "%'")
+    @ResultMap("totalResultMap")
+    TotalRegistrations viewTotalBetweenDates(@Param("sDate")String s_date, @Param("eDate")String e_date);
+    
     @Select("SELECT c.* " + 
     		" FROM tbl_patient c " +  
     		" WHERE c.STATUS = #{status} " + 
@@ -111,6 +120,12 @@ public interface PatientMapper {
     		" WHERE c.INSERT_DATETIME LIKE '${date}"+"%'")
     @ResultMap("BaseResultMap")
     List<Patient> viewAllByDate(@Param("date")String date);
+    
+    @Select("SELECT c.* " + 
+    		" FROM tbl_patient c " +  
+    		" WHERE c.INSERT_DATETIME BETWEEN '${s_date}"+"%' AND " + "'${e_date}" + "%'")
+    @ResultMap("BaseResultMap")
+    List<Patient> viewBySelectedDate(@Param("s_date")String s_date, @Param("e_date")String e_date);
     
     @Select("SELECT c.*  " + 
     		" FROM tbl_patient c " +  

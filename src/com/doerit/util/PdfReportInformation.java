@@ -89,13 +89,14 @@ public class PdfReportInformation {
 		gap.setSpacingBefore(10);
 		document.add(gap);
 
-		document.add(createRegisteredTable());
-		document.add(gap);
-		
 		document.add(createTotalCounts());
 		document.add(gap);
 		document.add(new Chunk(ls));
 		
+		document.add(createRegisteredTable());
+		document.add(gap);
+		document.add(new Chunk(ls));
+			
 		
 	}
 	
@@ -111,12 +112,12 @@ public class PdfReportInformation {
 		table.addCell(createCellValue("Date of Birth", PdfFont.Level2Header));
 		table.addCell(createCellValue("Gender", PdfFont.Level2Header));
 		
-		if(patients.isEmpty()) {
-			PdfPCell cell = createCellValue("No Patient Records", PdfFont.Level2Value);
-			cell.setColspan(4);
-			cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-			table.addCell(cell);
-		}else {
+		PdfPCell cell = createCellValue("  ", PdfFont.Level2Value);
+		cell.setColspan(4);
+		cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+		table.addCell(cell);
+		
+		if(!patients.isEmpty()) {
 			for(int i = 0; i<patients.size(); i++) {
 				table.addCell(createCellValue(patients.get(i).getSerialNumber(), PdfFont.Level2Value));
 				table.addCell(createCellValue(patients.get(i).getPrintName(), PdfFont.Level2Value));
@@ -157,6 +158,11 @@ public class PdfReportInformation {
 			table.addCell(createCellValue(this.registrations.getChildTotal().toString(), PdfFont.Level2Value));
 			table.addCell("");
 			table.addCell("");
+		}else {
+			PdfPCell cell = createCellValue("No Patient Records", PdfFont.Level2Value);
+			cell.setColspan(4);
+			cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+			table.addCell(cell);
 		}
 			
 		

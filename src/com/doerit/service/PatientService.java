@@ -89,14 +89,22 @@ public class PatientService extends AbstractService {
 	}
 	
 	public TotalRegistrations getTotals(TotalRegistrations t, String date) {
-		//Edit
-		//System.out.println(patientMapper.viewTotalByDate(date));
+		
 		t = patientMapper.viewTotalByDate(date);
-		//t.setTotalCounts(patientMapper.viewTotalByDate(date));
+		return t;
+	}
+	
+	public TotalRegistrations getBetweenTotals(TotalRegistrations t, String s_date, String e_date) {
+		
+		t = patientMapper.viewTotalBetweenDates(s_date, e_date);
 		return t;
 	}
 	
 	public List<Patient> viewAllByDate(String date){
 		return patientMapper.viewAllByDate(date);
+	}
+	
+	public List<Patient> veiwAllBetweenDates(String start, String end){
+		return patientMapper.viewBySelectedDate(start, end);
 	}
 }

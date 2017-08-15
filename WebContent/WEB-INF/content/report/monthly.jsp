@@ -21,12 +21,28 @@
 			
 			<!-- page content -->
 			<div class="right_col" role="main">
-				<h2>Weekly Reports</h2>
+				<h2>Monthly Reports</h2>
 				
 				<hr>
 
 				
-				
+				<div class="row">
+	            	
+						<%-- <input type="date" class="form-control" id="report-Date" 
+							name="customReportDaily" value='<s:property value='%{customReport.daily}' default='2017-12-01'/>'> --%>
+							
+					<s:form namespace="/report" action="report-pdf" method="post">
+						<div class="col-md-3 col-sm-3 col-xs-12"  >
+						   <input type="month" class="form-control" id="report-Week" name=customDate value='<s:property value='%{customDate}'/>'>
+						   <s:hidden name="viewType" value="M"/>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-12"  >	  
+							<s:submit cssClass="btn btn-primary" value="Print" />
+						</div>	
+					</s:form>		
+										
+	            	
+			    </div>
 				
 				
 				
