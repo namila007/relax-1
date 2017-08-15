@@ -30,12 +30,6 @@
     <result column="DISTRICT_NAME" property="districtName" jdbcType="CHAR" />
     <result column="PROVINCE_NAME" property="provinceName" jdbcType="CHAR" />
   </resultMap>
-  <resultMap type="com.doerit.model.TotalRegistrations" id="totalResultMap">
-  	<result column="total" property="totalCount" jdbcType="INTEGER" />
-    <result column="maleTotal" property="maleCount" jdbcType="INTEGER" />
-    <result column="femaleTotal" property="femaleCount" jdbcType="INTEGER" />
-    <result column="childTotal" property="childCount" jdbcType="INTEGER" />
-  </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
