@@ -60,7 +60,7 @@
 								</s:url>
 								<s:a href="%{#patientEditUrl}" cssClass="btn btn-xs btn-warning">Edit</s:a>	
   							
-  								<s:url var="printA4Url" namespace="/patient" action="information-pdf">
+  							<s:url var="printA4Url" namespace="/patient" action="information-pdf">
 								<s:param name="id" value="%{id}"></s:param>
 							</s:url>
 								

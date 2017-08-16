@@ -1,7 +1,9 @@
 package com.doerit.service;
 
+
 import java.util.ArrayList;
 import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.doerit.dao.PatientMapper;
 import com.doerit.model.Patient;
 import com.doerit.util.Pager;
+import com.doerit.model.TotalRegistrations;
 import com.doerit.util.State;
 
 @Service
@@ -75,5 +78,33 @@ public class PatientService extends AbstractService {
 		p.setTotal(patientMapper.countAllByStatus(state));
 		
 		return p;
+	}
+	
+	public Pager viewAllByPagerAndDate(Pager p, String date) {
+		
+			p.setList(patientMapper.viewAllByDateAndPage(p,date));
+			p.setTotal(patientMapper.countAllByDate(date));
+	
+		return p;
+	}
+	
+	public TotalRegistrations getTotals(TotalRegistrations t, String date) {
+		
+		t = patientMapper.viewTotalByDate(date);
+		return t;
+	}
+	
+	public TotalRegistrations getBetweenTotals(TotalRegistrations t, String s_date, String e_date) {
+		
+		t = patientMapper.viewTotalBetweenDates(s_date, e_date);
+		return t;
+	}
+	
+	public List<Patient> viewAllByDate(String date){
+		return patientMapper.viewAllByDate(date);
+	}
+	
+	public List<Patient> veiwAllBetweenDates(String start, String end){
+		return patientMapper.viewBySelectedDate(start, end);
 	}
 }
