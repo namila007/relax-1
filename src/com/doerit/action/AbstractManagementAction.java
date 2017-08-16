@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.doerit.model.ActivityLogger;
 import com.doerit.model.InsertUpdate;
 import com.doerit.model.StatusModel;
+import com.doerit.model.TotalRegistrations;
 import com.doerit.service.ActivityLoggerService;
 import com.doerit.util.Pager;
 import com.doerit.util.Searcher;
@@ -42,6 +43,7 @@ public class AbstractManagementAction extends AbstractAction implements Preparab
 	protected String targetDiv = null;
 	protected UrlWrapper urlWrapper;
 	protected Searcher searcher;
+	protected TotalRegistrations RegTotal;
 
 	protected Mode mode = Mode.ADD; // default
 
