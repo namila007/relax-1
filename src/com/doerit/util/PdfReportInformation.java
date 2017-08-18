@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import com.doerit.model.DistrictRegistrationMapper;
 import com.doerit.model.Patient;
 import com.doerit.model.TotalRegistrations;
 import com.doerit.service.PatientService;
@@ -31,13 +32,17 @@ public class PdfReportInformation {
 	
 	private TotalRegistrations registrations;
 	private List<Patient> patients;
+	private List<DistrictRegistrationMapper> districts;
 	private String reportType;
 	
-	public ByteArrayOutputStream createPdf(List<Patient> patientList, TotalRegistrations RegTot, String Type) throws DocumentException, IOException {
+	public ByteArrayOutputStream createPdf(List<Patient> patientList, List<DistrictRegistrationMapper> districtList, TotalRegistrations RegTot, String Type) throws DocumentException, IOException {
 		
 		this.patients = patientList;
+		this.districts = districtList;
 		this.registrations = RegTot;
 		this.reportType = Type;
+		
+		//System.out.println(districts);
 		
 		FontFactory.defaultEmbedding = true;
 		FontFactory.registerDirectories();
@@ -93,6 +98,10 @@ public class PdfReportInformation {
 		document.add(gap);
 		document.add(new Chunk(ls));
 		
+		document.add(createDistrictCounts());
+		document.add(gap);
+		document.add(new Chunk(ls));
+		
 		document.add(createRegisteredTable());
 		document.add(gap);
 		document.add(new Chunk(ls));
@@ -130,6 +139,33 @@ public class PdfReportInformation {
 		
 		return table;
 
+	}
+	
+	private PdfPTable createDistrictCounts() throws DocumentException, IOException{
+		
+		PdfPTable table = new PdfPTable(8);
+		table.setWidths(new float[] { 3, 1, 3, 1, 3, 1, 3, 1});
+		table.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+				
+		
+			for(int i = 0; i<districts.size(); i++) {
+				
+					table.addCell(createCellValue(districts.get(i).getDistrict()+": ", PdfFont.Level2Header));
+				if(districts.get(i).getDistrictTotal() != null) {	
+					table.addCell(createCellValue(districts.get(i).getDistrictTotal().toString(), PdfFont.Level2Value));				
+				}else {
+					table.addCell(createCellValue("0", PdfFont.Level2Value));
+				}
+			}
+			
+			table.addCell(createCellValue(" ", PdfFont.Level2Value));
+			table.addCell(createCellValue(" ", PdfFont.Level2Value));
+			table.addCell(createCellValue(" ", PdfFont.Level2Value));
+			table.addCell(createCellValue(" ", PdfFont.Level2Value));
+			table.addCell(createCellValue(" ", PdfFont.Level2Value));
+			table.addCell(createCellValue(" ", PdfFont.Level2Value));
+		return table;
+		
 	}
 	
 	private PdfPTable createTotalCounts() throws DocumentException, IOException {

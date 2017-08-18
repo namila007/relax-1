@@ -35,7 +35,16 @@
     <result column="maleTotal" property="maleCount" jdbcType="INTEGER" />
     <result column="femaleTotal" property="femaleCount" jdbcType="INTEGER" />
     <result column="childTotal" property="childCount" jdbcType="INTEGER" />
+    
   </resultMap>
+  
+  <resultMap type="com.doerit.model.DistrictRegistrationMapper" id="totalDistrictRegMap">
+  	<result column="NAME" property="district" jdbcType="CHAR" />
+    <result column="total" property="districtTotal" jdbcType="INTEGER" />
+   
+  </resultMap>
+  
+  
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

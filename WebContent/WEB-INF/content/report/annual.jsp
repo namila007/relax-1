@@ -36,6 +36,7 @@
 <!-- 							<input type="number" min="1750" max="2099" step="1" value="2016" /> -->
 						   <input type="number" min="1750" max="2099" step="1" class="form-control" id="yearPicker" name=customDate value='<s:property value='%{customDate}'/>'>
 						   <s:hidden name="viewType" value="A"/>
+						   <s:hidden name="pattern" value="%Y"/>
 						</div>
 						<div class="col-md-3 col-sm-3 col-xs-12"  >	  
 							<s:submit cssClass="btn btn-primary" value="Print" />

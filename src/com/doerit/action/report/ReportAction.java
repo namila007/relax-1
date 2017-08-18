@@ -14,6 +14,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.doerit.action.AbstractDownloadManamentAction;
+import com.doerit.model.DistrictRegistrationMapper;
 import com.doerit.model.Patient;
 import com.doerit.model.TotalRegistrations;
 import com.doerit.service.PatientService;
@@ -28,12 +29,40 @@ public class ReportAction extends AbstractDownloadManamentAction {
 
 	private static final long serialVersionUID = 1L;
 	private String customDate;
+	private String customEndDate;
 	private TotalRegistrations register;
 	private Character viewType;
+	private String pattern = "%Y-%m-%d"; // Default
+	private Boolean isCustom = false;
 
 	@Autowired
 	private PatientService patientService;
+	
+	public String getCustomEndDate() {
+		return customEndDate;
+	}
 
+	public void setCustomEndDate(String customEndDate) {
+		this.customEndDate = customEndDate;
+	}
+
+
+	public Boolean getIsCustom() {
+		return isCustom;
+	}
+
+	public void setIsCustom(Boolean isCustom) {
+		this.isCustom = isCustom;
+	}
+	
+	public void setPattern(String pat){
+		this.pattern = pat;
+	}
+	
+	public String getPattern() {
+		return pattern;
+	}
+		
 	public Character getViewType() {
 		return viewType;
 	}
@@ -59,14 +88,17 @@ public class ReportAction extends AbstractDownloadManamentAction {
 	}
 
 	public String dashboard() {
+		setIsCustom(true);
+		setDefaultDate();
 		return SUCCESS;
 	}
 
 	public String dailyReport() {
-
+		
 		try {
 
 			setDefaultDate();
+			setIsCustom(false);
 			beforeAction();
 			pager = patientService.viewAllByPagerAndDate(pager, this.customDate);
 			pager = setActionContext(pager);
@@ -84,12 +116,15 @@ public class ReportAction extends AbstractDownloadManamentAction {
 	public String weeklyReport() {
 
 		setDefaultDate();
-
+		setIsCustom(false);
 		return SUCCESS;
 	}
 
 	public String monthlyReport() {
+		
 		setDefaultDate();
+		this.pattern = "%Y-%m";
+		setIsCustom(false);
 		this.customDate = this.customDate.substring(0, this.customDate.length() - 3);
 		return SUCCESS;
 	}
@@ -97,6 +132,8 @@ public class ReportAction extends AbstractDownloadManamentAction {
 	
 	public String annualReport() {
 		setDefaultDate();
+		this.pattern = "%Y";
+		setIsCustom(false);		
 		this.customDate = this.customDate.substring(0, this.customDate.length() - 6);
 		return SUCCESS;
 	}
@@ -138,10 +175,13 @@ public class ReportAction extends AbstractDownloadManamentAction {
 
 	public List<Patient> getList() {
 		List<Patient> list = null;
-		if (viewType == 'W') {
+		if (getIsCustom()) {
+			list = patientService.veiwAllBetweenDates(this.customDate, this.customEndDate);
+		}else if (viewType == 'W') {
 			int week = 7;
 			list = patientService.veiwAllBetweenDates(getWeekStart(this.customDate),
 					getEndDate(getWeekStart(this.customDate), week));
+			
 		}else {
 			list = patientService.viewAllByDate(this.customDate);
 		}
@@ -149,14 +189,34 @@ public class ReportAction extends AbstractDownloadManamentAction {
 		return list;
 
 	}
+	
+	public List<DistrictRegistrationMapper> getDistrictList(){
+
+		List<DistrictRegistrationMapper> rList = null;
+		if (getIsCustom()) {
+			rList = patientService.viewAllBetweenRegDistricts(this.customDate, this.customEndDate);
+		}else if (viewType == 'W') {
+			int week = 7;
+			rList = patientService.viewAllBetweenRegDistricts(getWeekStart(this.customDate), getEndDate(getWeekStart(this.customDate), week));
+		}else {
+			//System.out.println(this.pattern);
+			rList = patientService.viewAllRegDistricts(this.customDate, this.pattern);
+		}
+		
+		return rList;
+	}
 
 	public String patientReportPdf() {
 
 		try {
 			setDefaultDate();
 			List<Patient> patients = this.getList();
+			List<DistrictRegistrationMapper> districts = this.getDistrictList();
 
-			if (getViewType() == 'W') {
+				
+			if (getIsCustom()) {
+				setRegister(patientService.getBetweenTotals(RegTotal, this.customDate, this.customEndDate));
+			}else if (getViewType() == 'W') {
 				setRegister(patientService.getBetweenTotals(RegTotal, getWeekStart(this.customDate),
 						getEndDate(getWeekStart(this.customDate), 7)));
 				// System.out.println(patientService.getBetweenTotals(RegTotal, this.customDate,
@@ -166,7 +226,7 @@ public class ReportAction extends AbstractDownloadManamentAction {
 			}
 
 			PdfReportInformation pdfReporttInformation = new PdfReportInformation();
-			ByteArrayOutputStream baos = pdfReporttInformation.createPdf(patients, this.register, this.customDate);
+			ByteArrayOutputStream baos = pdfReporttInformation.createPdf(patients, districts, this.register, this.customDate);
 
 			return download(baos, "Daily");
 
@@ -195,6 +255,13 @@ public class ReportAction extends AbstractDownloadManamentAction {
 		if (this.customDate == null) {
 			this.customDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 		}
+		
+		if (this.customEndDate == null) {
+			this.customEndDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+		}
 	}
+
+	
+	
 
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.doerit.dao.PatientMapper;
+import com.doerit.model.DistrictRegistrationMapper;
 import com.doerit.model.Patient;
 import com.doerit.util.Pager;
 import com.doerit.model.TotalRegistrations;
@@ -106,5 +107,13 @@ public class PatientService extends AbstractService {
 	
 	public List<Patient> veiwAllBetweenDates(String start, String end){
 		return patientMapper.viewBySelectedDate(start, end);
+	}
+	
+	public List<DistrictRegistrationMapper> viewAllRegDistricts(String start, String pattern){
+		return patientMapper.viewDistrictTotals(start, pattern);
+	}
+	
+	public List<DistrictRegistrationMapper> viewAllBetweenRegDistricts(String start, String end){
+		return patientMapper.viewDistrictBetweenTotals(start, end);
 	}
 }

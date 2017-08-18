@@ -25,37 +25,33 @@
 			<div class="right_col" role="main">
 				<h2>Report Dashboard</h2>
 				
+				<br>
+				
 				<div class="row flexRow">
-					<div class="col-md-2 col-sm-2 col-xs-12" >
+					<div class="col-md-2 col-sm-2 col-xs-12" style="padding-Top:5px; text-Align:right">
 						<label class="labelCustom" >Custom Report :</label>
 					</div>
-					<div class="col-md-3 col-sm-3 col-xs-12"  >
-						<input type="date" class="form-control" id="dateStart" 
-							name="customReport.startDate" value="<s:property value='%{customReport.startDate}' />">
-					</div>
 					
-					<div class="col-md-1 col-sm-1 col-xs-12" style="text-align: center;" >
-						<label class="labelCustom" >  to </label>
-					</div>
-					
-					<div class="col-md-3 col-sm-3 col-xs-12" >
-						<input type="date" class="form-control" id="dateEnd"
-							name="customReport.endDate" value="<s:property value='%{customReport.endDate}' />">
-					</div>
-					
-					<div class="col-md-2 col-sm-2 col-xs-12"> 
-						
-						<s:url var="patientAddUrl" namespace="/patient" action="registration-form.html"></s:url>
-				
-						<s:a href="%{#}" cssClass="btn btn-primary" style="padding: 6px 60px;" role="button">
-							<i class="glyphicon glyphicon-print" style="padding: 0px;"></i>
-							Print
-						</s:a>
-						
-					
-					</div>
+					<s:form namespace="/report" action="report-pdf" method="post">
+						<div class="col-md-3 col-sm-3 col-xs-12"  >
+						   <input type="date" class="form-control" id="report-Custom-Start" name=customDate value='<s:property value='%{customDate}'/>'>			   
+						</div>
+						<div class="col-md-1 col-sm-1 col-xs-12" style="text-align: center; padding-Top: 5px" >
+							<label class="labelCustom" >  to </label>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-12"  >
+						   <input type="date" class="form-control" id="report-Custom-End" name=customEndDate value='<s:property value='%{customEndDate}'/>'>
+						</div>					
+						<div class="col-md-3 col-sm-3 col-xs-12" style="padding: 0px 50px" >	  
+							<s:submit cssClass="btn btn-primary" value="Print" style="padding: 6px 50px"/>							
+						   	<s:hidden name="isCustom" value="true"/>
+						   	<s:hidden name="viewType" value="C"/>	
+						</div>	
+					</s:form>	
 					
 				</div>
+				
+				<br><br>
 								
 				<div class="row">
 								

@@ -62,7 +62,7 @@
 			    
 			    <br>
 			    
-				<div class="row">
+				<div class="row flexRow">
 	            	<div class="col-md-6 col-sm-6 col-xs-12" style="padding: 10px; background-color: frfrfr;">
 	            		<s:actionerror cssClass="errorMessage"/>
 			
@@ -95,7 +95,7 @@
 						</s:else>
 	            	</div>
 	            	
-	            	<div class="col-md-4 col-sm-4 col-xs-12" style="padding: 10px 20px;">
+	            	<div class="col-md-4 col-sm-4 col-xs-12 flexRow" style="border-style: ridge; border-width: 5px; border-color: dddddd; padding: 10px 50px;">
 	            	
 	            		<!-- Here How to obtain the data from the ReportAction.java class which is called from report.xml reports-daily action -->
 	            		<div class="row flexRow">
