@@ -1,5 +1,6 @@
 package com.doerit.dao;
 
+import com.doerit.model.DistrictRegistrationMapper;
 import com.doerit.model.Patient;
 import com.doerit.model.PatientExample;
 import com.doerit.model.criteria.SearchCriteria;
@@ -50,6 +51,22 @@ public interface PatientMapper {
     		" WHERE INSERT_DATETIME BETWEEN '${sDate}"+"%' AND '${eDate}" + "%'")
     @ResultMap("totalResultMap")
     TotalRegistrations viewTotalBetweenDates(@Param("sDate")String s_date, @Param("eDate")String e_date);
+    
+    @Select("SELECT d.NAME, s.total FROM " + 
+    		"(SELECT p.DISTRICT_ID AS district, COUNT(p.DISTRICT_ID) AS total FROM tbl_patient p " +
+    		"WHERE p.INSERT_DATETIME BETWEEN '${sDate}%' AND '${eDate}%' GROUP BY district) s " +
+    		"RIGHT OUTER JOIN tbl_district d ON s.district=d.ID")
+    @ResultMap("totalDistrictRegMap")
+    List<DistrictRegistrationMapper> viewDistrictBetweenTotals(@Param("sDate")String s_date, @Param("eDate")String e_date);
+    
+    @Select("SELECT s2.NAME, s.total FROM" + 
+    		" (SELECT DATE_FORMAT(INSERT_DATETIME, '${pattern}') AS date, DISTRICT_ID AS district, COUNT(*) AS total FROM tbl_patient c" +
+    		" GROUP BY date,district HAVING date LIKE '${date}" + "%') s" + 
+    		" RIGHT JOIN (SELECT ID, NAME FROM tbl_district) s2 ON s.district=s2.ID")
+    @ResultMap("totalDistrictRegMap")
+    List<DistrictRegistrationMapper> viewDistrictTotals(@Param("date")String date, @Param("pattern")String pattern);
+    
+    // SELECT d.NAME, count(p.DISTRICT_ID) AS total FROM tbl_patient p left join tbl_district d on d.ID = p.DISTRICT_ID WHERE p.INSERT_DATETIME BETWEEN '2017-08-14%' AND '2017-08-20' GROUP BY p.DISTRICT_ID;
     
     @Select("SELECT c.* " + 
     		" FROM tbl_patient c " +  

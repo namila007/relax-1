@@ -35,6 +35,7 @@
 						<div class="col-md-3 col-sm-3 col-xs-12"  >
 						   <input type="month" class="form-control" id="report-Week" name=customDate value='<s:property value='%{customDate}'/>'>
 						   <s:hidden name="viewType" value="M"/>
+						   <s:hidden name="pattern" value="%Y-%m"/>
 						</div>
 						<div class="col-md-3 col-sm-3 col-xs-12"  >	  
 							<s:submit cssClass="btn btn-primary" value="Print" />
