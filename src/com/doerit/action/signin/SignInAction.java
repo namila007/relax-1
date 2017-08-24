@@ -9,6 +9,8 @@ import com.doerit.exception.SessionNotExist;
 import com.doerit.model.Employee;
 import com.doerit.model.UserAccount;
 import com.doerit.model.ActivityLogger.MessageType;
+import com.doerit.model.Department;
+import com.doerit.service.DepartmentService;
 import com.doerit.service.EmployeeService;
 import com.doerit.service.UserAccountService;
 import com.doerit.util.SessionKey;
@@ -21,7 +23,6 @@ public class SignInAction extends AbstractManagementAction {
 
 	@Autowired private UserAccountService userAccountService;
 	@Autowired private EmployeeService employeeService;
-
 	private UserAccount userAccount;
 
 	public String myProfile() throws SessionNotExist {
@@ -83,7 +84,7 @@ public class SignInAction extends AbstractManagementAction {
 					}
 				}
 				
-				else if(userAccount.getCategoryRelationId().equals("DEPARTMENT")) {
+				if(userAccount.getCategoryRelationId().equals("DEPARTMENT")) {
 					
 					String foreignKey = userAccount.getRelationId();
 					
@@ -99,10 +100,32 @@ public class SignInAction extends AbstractManagementAction {
 								"SUCCESS", "Email: " + su.getName() + ", Host: " + ServletActionContext.getRequest().getRemoteHost());
 						
 					} else {
-						addActionError("Employee does not exist in the employee repo");
+						addActionError("Department does not exist in the employee repo");
 						return INPUT;
 					}
-				}				
+				}
+				
+				/*				else if(userAccount.getCategoryRelationId().equals("DEPARTMENT")) {
+					
+					String foreignKey = userAccount.getRelationId();
+					
+					//Employee employee = employeeService.viewById(foreignKey);
+					Department department = departmentService.viewById(foreignKey);
+
+					if(department != null) {
+						su.setRole("DEPARTMENT");
+						su.setRoleName(department.getUserRole());
+						su.setName(department.getName());
+						addSessionUser(su);
+						
+						addLoggerMessage("tbl_user_account", MessageType.SIGN_IN.toString(),
+								"SUCCESS", "Email: " + su.getName() + ", Host: " + ServletActionContext.getRequest().getRemoteHost());
+						
+					} else {
+						addActionError("Department does not exist in the department repo");
+						return INPUT;
+					}
+				}*/				
 				
 				/*addLoggerMessage(su.getId(), ActivityLogger.MessageType.SIGN_IN.toString(), "Web Application",
 						su.getEmail());*/

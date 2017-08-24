@@ -132,7 +132,21 @@ public abstract class AbstractAction extends ActionSupport implements SessionAwa
 		}
 		return false;
 	}
-	
+
+/*	public boolean isDepartment(){
+		
+		try {
+			SessionUser su = getSessionUser();
+			
+			if (su.getRoleName().equalsIgnoreCase(UserRoleType.DEPARTMENT.getDbId())) {
+				return true;
+			}
+			
+		} catch (Exception e) {
+			return false;
+		}
+		return false;
+	}	*/
 	
 	public void removeSessionVariable(SessionKey key) throws SessionNotExist {
 		if (session != null) {
