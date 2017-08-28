@@ -22,6 +22,7 @@ public class DashBoardAction extends AbstractManagementAction {
 			userRole = getUserRole();
 			
 			if (userRole.equals("EMPLOYEE")) {
+				System.out.println("emp login");
 				employeeDashboard();
 				
 				return userRole;
@@ -32,7 +33,7 @@ public class DashBoardAction extends AbstractManagementAction {
 				
 			} else if (userRole.equals("DEPARTMENT")) {
 				departmentDashboard();
-				
+				System.out.println("dep login");
 				return userRole;
 			} 
 			
@@ -43,7 +44,7 @@ public class DashBoardAction extends AbstractManagementAction {
 		return userRole;
 	}
 
-	private void departmentDashboard() {		
+	private void departmentDashboard() {
 	}
 
 	private void employeeDashboard() { 
