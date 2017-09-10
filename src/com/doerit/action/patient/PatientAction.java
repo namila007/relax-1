@@ -243,16 +243,16 @@ public class PatientAction extends AbstractDownloadManamentAction {
 		int month = calendar.get(Calendar.MONTH) + 1; //java month zero basis
 		
 		String serial = String.valueOf(year);
-		if(month < 9){
+		if(month < 10){		
 			serial += "0";  //make month two digits
 		}
 		serial += String.valueOf(month);
-		
+			
 		int previousCount = patientService.findMonthlyCount(serial);
 		previousCount++;
 		
 		serial += String.format("%04d", previousCount);  //make count 4 digits
-		
+				
 		return serial;
 	}
 
