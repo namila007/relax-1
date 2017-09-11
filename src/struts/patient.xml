@@ -37,6 +37,14 @@
 			<result name="success">/WEB-INF/content/patient/view.jsp</result>
 		</action>
 		
+		<action name="visits" class="com.doerit.action.patient.PatientVisitAction" method="view">
+			<result name="success">/WEB-INF/content/patient/visits.jsp</result>
+		</action>
+		
+		<action name="addVisits" class="com.doerit.action.patient.PatientVisitAction" method="addVisit">
+			<result name="success">/WEB-INF/content/patient/visits.jsp</result>
+		</action>
+		
 		<action name="print" class="com.doerit.action.patient.PatientAction" method="view">
 			<result name="success">/WEB-INF/content/patient/view-print.jsp</result>
 		</action>		

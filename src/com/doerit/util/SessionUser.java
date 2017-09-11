@@ -8,6 +8,7 @@ public class SessionUser {
 	private String mobile;
 	private String role;
 	private String roleName;
+	private String department;
 
 	public String getRoleName() {
 		return roleName;
@@ -63,6 +64,14 @@ public class SessionUser {
 
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
 	}
 
 }

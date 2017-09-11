@@ -100,5 +100,9 @@ public interface PatientVisitMapper {
     @Select("SELECT * FROM tbl_patient_visit WHERE STATUS = #{status}")
     @ResultMap("BaseResultMap")
 	List<PatientVisit> findAllActive(@Param("status")byte databaseValue);
+    
+    @Select("SELECT a.PATIENT_ID, (SELECT b.NAME FROM tbl_department b WHERE a.DEPARTMENT_ID=b.ID ) AS DEPARTMENT, a.COMMENT, a.INSERT_DATETIME FROM tbl_patient_visit a WHERE a.PATIENT_ID = #{id}")
+    @ResultMap("relationResultMap")
+	List<PatientVisit> findByIdWithDepartment(@Param("id")String patientID);
 
 }

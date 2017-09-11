@@ -133,6 +133,30 @@ public abstract class AbstractAction extends ActionSupport implements SessionAwa
 		return false;
 	}
 
+	public boolean isNurse() {
+
+		try {
+			SessionUser su = getSessionUser();
+
+			if (su.getRoleName().equalsIgnoreCase(UserRoleType.DENTAL_NURSE.getDbId())
+					|| su.getRoleName().equalsIgnoreCase(UserRoleType.HEALTH_MINISTRY_NURSE.getDbId())) {
+				return true;
+			}
+
+		} catch (Exception e) {
+			return false;
+		}
+		return false;
+	}
+	
+	public boolean authorizeVisits(){
+		
+		if (isAdmin() || isDentalDoctor() || isNurse()) {
+			return true;
+		}
+		return false;
+	}
+	
 /*	public boolean isDepartment(){
 		
 		try {

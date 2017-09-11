@@ -45,6 +45,7 @@ public class PatientAction extends AbstractDownloadManamentAction {
 	}
 	
 	public String view() {
+		//System.out.println(getId());
 		if(getId() != null) {
 			patient = patientService.viewById(getId());
 			viewProperties();
@@ -54,6 +55,10 @@ public class PatientAction extends AbstractDownloadManamentAction {
 		}
 		return SUCCESS;
 	}
+	
+//	public String visits() {
+//		return SUCCESS;
+//	}
 	
 	private String viewProperties() {
 		if(getId() != null) {

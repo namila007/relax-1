@@ -27,8 +27,8 @@
 				<hr>
 
 				<div class="row">
-	            	<div class="col-md-6 col-sm-6 col-xs-12" style="padding: 10px;">
-	            		<s:url var="patientAddUrl" namespace="/patient" action="registration-form.html"></s:url>
+	            	<div class="col-md-12 col-sm-6 col-xs-12" style="padding: 10px;">
+	            		<s:url var="patientAddUrl" namespace="/patient" action="visits.html"></s:url>
 				     	<s:a href="%{#patientAddUrl}" cssClass="mainSelect blue">
 						    <i class="fa fa-user-plus" style="padding: 10px;"></i>Add Visit
 						</s:a>
