@@ -18,6 +18,16 @@
     <result column="INSERT_DATETIME" property="insertDatetime" jdbcType="TIMESTAMP" />
     <result column="UPDATE_DATETIME" property="updateDatetime" jdbcType="TIMESTAMP" />
   </resultMap>
+  
+  <!-- Custom Result map for obtaining department names  -->
+  <resultMap type="com.doerit.model.PatientVisit" id="relationResultMap">  	
+  	<result column="PATIENT_ID" property="patientId" jdbcType="CHAR" />
+    <result column="DEPARTMENT" property="department" jdbcType="CHAR" />
+    <result column="COMMENT" property="comment" jdbcType="CHAR" />
+  	<result column="INSERT_DATETIME" property="insertDatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  
   <sql id="Example_Where_Clause" >
     <!--
       WARNING - @mbggenerated

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.doerit.dao.PatientVisitMapper;
 import com.doerit.model.PatientVisit;
+import com.doerit.model.PatientVisitExample;
+import com.doerit.util.Pager;
 import com.doerit.util.State;
 
 @Service
@@ -28,6 +30,17 @@ public class PatientVisitService {
 	
 	public PatientVisit viewById(String id) {
 		return patientVisitMapper.selectByPrimaryKey(id);
+	}
+	
+	public Pager viewByPatientId(Pager p, String id){
+		PatientVisitExample sample = new PatientVisitExample();
+		sample.createCriteria().andPatientIdEqualTo(id);
+		p.setList(patientVisitMapper.selectByExample(sample));
+		
+		p.setList(patientVisitMapper.findByIdWithDepartment(id));
+		p.setTotal(patientVisitMapper.countByExample(sample));
+		
+		return p;
 	}
 	
 	

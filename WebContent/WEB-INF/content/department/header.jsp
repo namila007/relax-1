@@ -33,8 +33,8 @@
             </s:form>
         </div>
 		<div class="col-md-3 pull-right"> 
-			<s:url var="patientListUrl" namespace="/department" action="list.html"></s:url>
-			<s:url var="patientAddUrl" namespace="/department" action="registration-form.html"></s:url>
+			<s:url var="patientListUrl" namespace="/patient" action="list.html"></s:url>
+			<s:url var="patientAddUrl" namespace="/patient" action="registration-form.html"></s:url>
 			<%-- <s:url var="patientHiddenUrl" namespace="/patient" action="hidden-list.html"></s:url>
 			 --%>
 			<s:a href="%{#patientAddUrl}" cssClass="btn btn-primary" role="button">Add New</s:a>

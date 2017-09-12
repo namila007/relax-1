@@ -18,11 +18,19 @@ public class DashBoardAction extends AbstractManagementAction {
 	public String dashBoard() {
 		
 		String userRole = null;
+		boolean isPatientAuthorizer = false;
 		try {
 			userRole = getUserRole();
+			isPatientAuthorizer = authorizeVisits();
 			
-			if (userRole.equals("EMPLOYEE")) {
-				System.out.println("emp login");
+			if (userRole.equals("EMPLOYEE") && isPatientAuthorizer) {
+				System.out.println("auth emp login");
+				authEmployeeDashboard();
+				
+				return "AUTHORIZED "+userRole;
+				
+			} else if( userRole.equals("EMPLOYEE") ) {
+				System.out.println("auth emp login");
 				employeeDashboard();
 				
 				return userRole;
@@ -33,7 +41,7 @@ public class DashBoardAction extends AbstractManagementAction {
 				
 			} else if (userRole.equals("DEPARTMENT")) {
 				departmentDashboard();
-				System.out.println("dep login");
+				
 				return userRole;
 			} 
 			
@@ -42,6 +50,10 @@ public class DashBoardAction extends AbstractManagementAction {
 		}
 				
 		return userRole;
+	}
+
+	private void authEmployeeDashboard() {
+		
 	}
 
 	private void departmentDashboard() {

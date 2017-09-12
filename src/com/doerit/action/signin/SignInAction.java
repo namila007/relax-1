@@ -73,6 +73,8 @@ public class SignInAction extends AbstractManagementAction {
 						su.setRole("EMPLOYEE");
 						su.setRoleName(employee.getUserRole());
 						su.setName(employee.getFirstName() + " " + employee.getSurname());
+						su.setDepartment(employee.getDepartment());
+						
 						addSessionUser(su);
 						
 						addLoggerMessage("tbl_user_account", MessageType.SIGN_IN.toString(),
@@ -94,6 +96,7 @@ public class SignInAction extends AbstractManagementAction {
 						su.setRole("DEPARTMENT");
 						su.setRoleName(employee.getUserRole());
 						su.setName(employee.getFirstName() + " " + employee.getSurname());
+						su.setDepartment(employee.getDepartment());
 						addSessionUser(su);
 						
 						addLoggerMessage("tbl_user_account", MessageType.SIGN_IN.toString(),
@@ -153,6 +156,8 @@ public class SignInAction extends AbstractManagementAction {
 		SessionUser sessionUser = new SessionUser();
 		sessionUser.setUserId(user.getId());
 		sessionUser.setEmail(user.getUserName());
+		
+		
 
 		return sessionUser;
 	}

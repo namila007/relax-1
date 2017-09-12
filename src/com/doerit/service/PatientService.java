@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.doerit.dao.PatientMapper;
 import com.doerit.model.DistrictRegistrationMapper;
 import com.doerit.model.Patient;
+import com.doerit.model.PatientExample;
 import com.doerit.util.Pager;
 import com.doerit.model.TotalRegistrations;
 import com.doerit.util.State;
@@ -23,6 +24,17 @@ public class PatientService extends AbstractService {
 	
 	public Patient viewById(String id) {
 		return patientMapper.viewByPrimaryKey(id);
+	}
+	
+	public Patient viewBySerial(String serial) {
+		PatientExample sample = new PatientExample();
+		sample.createCriteria().andSerialNumberEqualTo(serial);
+		
+		if(!patientMapper.selectByExample(sample).isEmpty()){
+			return patientMapper.selectByExample(sample).get(0);
+		}
+		return null;
+		
 	}
 	
 	public int save(Patient patient) {
