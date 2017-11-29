@@ -23,21 +23,22 @@
 </head>
 
 <body class="nav-md">
-<div class="container body">
-    <div class="main_container">
+	<div class="container body">
+		<div class="main_container">
 
-        <s:include value="/WEB-INF/content/common/title-bar.jsp"></s:include>
-        <s:include value="/WEB-INF/content/common/top-bar.jsp"></s:include>
+			<s:include value="/WEB-INF/content/common/title-bar.jsp"></s:include>
+			<s:include value="/WEB-INF/content/common/top-bar.jsp"></s:include>
 
-        <!-- page content -->
-        <div class="right_col" role="main">
+			<div class="row"></div>
 
-            <!-- nav bar -->
-            <div class="menu">
-                <s:include value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"/>
-            </div>
-            <!-- ed of nav bar -->
-            <!-- ed of nav bar -->
+			<!-- page content -->
+			<div class="addMenu">
+
+				<div class="right_col" role="main">
+
+					<s:include
+						value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"></s:include>
+
             <div class="row">
                 <div class="col-md-3">
                     <h4>Sugar consumption</h4>
