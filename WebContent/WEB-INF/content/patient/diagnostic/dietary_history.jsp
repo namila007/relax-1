@@ -17,8 +17,9 @@
     <s:include value="/WEB-INF/content/common/meta-tags.jsp"></s:include>
     <title><s:text name="global.application.title"/></title>
     <s:include value="/WEB-INF/content/common/css-include.jsp"></s:include>
-
-
+    <!-- custom css for diagnostic menu bar starts-->
+    <link href="<s:url value="/css/menubar.css" includeParams="none"/>" rel="stylesheet" type="text/css">
+    <!-- custom css for diagnostic menu bar ends-->
 
 </head>
 

@@ -14,8 +14,8 @@
 
             <ul class="nav navbar-nav" >
                 <li >
-                    <s:url var="registration-form" action="registration-form" namespace="/patient"></s:url>
-                    <s:a  href="%{#registration-form}">Home</s:a>
+                    <s:url var="patientAddUrl" namespace="/patient" action="registration-form.html"></s:url>
+                    <s:a  href="%{#patientAddUrl}">Home</s:a>
                 </li>
                 <li >
                     <s:url var="past_dental_history" action="past_dental_history" namespace="/patient"></s:url>
