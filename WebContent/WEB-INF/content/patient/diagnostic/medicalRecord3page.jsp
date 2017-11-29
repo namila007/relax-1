@@ -76,15 +76,10 @@
 
 						<div class="col-sm-12">
 							<div class="row">
-								<div class="col-sm-6 col-xs-12">
-									<s:url var="drughistory2page" action="drughistory2page"
-										namespace="/patient"></s:url>
-									<s:a href="%{#drughistory2page}">
-										<button type="button" class="btn btn-primary"
-											style="width: 100%; height: 50px; float: right;"
-											class="btn btn-success">Back</button>
-									</s:a>
-								</div>
+						<ul class="pager">
+								<li class="previous"><a href="medicalRecord2page.html#">Previous</a></li>
+								<li class="next"><a href="#">Next</a></li>
+						</ul> <br> <br>	
 							</div>
 						</div>
 					</div>

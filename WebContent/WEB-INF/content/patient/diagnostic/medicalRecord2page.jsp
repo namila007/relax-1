@@ -164,24 +164,11 @@
 
 					<div class="col-sm-12">
 						<div class="row">
-							<div class="col-sm-6 col-xs-12">
-								<s:url var="drughistory" action="drughistory"
-									namespace="/patient"></s:url>
-								<s:a href="%{#drughistory}">
-									<button type="button" class="btn btn-primary"
-										style="width: 100%; height: 50px; float: right;"
-										class="btn btn-success">Back</button>
-								</s:a>
-							</div>
-							<div class="col-sm-6 col-xs-12">
-								<s:url var="drughistory3page" action="drughistory3page"
-									namespace="/patient"></s:url>
-								<s:a href="%{#drughistory3page}">
-									<button type="button" class="btn btn-primary"
-										style="width: 100%; height: 50px; float: right;"
-										class="btn btn-success">Next</button>
-								</s:a>
-							</div>
+						<ul class="pager">
+								<li class="previous"><a href="medicalRecord.html#">Previous</a></li>
+								<li class="next"><a href="medicalRecord3page.html#">Next</a></li>
+						</ul> <br> <br>		
+						</div>
 						</div>
 					</div>
 				</div>
