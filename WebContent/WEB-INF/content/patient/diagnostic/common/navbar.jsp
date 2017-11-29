@@ -25,9 +25,10 @@
                     <s:url var="medical_record" action="medical_record" namespace="/patient"></s:url>
                     <s:a  href="%{#medical_record}">Medical Record</s:a>
                 </li>
-                <li class="drughistory">
-                    <a href="#">Drug history </a>
-                </li>
+                <li>
+                    <s:url var="drughistory" action="drughistory" namespace="/patient"></s:url>
+                    <s:a  href="%{#drughistory}">Drug history</s:a>
+                </li>                
                 <li class="investigations">
                     <a href="#">Investigations</a>
                 </li>

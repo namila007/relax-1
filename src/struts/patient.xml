@@ -99,7 +99,9 @@
 			<result name="success">/WEB-INF/content/patient/diagnostic/past_dental_history.jsp</result>
 		</action>
 
-
+		<action name="drughistory" class="com.doerit.action.patient.PatientAction" method="registrationForm">
+			<result name="success">/WEB-INF/content/patient/diagnostic/drughistory.jsp</result>
+		</action>
 		<!--nav bar end-->
 
 		<!--diagnostic btn start-->
@@ -108,7 +110,15 @@
 		</action>
 		<!--diagnostic btn action end-->
 
-		
+		<!-- drughistory2ndpage -->
+		<action name="drughistory2page" class="com.doerit.action.patient.PatientAction" method="registrationForm">
+			<result name="success">/WEB-INF/content/patient/diagnostic/drughistory2page.jsp</result>
+		</action>
+
+		<!-- drughistory3ndpage -->
+		<action name="drughistory3page" class="com.doerit.action.patient.PatientAction" method="registrationForm">
+			<result name="success">/WEB-INF/content/patient/diagnostic/drughistory3page.jsp</result>
+		</action>		
 	</package>
 		
 </struts>
