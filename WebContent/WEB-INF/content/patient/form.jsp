@@ -224,6 +224,12 @@
 									</div>
 								</s:if>
 								<s:else>
+									<!--diagno button start-->
+									<s:url var="diagno" action="diagnostic" namespace="/patient"></s:url>
+									<s:a href="%{#diagno}">
+										<button  type="button" class="btn btn-primary"> Add Diagnostic Report</button>
+									</s:a>
+									<!--diagno button end-->
 									<%-- <div class="col-md-3 col-sm-3 col-xs-12">
 										<s:submit cssClass="btn btn-default" value="Add guardian info"></s:submit>									
 									</div> --%>
