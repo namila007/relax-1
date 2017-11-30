@@ -30,6 +30,7 @@ pageEncoding="UTF-8"%>
 
 			<!-- page content -->
 			<div class="right_col" role="main">
+			<div class="row"></div>
 				<s:include value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"></s:include>
 				<!-- New section -->
 				<div class="py-4">
