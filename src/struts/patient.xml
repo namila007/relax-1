@@ -15,7 +15,15 @@
 		<!-- <action name="registration-form-guardian" class="com.doerit.action.patient.PatientAction" method="registrationGuardianForm">
 			<result name="success">/WEB-INF/content/patient/registration-form-guardian.jsp</result>
 		</action> -->
+		<action name="diagnose-form" class="com.doerit.action.patient.PatientAction" method="registrationForm">
+			<result name="success">/WEB-INF/content/patient/diagnostic/Habits.jsp</result>
+		</action>
 		
+		<action name="processRegister" class="com.doerit.action.investigation.InvestigationAction" method="processRegister">
+			<result name="success">/WEB-INF/content/patient/diagnostic/Investigation_ViewDetails.jsp</result>
+		</action>
+
+
 		<action name="registration-save" class="com.doerit.action.patient.PatientAction" method="save">
 			<result name="success">/WEB-INF/content/patient/view.jsp</result>
 			<result name="input">/WEB-INF/content/patient/form.jsp</result>
@@ -80,7 +88,53 @@
 			</result>
 			<result name="input">/WEB-INF/content/common/error.jsp</result>		
 		</action>
+
+		<!--navbar-->
+
+		<action name="plaque_control" class="com.doerit.action.patient.PatientAction" method="registrationForm">
+			<result name="success">/WEB-INF/content/patient/diagnostic/plaque_control.jsp</result>
+		</action>
+
+		<action name="dietary_history" class="com.doerit.action.patient.PatientAction" method="registrationForm">
+			<result name="success">/WEB-INF/content/patient/diagnostic/dietary_history.jsp</result>
+		</action>
+
+		<action name="medical_record" class="com.doerit.action.patient.PatientAction" method="registrationForm">
+			<result name="success">/WEB-INF/content/patient/diagnostic/medical_record.jsp</result>
+		</action>
+
+		<action name="past_dental_history" class="com.doerit.action.patient.PatientAction" method="registrationForm">
+			<result name="success">/WEB-INF/content/patient/diagnostic/past_dental_history.jsp</result>
+		</action>
+
+		<action name="medicalRecord" class="com.doerit.action.patient.PatientAction" method="registrationForm">
+			<result name="success">/WEB-INF/content/patient/diagnostic/medicalRecord.jsp</result>
+		</action>
 		
+		<action name="diagnose-form" class="com.doerit.action.patient.PatientAction" method="registrationForm">
+			<result name="success">/WEB-INF/content/patient/diagnostic/Habits.jsp</result>
+		</action>
+		
+		<action name="processRegister" class="com.doerit.action.investigation.InvestigationAction" method="processRegister">
+			<result name="success">/WEB-INF/content/patient/diagnostic/Investigation_ViewDetails.jsp</result>
+		</action>
+		<!--nav bar end-->
+
+		<!--diagnostic btn start-->
+		<action name="diagnostic" class="com.doerit.action.patient.PatientAction" method="registrationForm">
+			<result name="success">/WEB-INF/content/patient/diagnostic/past_dental_history.jsp</result>
+		</action>
+		<!--diagnostic btn action end-->
+
+		<!-- drughistory2ndpage -->
+		<action name="medicalRecord2page" class="com.doerit.action.patient.PatientAction" method="registrationForm">
+			<result name="success">/WEB-INF/content/patient/diagnostic/medicalRecord2page.jsp</result>
+		</action>
+
+		<!-- drughistory3ndpage -->
+		<action name="medicalRecord3page" class="com.doerit.action.patient.PatientAction" method="registrationForm">
+			<result name="success">/WEB-INF/content/patient/diagnostic/medicalRecord3page.jsp</result>
+		</action>		
 	</package>
 		
 </struts>
