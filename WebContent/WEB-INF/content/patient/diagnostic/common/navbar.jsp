@@ -29,12 +29,11 @@
                 <li class="investigations">
                     <a href="#">Drug history</a>
                 </li>                            
-                <li class="investigations">
-                    <a href="#">Investigations</a>
+                <li >
+                	<s:url var="diagnoseform" action="diagnose-form" namespace="/patient"></s:url>
+                    <s:a href="%{#diagnoseform}">Investigations & Habits</s:a>
                 </li>
-                <li class="habits">
-                    <a href="#">Habits</a>
-                </li>
+                
                 <li>
                     <s:url var="plaqueControl" action="plaque_control" namespace="/patient"></s:url>
                     <s:a  href="%{#plaqueControl}">Plaque control & Brushing Habits</s:a>
