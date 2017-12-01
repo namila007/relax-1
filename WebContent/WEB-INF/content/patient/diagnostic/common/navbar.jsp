@@ -13,9 +13,14 @@
     <div class="container-fluid ">
 
             <ul class="nav navbar-nav" >
-                <li >
+               <!--   <li >
                     <s:url var="patientAddUrl" namespace="/patient" action="registration-form.html"></s:url>
                     <s:a  href="%{#patientAddUrl}">Home</s:a>
+                </li>-->
+                
+                  <li >
+                    <s:url var="complaint" action="complaint" namespace="/patient"></s:url>
+                    <s:a  href="%{#complaint}">Home</s:a>
                 </li>
                 <li >
                     <s:url var="past_dental_history" action="past_dental_history" namespace="/patient"></s:url>

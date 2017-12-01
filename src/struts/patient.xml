@@ -90,6 +90,9 @@
 		</action>
 
 		<!--navbar-->
+			<action name="complaint" class="com.doerit.action.patient.PatientAction" method="registrationForm">
+			<result name="success">/WEB-INF/content/patient/diagnostic/complaint.jsp</result>
+		</action>
 
 		<action name="plaque_control" class="com.doerit.action.patient.PatientAction" method="registrationForm">
 			<result name="success">/WEB-INF/content/patient/diagnostic/plaque_control.jsp</result>
