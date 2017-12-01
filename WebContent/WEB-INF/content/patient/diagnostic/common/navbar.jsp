@@ -7,6 +7,7 @@
 <nav class="navbar navbar-inverse" style="background-color: #66cb32;border-color: #3cc04a; color: #36c02e;">
     <div class="container-fluid ">
 
+			<ul class="nav navbar-nav navbarcurrent">
                 <li >
                     <s:url var="complaint" action="complaint" namespace="/patient"></s:url>
                     <s:a  href="%{#complaint}">Home</s:a>
