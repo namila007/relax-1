@@ -23,7 +23,7 @@ pageEncoding="UTF-8"%>
 			<s:include value="/WEB-INF/content/common/top-bar.jsp"></s:include>
 
 			<!-- page content -->
-			<div class="right_col" role="main">
+			<div class="right_col" role="main" style="margin-bottom:40px;">
 
 				<!-- New section -->
 				<div class="py-4">

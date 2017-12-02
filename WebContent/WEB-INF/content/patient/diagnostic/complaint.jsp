@@ -18,21 +18,19 @@
 	rel="stylesheet" type="text/css">
 <!-- custom css for diagnostic menu bar ends-->
 <style type="text/css">
-  
-#text{
-	height:150px;}
-#printbtn {
+#text {
+	height: 150px;
+}
 
-width:150px;   
+#printbtn {
+	width: 150px;
 }
 
 input[type=text] {
-   
-   padding-left:8px;
-   border-radius:5px;
-   border-color:black;
-   border-width:1px;
- 
+	padding-left: 8px;
+	border-radius: 5px;
+	border-color: black;
+	border-width: 1px;
 }
 </style>
 </head>
@@ -49,11 +47,13 @@ input[type=text] {
 			<!-- page content -->
 			<div class="addMenu">
 
-				<div class="right_col" role="main">
+				<div class="right_col" role="main" style="margin-bottom:40px;">
 
 					<s:include
 						value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"></s:include>
 					<div class="container">
+
+						<div style="margin-top:50px;">
 
 						<form class="form-horizontal" action="/action_page.php">
 							<div class="form-group">
@@ -78,12 +78,9 @@ input[type=text] {
 										placeholder="History of Complaint" name="History">
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-sm-10"></div>
-								<button id="printbtn" type="button"
-									class="btn btn-primary btn-lg">Next</button>
-							</div>
+
 						</form>
+						</div>
 					</div>
 
 
@@ -92,9 +89,9 @@ input[type=text] {
 
 			</div>
 		</div>
-
-		<s:include value="/WEB-INF/content/common/footer.jsp"></s:include>
-		<!-- Custom Theme Scripts -->
-		<s:include value="/WEB-INF/content/common/js-include.jsp"></s:include>
+	</div>
+	<s:include value="/WEB-INF/content/common/footer.jsp"></s:include>
+	<!-- Custom Theme Scripts -->
+	<s:include value="/WEB-INF/content/common/js-include.jsp"></s:include>
 </body>
 </html>

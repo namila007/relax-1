@@ -30,12 +30,12 @@
 			<div class="row"></div>
 
 			<!-- page content -->
-			<div class="right_col" role="main">
+			<div class="right_col" role="main" style="margin-bottom:40px;">
 
 				<s:include
 					value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"></s:include>
 
-				<div class="containerbody">
+				<div class="containerbody" style="overflow-y: scroll; height:500px;">
 
 					<div class="row">
 	                        <div class="col-sm-3">

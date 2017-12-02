@@ -46,12 +46,12 @@ function openCity(evt, cityName) {
 			<div class="row"></div>
 
 			<!-- page content -->
-			<div class="right_col" role="main">
+			<div class="right_col" role="main" style="margin-bottom:40px;">
 
 				<s:include
 					value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"></s:include>
 
-				<div class="container">
+				<div  class="container">
 
 					<div class="tab">
 						<button class="tablinks" onclick="openCity(event, 'London')">FirstPage</button>
@@ -60,7 +60,7 @@ function openCity(evt, cityName) {
 						<button class="tablinks" onclick="openCity(event, 'Fourth')">FourthPage</button>
 					</div>
 
-					<div id="London" class="tabcontent">
+					<div id="London" class="tabcontent" style="overflow-y: scroll; height:500px;">
 
 						<div class="containerbody">
 							<div class="row">
@@ -137,7 +137,7 @@ function openCity(evt, cityName) {
 
 					</div>
 
-					<div id="Paris" class="tabcontent">
+					<div id="Paris" class="tabcontent" class="tabcontent" style="overflow-y: scroll; height:500px;">
 						<div class="containerbody">
 
 							<div class="row">
@@ -265,7 +265,7 @@ function openCity(evt, cityName) {
 					</div>
 				</div>
 
-				<div id="Tokyo" class="tabcontent">
+				<div id="Tokyo" class="tabcontent" class="tabcontent" style="overflow-y: scroll; height:500px;">
 
 					<div class="row">
 
@@ -442,7 +442,7 @@ function openCity(evt, cityName) {
 					</div>
 				</div>
 
-				<div id="Fourth" class="tabcontent">
+				<div id="Fourth" class="tabcontent" class="tabcontent" style="overflow-y: scroll; height:500px;">
 					<div class="containerbody">
 	
 						<div class="col-sm-6">

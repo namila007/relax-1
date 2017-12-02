@@ -46,7 +46,7 @@ function openCity(evt, cityName) {
 			<div class="row"></div>
 
 			<!-- page content -->
-			<div class="right_col" role="main">
+			<div class="right_col" role="main" style="margin-bottom:40px;">
 
 				<s:include
 					value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"></s:include>
@@ -61,7 +61,7 @@ function openCity(evt, cityName) {
 					<s:form namespace="/patient" action="processRegister.html"
 						method="post">
 
-						<div id="London" class="tabcontent">
+						<div id="London" class="tabcontent" style="overflow-y: scroll; height:500px;">
 							<div class="containerbody">
 
 								<div class="row">
@@ -197,7 +197,7 @@ function openCity(evt, cityName) {
 							</div>
 						</div>
 
-						<div id="Paris" class="tabcontent">
+						<div id="Paris" class="tabcontent" style="overflow-y: scroll; height:500px;">
 
 							<div class="containerbody">
 
