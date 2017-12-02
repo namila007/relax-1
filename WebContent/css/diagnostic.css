@@ -54,12 +54,12 @@ div.tab button.active {
 }
 
 .containerbody p{
-	color:red;
-	font-size:30px;
+	color:blue;
+	font-size:15px;
 }
 
 .containerbody .row{
-	padding:30px;
+	padding:10px;
 }
 
 .containerbody	input[type=text] {
