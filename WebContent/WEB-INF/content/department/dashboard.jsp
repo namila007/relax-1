@@ -21,7 +21,7 @@
 			<s:include value="/WEB-INF/content/common/top-bar.jsp"></s:include>
 			
 			<!-- page content -->
-			<div class="right_col" role="main" style="margin-bottom:40px;">
+			<div class="right_col" role="main">
 				<h2>Department Dashboard</h2>
 				<s:include value="/WEB-INF/content/department/header.jsp"></s:include>
 				<hr>
