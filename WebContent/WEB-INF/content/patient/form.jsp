@@ -18,7 +18,7 @@
 			<s:include value="/WEB-INF/content/common/top-bar.jsp"></s:include>
 
 			<!-- page content -->
-			<div class="right_col" role="main" style="margin-bottom:40px;">
+			<div class="right_col" role="main">
 			
 				<s:include value="/WEB-INF/content/patient/header.jsp"></s:include>
 				<h4>Patient Registration</h4>
@@ -224,20 +224,12 @@
 									</div>
 								</s:if>
 								<s:else>
-									<!--diagno button start-->
-									<center>
-										<s:url var="diagno" action="diagnostic" namespace="/patient"></s:url>
-										<s:a href="%{#diagno}">
-											<button  type="button" class="btn btn-primary col-sm-12"> Add Diagnostic Report</button>
-										</s:a>
-										<!--diagno button end-->
-										<%-- <div class="col-md-3 col-sm-3 col-xs-12">
-											<s:submit cssClass="btn btn-default" value="Add guardian info"></s:submit>									
-										</div> --%>
-										<div class="col-md-3 col-sm-3 col-xs-12">
-											<s:submit cssClass="btn btn-success" value="Register and Finish"></s:submit>									
-										</div>		
-									</center>							
+									<%-- <div class="col-md-3 col-sm-3 col-xs-12">
+										<s:submit cssClass="btn btn-default" value="Add guardian info"></s:submit>									
+									</div> --%>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<s:submit cssClass="btn btn-success" value="Register and Finish"></s:submit>									
+									</div>									
 								</s:else>
 								
 							</div>
