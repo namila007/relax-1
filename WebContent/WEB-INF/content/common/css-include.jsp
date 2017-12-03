@@ -10,7 +10,6 @@
 <link href="<s:url value="/vendors/nprogress/nprogress.css" includeParams="none"/>" rel="stylesheet" type="text/css">
 <link href="<s:url value="/css/custom.min.css" includeParams="none"/>" rel="stylesheet" type="text/css">
 
-<%-- <link href="<s:url value="/css/drughistory.css" includeParams="none"/>" rel="stylesheet" type="text/css"> --%>
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
