@@ -1,225 +1,256 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Namila
-  Date: 11/28/2017
-  Time: 8:46 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
-<%@ taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <s:include value="/WEB-INF/content/common/meta-tags.jsp"></s:include>
-    <title><s:text name="global.application.title"/></title>
-    <s:include value="/WEB-INF/content/common/css-include.jsp"></s:include>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link
+	href="<s:url value="/css/dashboard-component.css" includeParams="none"/>"
+	rel="stylesheet" type="text/css">
+
+<s:include value="/WEB-INF/content/common/meta-tags.jsp"></s:include>
+<title><s:text name="global.application.title" /></title>
+<s:include value="/WEB-INF/content/common/css-include.jsp"></s:include>
+<link href="<s:url value="/css/diagnostic.css" includeParams="none"/>"
+	rel="stylesheet" type="text/css">
+<link href="<s:url value="/css/menubar.css" includeParams="none"/>"
+	rel="stylesheet" type="text/css">
 
 </head>
 
 <body class="nav-md">
-<div class="container body">
-    <div class="main_container">
-
-        <s:include value="/WEB-INF/content/common/title-bar.jsp"></s:include>
-        <s:include value="/WEB-INF/content/common/top-bar.jsp"></s:include>
-
-        <!-- page content -->
-        <div class="right_col" role="main">
-
-            <!-- nav bar -->
-            <div class="menu">
-                <s:include value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"/>
-            </div>
-            <!-- ed of nav bar -->
-            <div class="container">
-
-                <div class="row">
-                    <div class="col-sm-3">
-
-                        <h4>Extraction:</h4>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <form>
-
-                            <div class="radio radio-info">
-                                <label><input type="radio" name="optradio"><p>Yes<p></label>
-                            </div>
-
-                            <div class="radio radio-info">
-                                <label><input type="radio" name="optradio"><p>No<p></label>
-                            </div>
-
-
-                        </form>
-
-                    </div>
-
-                    <div class="col-sm-3">
-                        <h4>Complications :</h4>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <form>
-
-                            <div class="radio radio-info">
-                                <label><input type="radio" name="optradio"><p>Yes<p></label>
-                            </div>
-
-                            <div class="radio radio-info">
-                                <label><input type="radio" name="optradio"><p>No<p></label>
-                            </div>
-
-
-                        </form>
-
-                    </div>
-
-
-                </div>
-
-                <div class = "row">
-                    <div class="col-sm-3">
-                        <h4>Other Minor/Major Oral Surgery?</h4>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <form>
-
-                            <div class="radio-inline radio-info">
-                                <label><input type="radio" name="optradio"><p>Yes<p></label>
-                            </div>
-
-                            <div class="radio-inline radio-info">
-                                <label><input type="radio" name="optradio"><p>No<p></label>
-                            </div>
-
-
-                        </form>
-
-                    </div>
-
-
-
-                </div>
-
-
-                <div class = "row">
-                    <div class="col-sm-3">
-                        <h4>Periodontal Rx?</h4>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <form>
-                            <div class="radio-inline radio-info">
-                                <label><input type="radio" name="optradio2"><p>No<p></label>
-                            </div>
-
-                            <div class="radio-inline radio-info">
-                                <label><input type="radio" name="optradio2" ><p>Yes<p></label>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-sm-3">
-
-                        <select class="form-control" name = "mal">
-                            <option value="select1">Scaling</option>
-                            <option value="select2">Root Debridement</option>
-                            <option value="select3">Surgical Perio Rx</option>
-                            <option value="select4">Maintenance Care</option>
-                        </select>
-
-                    </div>
-                </div>
-
-                <div class = "row">
-                    <div class="col-sm-3">
-                        <h4>Orthodontic Treatment :</h4>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <br>
-                        <form>
-
-                            <div class="radio-inline radio-info">
-                                <label><input type="radio" name="optradio"><p>Yes<p></label>
-                            </div>
-
-                            <div class="radio-inline radio-info">
-                                <label><input type="radio" name="optradio"><p>No<p></label>
-                            </div>
-
-
-                        </form>
-
-                    </div>
-
-
-
-                </div>
-
-
-
-
-                <div class = "row">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-3"><h4>Complications:</h4></div>
-
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control" id="usr" placeholder="Type here">
-                    </div>
-
-
-
-                </div>
-
-
-                <div class = "row">
-                    <div class="col-sm-3">
-                        <h4>Restorative Rx/Prosthesis?</h4>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <br>
-                        <form>
-
-                            <div class="radio-inline radio-info">
-                                <label><input type="radio" name="optradio"><p>Yes<p></label>
-                            </div>
-
-                            <div class="radio-inline radio-info">
-                                <label><input type="radio" name="optradio"><p>No<p></label>
-                            </div>
-
-
-                        </form>
-
-                    </div>
-
-
-
-                </div>
-
-                <div class = "row">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-3"><h4>Complications:</h4></div>
-
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control" id="usr" placeholder="Type here">
-                    </div>
-                </div>
-                <b>
-                    <ul class="pager">
-                        <li class="previous"><a href="#">Previous</a></li>
-                        <li class="next"><a href="medical_record.html">Next</a></li>
-                    </ul>
-                    <br>
-                    <br>
-            </div>
-        </div>
-
+	<div class="container body">
+		<div class="main_container">
+
+			<s:include value="/WEB-INF/content/common/title-bar.jsp"></s:include>
+			<s:include value="/WEB-INF/content/common/top-bar.jsp"></s:include>
+
+			<div class="row"></div>
+
+			<!-- page content -->
+			<div class="right_col" role="main" style="margin-bottom:40px;">
+
+				<s:include
+					value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"></s:include>
+
+				<div class="containerbody" style="overflow-y: scroll; height:500px;">
+
+					<div class="row">
+	                        <div class="col-sm-3">
+	
+	                            <p>Extraction:</p>
+	                        </div>
+	
+	                        <div class="col-sm-3">
+	                            <form>
+	
+	                                <div class="radio radio-info">
+	                                    <label><input type="radio" name="optradio">
+	                                        Yes
+	                                        </label>
+	                                </div>
+	
+	                                <div class="radio radio-info">
+	                                    <label><input type="radio" name="optradio">
+	                                        No
+	                                        </label>
+	                                </div>
+	
+	
+	                            </form>
+	
+	                        </div>
+	
+	                        <div class="col-sm-3">
+	                            <p>Complications :</p>
+	                        </div>
+	
+	                        <div class="col-sm-3">
+	                            <form>
+	
+	                                <div class="radio radio-info">
+	                                    <label><input type="radio" name="optradio">
+	                                        Yes
+	                                        </label>
+	                                </div>
+	
+	                                <div class="radio radio-info">
+	                                    <label><input type="radio" name="optradio">
+	                                        No
+	                                        </label>
+	                                </div>
+	
+	
+	                            </form>
+	
+	                        </div>
+	
+	
+	                    </div>
+	
+	                    <div class="row">
+	                        <div class="col-sm-3">
+	                            <p>Other Minor/Major Oral Surgery?</p>
+	                        </div>
+	
+	                        <div class="col-sm-3">
+	                            <form>
+	
+	                                <div class="radio-inline radio-info">
+	                                    <label><input type="radio" name="optradio">
+	                                        Yes
+	                                        </label>
+	                                </div>
+	
+	                                <div class="radio-inline radio-info">
+	                                    <label><input type="radio" name="optradio">
+	                                        No
+	                                        </label>
+	                                </div>
+	
+	
+	                            </form>
+	
+	                        </div>
+	
+	
+	                    </div>
+	
+	
+	                    <div class="row">
+	                        <div class="col-sm-3">
+	                            <p>Periodontal Rx?</p>
+	                        </div>
+	
+	                        <div class="col-sm-3">
+	                            <form>
+	                                <div class="radio-inline radio-info">
+	                                    <label><input type="radio" name="optradio2">
+	                                        No
+	                                        </label>
+	                                </div>
+	
+	                                <div class="radio-inline radio-info">
+	                                    <label><input type="radio" name="optradio2">
+	                                        Yes
+	                                        </label>
+	                                </div>
+	                            </form>
+	                        </div>
+	                        <div class="col-sm-3">
+	
+	                            <select class="form-control" name="mal">
+	                                <option value="select1">Scaling</option>
+	                                <option value="select2">Root Debridement</option>
+	                                <option value="select3">Surgical Perio Rx</option>
+	                                <option value="select4">Maintenance Care</option>
+	                            </select>
+	
+	                        </div>
+	                    </div>
+	
+	                    <div class="row">
+	                        <div class="col-sm-3">
+	                            <p>Orthodontic Treatment :</p>
+	                        </div>
+	
+	                        <div class="col-sm-3">
+	                            <br>
+	                            <form>
+	
+	                                <div class="radio-inline radio-info">
+	                                    <label><input type="radio" name="optradio">
+	                                        Yes
+	                                        </label>
+	                                </div>
+	
+	                                <div class="radio-inline radio-info">
+	                                    <label><input type="radio" name="optradio">
+	                                        No
+	                                        </label>
+	                                </div>
+	
+	
+	                            </form>
+	
+	                        </div>
+	
+	
+	                    </div>
+	
+	
+	                    <div class="row">
+	                        <div class="col-sm-3"></div>
+	                        <div class="col-sm-3">
+	                            Complications:
+	                        </div>
+	
+	                        <div class="col-sm-3">
+	                            <input type="text" class="form-control" id="usr"
+	                                   placeholder="Type here">
+	                        </div>
+	
+	
+	                    </div>
+	
+	
+	                    <div class="row">
+	                        <div class="col-sm-3">
+	                            <p>Restorative Rx/Prosthesis?</p>
+	                        </div>
+	
+	                        <div class="col-sm-3">
+	                            <br>
+	                            <form>
+	
+	                                <div class="radio-inline radio-info">
+	                                    <label><input type="radio" name="optradio">
+	                                        Yes
+	                                        </label>
+	                                </div>
+	
+	                                <div class="radio-inline radio-info">
+	                                    <label><input type="radio" name="optradio">
+	                                        No
+	                                        </label>
+	                                </div>
+	
+	
+	                            </form>
+	
+	                        </div>
+	
+	
+	                    </div>
+	
+	                    <div class="row">
+	                        <div class="col-sm-3"></div>
+	                        <div class="col-sm-3">
+	                            Complications:
+	                        </div>
+	
+	                        <div class="col-sm-3">
+	                            <input type="text" class="form-control" id="usr"
+	                                   placeholder="Type here">
+	                        </div>
+	                    </div>
+
+				</div>	
+
+			</div>
+			<!-- /page content -->
+
+		</div>
+	</div>
+
+	<s:include value="/WEB-INF/content/common/footer.jsp"></s:include>
+
+	<!-- Custom Theme Scripts -->
+	<s:include value="/WEB-INF/content/common/js-include.jsp"></s:include>
 
 </body>
 </html>
+
+
