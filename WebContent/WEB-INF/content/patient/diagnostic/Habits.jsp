@@ -6,64 +6,52 @@
 <html lang="en">
 
 <head>
-<link
-    href="<s:url value="/css/dashboard-component.css" includeParams="none"/>"
-    rel="stylesheet" type="text/css">
-
-<s:include value="/WEB-INF/content/common/meta-tags.jsp"></s:include>
-<title><s:text name="global.application.title" /></title>
-<s:include value="/WEB-INF/content/common/css-include.jsp"></s:include>
-<link href="<s:url value="/css/diagnostic.css" includeParams="none"/>"
-    rel="stylesheet" type="text/css">
-<link href="<s:url value="/css/menubar.css" includeParams="none"/>"
-    rel="stylesheet" type="text/css">
-
-<script>
-function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-</script>
-
+		<link href="<s:url value="/css/dashboard-component.css" includeParams="none"/>" rel="stylesheet" type="text/css">
+		<s:include value="/WEB-INF/content/common/meta-tags.jsp"></s:include>
+		<title><s:text name="global.application.title" /></title>
+		<s:include value="/WEB-INF/content/common/css-include.jsp"></s:include>
+		<!--<link href="<s:url value="/css/diagnostic.css" includeParams="none"/>" rel="stylesheet" type="text/css">
+		<link href="<s:url value="/css/menubar.css" includeParams="none"/>" rel="stylesheet" type="text/css"> -->
+		 
+	 	<style type="text/css">	 	
+	 		.containerbody .row{
+				padding:10px;}
+	
+			.containerbody	input[type=text],input[type=time] {
+			   font-size:20;
+			   padding-left:8px;
+			   width:250px;
+			   border-radius:5px;
+			   border-color:black;
+			   border-width:1px;
+			   height:40px;}	
+	 	</style>
 </head>
 
 <body class="nav-md">
     <div class="container body">
         <div class="main_container">
-
             <s:include value="/WEB-INF/content/common/title-bar.jsp"></s:include>
             <s:include value="/WEB-INF/content/common/top-bar.jsp"></s:include>
-
+            
             <div class="row"></div>
 
-            <!-- page content -->
-            <div class="right_col" role="main" style="margin-bottom:40px;">
-
-                <s:include
-                    value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"></s:include>
-
-                <div class="container">
-
-                    <div class="tab">
-                        <button class="tablinks" onclick="openCity(event, 'London')">Investigation</button>
-                        <button class="tablinks" onclick="openCity(event, 'Paris')">Habits</button>
-                    </div>
-
-                    <s:form namespace="/patient" action="processRegister.html"
-                        method="post">
-
-                        <div id="London" class="tabcontent" style="overflow-y: scroll; height:500px;">
-                            <div class="containerbody">
-
+		<!-- page content -->
+			<div class="right_col" role="main" style="margin-bottom:40px;">
+                <s:include value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"></s:include>
+				<s:form namespace="/patient" action="processRegister.html" method="post">
+                        
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+						  <li class="nav-item">
+						    <a class="nav-link" id="investigation-tab" data-toggle="tab" href="#investigation" role="tab" aria-controls="investigation" aria-selected="true">Investigation</a>
+						  </li>
+						  <li class="nav-item">
+						    <a class="nav-link" id="habits-tab" data-toggle="tab" href="#habits" role="tab" aria-controls="habits" aria-selected="false">Habits</a>
+						  </li>					  
+					</ul>
+					<div class="tab-content" id="myTabContent">
+						<div class="tab-pane fade" id="investigation" role="tabpanel" aria-labelledby="investigation-tab">					        					                                
+                          <div class="containerbody">							
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="row">
@@ -127,9 +115,8 @@ function openCity(evt, cityName) {
                                                     placeholder="Enter FBC" />
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="row">
+                                        
+                                         <div class="row">
                                             <div class="col-xs-12 col-sm-12 col-md-5">
                                                 <p class="">FBS</p>
                                             </div>
@@ -138,7 +125,9 @@ function openCity(evt, cityName) {
                                                     cssClass="form-control" id="fbs" name="investigation.fbs"
                                                     placeholder="Enter FBS" />
                                             </div>
-                                        </div>
+                                        </div>                                                                                
+                                    </div>
+                                    <div class="col-sm-6">                                       
                                         <div class="row">
                                             <div class="col-xs-12 col-sm-12 col-md-5">
                                                 <p class="">RBS</p>
@@ -190,17 +179,13 @@ function openCity(evt, cityName) {
                                                     placeholder="Enter Liver Enzymes" />
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
-
                             </div>
-                        </div>
-
-                        <div id="Paris" class="tabcontent" style="overflow-y: scroll; height:500px;">
-
-                            <div class="containerbody">
-
+						</div>
+                       
+						<div class="tab-pane fade" id="habits" role="tabpanel" aria-labelledby="habits-tab">                          
+							<div class="containerbody">
                                 <div class="row">
                                     <div class="form-group required">
                                         <div class="row">
@@ -247,9 +232,8 @@ function openCity(evt, cityName) {
                                                 <br>
                                                 <s:textfield required="required" title="smokeDuration"
                                                     type="text" cssClass="form-control" id="smokeDuration"
-                                                    name="investigation.smokeDuration" placeholder="Duration" />
+                                                    name="investigation.smokeDuration" placeholder="Smoke Duration" />
                                             </div>
-
                                         </div>
                                     </div>
                                     <div class="form-group required">
@@ -316,10 +300,10 @@ function openCity(evt, cityName) {
                                                     </label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3 col-sm-2 col-xs-12">
+                                            <div class="col-md-3 col-sm-2 col-xs-12" style="margin-top: 23px;">
                                                 <s:textfield required="required" title="betelDuration"
                                                     type="text" cssClass="form-control" id="betelDuration"
-                                                    name="investigation.betelDuration" placeholder="Duration" />
+                                                    name="investigation.betelDuration" placeholder="Betel Duration" />
                                                 <br> <label class="control-label" for="name">Frequency:</label>
                                                 <s:textfield required="required" title="betelFrequency"
                                                     type="text" cssClass="form-control" id="betelFrequency"
@@ -333,7 +317,7 @@ function openCity(evt, cityName) {
                                             <div class="col-md-1 col-sm-1 col-xs-12">
                                                 <label class="control-label" for="name"><p>Alcohol:</p></label>
                                             </div>
-                                            <div class="col-md-3 col-sm-5 col-xs-12">
+                                            <div class="col-md-3 col-sm-5 col-xs-12" style="max-width:200px">
                                                 <s:radio label="Alcohol"
                                                     list="#{'regular':'Regular Drinker(&gt;4 Days A Week)','frequent':'Frequent Drinker(1-4 Days A Week)','occasional':'Occasional Drinker(3&lt;= Days A Month)'}"
                                                     name="investigation.alcohol"></s:radio>
@@ -366,27 +350,25 @@ function openCity(evt, cityName) {
                                                 <br>
                                                 <s:textfield required="required" title="alcoholDuration"
                                                     type="text" cssClass="form-control" id="alcoholDuration"
-                                                    name="investigation.alcoholDuration" placeholder="Duration" />
-                                            </div>
+                                                    name="investigation.alcoholDuration" placeholder="Alcohol Duration" />
+                                            </div>                                                                                      
                                         </div>
+                                        	<div class="col-md-3 col-sm-3 col-xs-12">
+                                        		<s:submit cssClass="btn btn-success" value="Register and Finish"></s:submit>
+                                    		</div>
                                     </div>
+                                </div>                                                               
+                            </div>
+						</div>
+					</div>                               
+				</s:form>               
+			</div>
+		<!-- /page content -->
 
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <s:submit cssClass="btn btn-success"
-                                            value="Register and Finish"></s:submit>
-                                    </div>
-                    </s:form>
-                </div>
-            </div>
-        </div>
-
-        <!-- /page content -->
-
-    </div>
-    </div>
+		</div>
+	</div>
 
     <s:include value="/WEB-INF/content/common/footer.jsp"></s:include>
-
     <!-- Custom Theme Scripts -->
     <s:include value="/WEB-INF/content/common/js-include.jsp"></s:include>
 
