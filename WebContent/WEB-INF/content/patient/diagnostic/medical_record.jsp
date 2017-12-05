@@ -60,7 +60,7 @@ function openCity(evt, cityName) {
 						<button class="tablinks" onclick="openCity(event, 'Fourth')">FourthPage</button>
 					</div>
 
-					<div id="London" class="tabcontent" style="overflow-y: scroll; height:400px;">
+					<div id="London" class="tabcontent" style="overflow-y: scroll;">
 
 						<div class="containerbody">
 							<div class="row">
@@ -137,7 +137,7 @@ function openCity(evt, cityName) {
 
 					</div>
 
-					<div id="Paris" class="tabcontent" class="tabcontent" style="overflow-y: scroll; height:400px;">
+					<div id="Paris" class="tabcontent" class="tabcontent" style="overflow-y: scroll;">
 						<div class="containerbody">
 
 							<div class="row">
@@ -265,7 +265,7 @@ function openCity(evt, cityName) {
 					</div>
 				</div>
 
-				<div id="Tokyo" class="tabcontent" class="tabcontent" style="overflow-y: scroll; height:400px;">
+				<div id="Tokyo" class="tabcontent" class="tabcontent" style="overflow-y: scroll;">
 
 					<div class="row">
 
@@ -442,7 +442,7 @@ function openCity(evt, cityName) {
 					</div>
 				</div>
 
-				<div id="Fourth" class="tabcontent" class="tabcontent" style="overflow-y: scroll; height:400px;">
+				<div id="Fourth" class="tabcontent" class="tabcontent" style="overflow-y: scroll;">
 					<div class="containerbody">
 	
 						<div class="col-sm-6">
