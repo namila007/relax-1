@@ -4,20 +4,10 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<link
-	href="<s:url value="/css/dashboard-component.css" includeParams="none"/>"
-	rel="stylesheet" type="text/css">
-
 <s:include value="/WEB-INF/content/common/meta-tags.jsp"></s:include>
 <title><s:text name="global.application.title" /></title>
 <s:include value="/WEB-INF/content/common/css-include.jsp"></s:include>
-<link href="<s:url value="/css/diagnostic.css" includeParams="none"/>"
-	rel="stylesheet" type="text/css">
-<link href="<s:url value="/css/menubar.css" includeParams="none"/>"
-	rel="stylesheet" type="text/css">
-
 </head>
 
 <body class="nav-md">
@@ -27,47 +17,42 @@
 			<s:include value="/WEB-INF/content/common/title-bar.jsp"></s:include>
 			<s:include value="/WEB-INF/content/common/top-bar.jsp"></s:include>
 
-			<div class="row"></div>
-
 			<!-- page content -->
 			<div class="right_col" role="main" style="margin-bottom:40px;">
+			
+				<s:include value="/WEB-INF/content/patient/header.jsp"></s:include>
+				<h4>Patient Registration</h4>
+				<hr>
 
+				<s:form namespace="/patient" action="registration-save" method="post">
 
-				<div class="containerbody" style="overflow-y: scroll; height:600px;">
+					<s:hidden name="patient.id" value="%{patient.id}"></s:hidden>
+					<div>
 
-                <s:include value="/WEB-INF/content/patient/header.jsp"></s:include>
-                <h4>Patient Registration</h4>
-                <hr>
-
-                <s:form namespace="/patient" action="registration-save" method="post">
-
-                    <s:hidden name="patient.id" value="%{patient.id}"></s:hidden>
-                    <div>
-
-                        <div class="form-group required">
-                            <div class="row">
-                                <div class="col-md-12 col-sm-12 col-xs-6">
-                                    <label class="control-label" for="name">Patient Name:</label>
-                                </div>
-                                <div class="col-md-2 col-sm-4 col-xs-12">
-                                    <s:select cssClass="form-control" name="patient.title" list="#{'Mr':'Mr.','Ms':'Ms.','Rev':'Rev.','Dr':'Dr.',' ':' '}" />
-                                        
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-xs-12">
-                                    <s:textfield required="required" title="Surname" type="text" cssClass="form-control" id="name" 
-                                    name="patient.surname" placeholder="Surname" style="text-transform:capitalize"/>
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-xs-12">
-                                    <s:textfield title="Initials" type="text" cssClass="form-control" id="name"
-                                        name="patient.initials" placeholder="Initials" style="text-transform:uppercase"/>
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-xs-12">
-                                    <s:textfield title="First name" type="text" cssClass="form-control" id="name"
-                                        name="patient.firstName" placeholder="First name" style="text-transform:capitalize"/>
-                                </div>
-                            </div>
-                        </div>
-                        <!--  -->
+						<div class="form-group required">
+							<div class="row">
+								<div class="col-md-12 col-sm-12 col-xs-6">
+									<label class="control-label" for="name">Patient Name:</label>
+								</div>
+								<div class="col-md-2 col-sm-4 col-xs-12">
+									<s:select cssClass="form-control" name="patient.title" list="#{'Mr':'Mr.','Ms':'Ms.','Rev':'Rev.','Dr':'Dr.',' ':' '}" />
+										
+								</div>
+								<div class="col-md-3 col-sm-4 col-xs-12">
+									<s:textfield required="required" title="Surname" type="text" cssClass="form-control" id="name" 
+									name="patient.surname" placeholder="Surname" style="text-transform:capitalize"/>
+								</div>
+								<div class="col-md-3 col-sm-4 col-xs-12">
+									<s:textfield title="Initials" type="text" cssClass="form-control" id="name"
+										name="patient.initials" placeholder="Initials" style="text-transform:uppercase"/>
+								</div>
+								<div class="col-md-3 col-sm-4 col-xs-12">
+									<s:textfield title="First name" type="text" cssClass="form-control" id="name"
+										name="patient.firstName" placeholder="First name" style="text-transform:capitalize"/>
+								</div>
+							</div>
+						</div>
+						<!--  -->
 
     
 						<div class="form-group">
@@ -264,23 +249,14 @@
 					</div>
 
 				</s:form>
->>>>>>> fd90398a959140a4c94ac57d9857562933ce1d21
-
-				
-				</div>
 
 			</div>
+			<!-- /page content -->
+				
 		</div>
-
 	</div>
-
-
 	<s:include value="/WEB-INF/content/common/footer.jsp"></s:include>
-
 	<!-- Custom Theme Scripts -->
 	<s:include value="/WEB-INF/content/common/js-include.jsp"></s:include>
-
 </body>
 </html>
-
-
