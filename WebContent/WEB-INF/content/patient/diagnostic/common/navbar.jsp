@@ -5,32 +5,22 @@
 
 <head>
 <style>
-
-
 .navbar-default{
 	overflow: auto;
 	background-color: #147631;	
 	
 }
-
-
 .navbar-default .navbar-nav{
 	width:100%;
      display: inline-block;
-
      background-color: #147631;	
 }
-
-
 .navbar-default .navbar-nav > li{
-
 	width:10%;
 	background-color: #1471;
 	font-size: 13px;
 	text-align: center;
 }
-
-
 .navbar-default .navbar-nav > a {	
 	float: left;
 	color: #f2f2f2;
@@ -40,34 +30,16 @@
 	font-size: 13px;
 	
 }
-
-
-
 .navbar-default .navbar-nav > li > a:hover{
-
 	background-color: #258c44;
 	color: black;
 	height: 153px;
 }
-
 .navbar-default .navbar-nav a.active{
 	background-color: #CF50;
 	color: white;
 }
 </style>
-
-<script>
-	function openCity(evt, cityName) {
-		var i, tabcontent, tablinks;
-		tablinks = document.getElementsByClassName("tablinks");
-		for (i = 0; i < tablinks.length; i++) {
-			tablinks[i].className = tablinks[i].className
-					.replace(" active", "");
-		}
-		document.getElementById(cityName).style.display = "block";
-		evt.currentTarget.className += " active";
-	}
-</script>
 
 </head>
 <body>
@@ -151,4 +123,3 @@
 </nav>
 
 </body>
-
