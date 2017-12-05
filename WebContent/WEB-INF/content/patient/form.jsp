@@ -70,196 +70,201 @@
                         <!--  -->
 
     
-                        <div class="form-group">
-                            <div class="row">
-                                <s:if test="patient.id != null">
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-2 col-sm-2 col-xs-12">
-                                                <label for="ethnicity">File No.: </label>
-                                            </div>
-            
-                                            <div class="col-md-3 col-sm-3 col-xs-12">
-                                                <s:textfield type="text" cssClass="form-control" id="fileNumber" name="patient.fileNumber" />
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </s:if>
-                                <div class="col-md-2 col-sm-2 col-xs-12">
-                                    <label for="checkbox">Child</label> 
-                                        <s:checkbox 
-                                        name="patient.child" cssClass="checkbox-inline" id="check_child"
-                                        value="child" />
-                                </div>
+						<div class="form-group">
+							<div class="row">
+								<s:if test="patient.id != null">
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-2 col-sm-2 col-xs-12">
+												<label for="ethnicity">File No.: </label>
+											</div>
+			
+											<div class="col-md-3 col-sm-3 col-xs-12">
+												<s:textfield type="text" cssClass="form-control" id="fileNumber" name="patient.fileNumber" />
+											</div>
+											
+										</div>
+									</div>
+								</s:if>
+								<div class="col-md-2 col-sm-2 col-xs-12">
+									<label for="checkbox">Child</label> 
+										<s:checkbox 
+										name="patient.child" cssClass="checkbox-inline" id="check_child"
+										value="child" />
+								</div>
 
-<!--                                <div class="col-md-1 col-sm-2 col-xs-12">
-                                    <label for="serialNumber">NIC No.:</label>
-                                </div> -->
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <s:textfield type="text" pattern=".{10,15}" title="NIC should be between 10 to 15 digits!" cssClass="form-control" id="nic" name="patient.nic"
-                                        placeholder="NIC number" />
-                                </div>
+<!-- 								<div class="col-md-1 col-sm-2 col-xs-12">
+									<label for="serialNumber">NIC No.:</label>
+								</div> -->
+								<div class="col-md-3 col-sm-3 col-xs-12">
+									<s:textfield type="text" pattern=".{10,15}" title="NIC should be between 10 to 15 digits!" cssClass="form-control" id="nic" name="patient.nic"
+										placeholder="NIC number" />
+								</div>
 
-                            </div>
+							</div>
 
-                        </div>
-                        <script>
-                            document.getElementById('check_child').onchange = function() {
-                                document.getElementById('nic').disabled = this.checked;
-                            };
-                        </script>
+						</div>
+						<script>
+							document.getElementById('check_child').onchange = function() {
+								document.getElementById('nic').disabled = this.checked;
+							};
+						</script>
 
-                        <div class="form-group required">
-                            <div class="row">
-                                <div class="col-md-2 col-sm-2 col-xs-12">
-                                    <label for="birthDay" class="control-label">Date of Birth:</label>
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-xs-12">
-                                    <input type="date" required="required" class="form-control" id="bday"
-                                        name="patient.birthDayString" value="<s:property value='%{patient.birthDayString}' />">
-                                </div>
-                            </div>
-                        </div>
+						<div class="form-group required">
+							<div class="row">
+								<div class="col-md-2 col-sm-2 col-xs-12">
+									<label for="birthDay" class="control-label">Date of Birth:</label>
+								</div>
+								<div class="col-md-3 col-sm-4 col-xs-12">
+									<input type="date" required="required" class="form-control" id="bday"
+										name="patient.birthDayString" value="<s:property value='%{patient.birthDayString}' />">
+								</div>
+							</div>
+						</div>
 
-                        <div class="form-group required">
-                            <div class="row">
-                                <div class="col-md-2 col-sm-2 col-xs-12">
-                                    <label for="sex" class="control-label">Sex: </label>
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-xs-12">
-                                    <div class="form-control">
-                                        <s:radio required="required" label="Answer" name="patient.sex" list="#{'Male':'Male','Female':'Female','Other':'Other'}" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+						<div class="form-group required">
+							<div class="row">
+								<div class="col-md-2 col-sm-2 col-xs-12">
+									<label for="sex" class="control-label">Sex: </label>
+								</div>
+								<div class="col-md-3 col-sm-4 col-xs-12">
+									<div class="form-control">
+										<s:radio required="required" label="Answer" name="patient.sex" list="#{'Male':'Male','Female':'Female','Other':'Other'}" />
+									</div>
+								</div>
+							</div>
+						</div>
 
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2 col-sm-2 col-xs-4">
-                                    <label for="ethnicity">Ethnicity: </label>
-                                </div>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-2 col-sm-2 col-xs-4">
+									<label for="ethnicity">Ethnicity: </label>
+								</div>
 
-                                <div class="col-md-3 col-sm-4 col-xs-8">
-                                    <s:select cssClass="form-control"  name="patient.ethnicity" list="#{'Sinhala':'Sinhala','Tamil':'Tamil','Muslim':'Muslim', 'Other':'Other'}" />
-                                </div>
-                                
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2 col-sm-2 col-xs-4">
-                                    <label for="district">District:</label>
-                                </div>
-                                
-                                <div class="col-md-3 col-sm-4 col-xs-8">
-                                    <s:select cssClass="form-control"  name="patient.districtId" listKey="id" listValue="name" list="districts" value="14"/>
-                                </div>                          
-                                <div class="col-md-2 col-sm-2 col-xs-4">
-                                    <label for="country">Nationality: </label>
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-xs-8">
-                                    <s:select name="patient.country" cssClass="form-control" list="#{'Sri Lankan':'Sri Lankan','Non Sri Lankan':'Non Sri Lankan'}">
-                                    </s:select>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2 col-sm-2 col-xs-12">
-                                    <label for="phone">Phone number:</label>
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-xs-12">
-                                    <input type="text" class="form-control" id="phoneNo" pattern=".{10,}" title="Phone number should be 10 or more characters" name="patient.mobile" value="<s:property value='%{patient.mobile}' />">
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12">
-                                    <label for="mail">E-mail:</label>
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-xs-12">
-                                    <input type="email" class="form-control" id="mail"
-                                        name="patient.email" value="<s:property value='%{patient.email}' />" />
-                                </div>
-                            </div>
-                        </div>
+								<div class="col-md-3 col-sm-4 col-xs-8">
+									<s:select cssClass="form-control"  name="patient.ethnicity" list="#{'Sinhala':'Sinhala','Tamil':'Tamil','Muslim':'Muslim', 'Other':'Other'}" />
+								</div>
+								
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-2 col-sm-2 col-xs-4">
+									<label for="district">District:</label>
+								</div>
+								
+								<div class="col-md-3 col-sm-4 col-xs-8">
+									<s:select cssClass="form-control"  name="patient.districtId" listKey="id" listValue="name" list="districts" value="14"/>
+								</div>							
+								<div class="col-md-2 col-sm-2 col-xs-4">
+									<label for="country">Nationality: </label>
+								</div>
+								<div class="col-md-3 col-sm-4 col-xs-8">
+									<s:select name="patient.country" cssClass="form-control" list="#{'Sri Lankan':'Sri Lankan','Non Sri Lankan':'Non Sri Lankan'}">
+									</s:select>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-2 col-sm-2 col-xs-12">
+									<label for="phone">Phone number:</label>
+								</div>
+								<div class="col-md-3 col-sm-4 col-xs-12">
+									<input type="text" class="form-control" id="phoneNo" pattern=".{10,}" title="Phone number should be 10 or more characters" name="patient.mobile" value="<s:property value='%{patient.mobile}' />">
+								</div>
+								<div class="col-md-2 col-sm-2 col-xs-12">
+									<label for="mail">E-mail:</label>
+								</div>
+								<div class="col-md-3 col-sm-4 col-xs-12">
+									<input type="email" class="form-control" id="mail"
+										name="patient.email" value="<s:property value='%{patient.email}' />" />
+								</div>
+							</div>
+						</div>
 
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2 col-sm-2 col-xs-12">
-                                    <label for="address">Address:</label>
-                                </div>
-                                <div class="col-md-3 col-sm-4 col-xs-12">
-                                    <textarea class="form-control" id="address"
-                                        name="patient.address"><s:property value='%{patient.address}' /></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group" id="remarks-div">
-                            <div class="row">
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-2 col-sm-2 col-xs-12">
+									<label for="address">Address:</label>
+								</div>
+								<div class="col-md-3 col-sm-4 col-xs-12">
+									<textarea class="form-control" id="address"
+										name="patient.address"><s:property value='%{patient.address}' /></textarea>
+								</div>
+							</div>
+						</div>
+						<div class="form-group" id="remarks-div">
+							<div class="row">
 
-                                <div class="col-md-2 col-sm-2 col-xs-12">
-                                    <label for="checkbox">Referral</label> 
-                                        <input type="checkbox" class="checkbox-inline" id="check-referral" value="referral">
-                                        
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <s:hidden name="patientAdditionalProperties[0].nameKey" value="Rererral"></s:hidden>
-                                    <s:textfield type="text" cssClass="form-control" id="remarks" name="patientAdditionalProperties[0].propertyValue" placeholder="Referral Body" />
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <s:hidden name="patientAdditionalProperties[1].nameKey" value="Rererral-Remarks"></s:hidden>
-                                    <s:textfield type="text" cssClass="form-control" id="remarks" name="patientAdditionalProperties[1].propertyValue" placeholder="Remarks" />
-                                </div>
-                                
-                                <%-- <s:if test="patient.id != null">
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <s:hidden name="patientAdditionalProperties[2].nameKey" value="Payment"></s:hidden>
-                                        
-                                        <s:textfield type="text" cssClass="form-control" id="remarks" name="patientAdditionalProperties[2].propertyValue" placeholder="Payments" /> 
-                                    </div>
-                                </s:if> --%>
-                            </div>
+								<div class="col-md-2 col-sm-2 col-xs-12">
+									<label for="checkbox">Referral</label> 
+										<input type="checkbox" class="checkbox-inline" id="check-referral" value="referral">
+										
+								</div>
+								<div class="col-md-3 col-sm-3 col-xs-12">
+									<s:hidden name="patientAdditionalProperties[0].nameKey" value="Rererral"></s:hidden>
+									<s:textfield type="text" cssClass="form-control" id="remarks" name="patientAdditionalProperties[0].propertyValue" placeholder="Referral Body" />
+								</div>
+								<div class="col-md-3 col-sm-3 col-xs-12">
+									<s:hidden name="patientAdditionalProperties[1].nameKey" value="Rererral-Remarks"></s:hidden>
+									<s:textfield type="text" cssClass="form-control" id="remarks" name="patientAdditionalProperties[1].propertyValue" placeholder="Remarks" />
+								</div>
+								
+								<%-- <s:if test="patient.id != null">
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<s:hidden name="patientAdditionalProperties[2].nameKey" value="Payment"></s:hidden>
+										
+										<s:textfield type="text" cssClass="form-control" id="remarks" name="patientAdditionalProperties[2].propertyValue" placeholder="Payments" /> 
+									</div>
+								</s:if> --%>
+							</div>
 
-                        </div>
-                        <script>
-                            document.getElementById('check-referral').onchange = function() {
-                                document.getElementById('remarks-div').hide = this.checked;
-                            };
-                        </script>   
+						</div>
+						<script>
+							document.getElementById('check-referral').onchange = function() {
+								document.getElementById('remarks-div').hide = this.checked;
+							};
+						</script>	
 
-                        <hr>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2 col-sm-2 col-xs-12"></div>
-                                <s:if test="patient.id != null && !patient.id.empty">
-                                    <div class="col-md-3 col-sm-2 col-xs-12">
-                                        <s:submit cssClass="btn btn-warning" value="Update"></s:submit>
-                                    </div>
-                                </s:if>
-                                <s:else>
-                                    <!--diagno button start-->
+						<hr>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-2 col-sm-2 col-xs-12"></div>
+								<s:if test="patient.id != null && !patient.id.empty">
+									<div class="col-md-3 col-sm-2 col-xs-12">
+										<s:submit cssClass="btn btn-warning" value="Update"></s:submit>
+									</div>
+								</s:if>
+								<s:else>
+									<!--diagno button start-->
+									<center>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+											<s:submit cssClass="btn btn-success" value="Register and Finish"></s:submit>									
+										</div>		
+										<s:url var="diagno" action="diagnostic" namespace="/patient"></s:url>
+										<s:a href="%{#diagno}">
+										<div class="col-md-3 col-sm-3 col-xs-12">
+											<button  type="button" class="btn btn-primary "> Add Diagnostic Report</button>
+											</div>
+										</s:a>
+										<!--diagno button end-->
+										<%-- <div class="col-md-3 col-sm-3 col-xs-12">
+											<s:submit cssClass="btn btn-default" value="Add guardian info"></s:submit>									
+										</div> --%>
+										
+									</center>							
+								</s:else>
+								
+							</div>
+						</div>
+						
+					</div>
 
-                                        <s:url var="diagno" action="diagnostic" namespace="/patient"></s:url>
-                                        <s:a href="%{#diagno}">
-                                            <button  type="button" class="btn btn-primary col-md-3 col-sm-3 col-xs-12"> Add Diagnostic Report</button>
-                                        </s:a>
-                                        <!--diagno button end-->
-                                        <div class="col-md-3 col-sm-3 col-xs-12">
-                                            <s:submit cssClass="btn btn-success" value="Register and Finish"></s:submit>                                    
-                                        </div>      
-                           
-                                </s:else>
-                                
-                            </div>
-                        </div>
-                        
-                    </div>
-
-                </s:form>
-
-            </div>
+				</s:form>
+>>>>>>> fd90398a959140a4c94ac57d9857562933ce1d21
 
 				
 				</div>
