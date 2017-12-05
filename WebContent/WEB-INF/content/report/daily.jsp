@@ -95,19 +95,18 @@
 						</s:else>
 	            	</div>
 	            	
-	            	<div class="col-md-4 col-sm-4 col-xs-12 flexRow" style="border-style: ridge; border-width: 5px; border-color: dddddd; padding: 10px 50px;">
+	            	<div class="col-md-4 col-sm-4 col-xs-12" style="border-style: ridge; border-width: 5px; border-color: dddddd; padding: 10px 50px;">
 	            	
-	            		<!-- Here How to obtain the data from the ReportAction.java class which is called from report.xml reports-daily action -->
-	            		<div class="row flexRow">
+	            		<div class="flexRow">
 			            	<h5 ><b>Total Patients: </b></h5><h5><s:property value="%{register.total}"/></h5>
 			            </div>
-	            		<div class="row flexRow">
+	            		<div class="flexRow">
 			            	<h5><b>Total Males: </b></h5><h5><s:property value="%{register.maleTotal}"/></h5>
 			            </div>
-			            <div class="row flexRow">
+			            <div class="flexRow">
 			            	<h5><b>Total Females: </b></h5><h5><s:property value="%{register.femaleTotal}"/></h5>
 			            </div>
-			            <div class="row flexRow">
+			            <div class="flexRow">
 			            	<h5><b>Total Children: </b></h5><h5><s:property value="%{register.childTotal}"/></h5>
 			            </div>
 	            		
