@@ -129,7 +129,7 @@
 
 		<!--diagnostic btn start-->
 		<action name="diagnostic" class="com.doerit.action.patient.PatientAction" method="registrationForm">
-			<result name="success">/WEB-INF/content/patient/diagnostic/past_dental_history.jsp</result>
+			<result name="success">/WEB-INF/content/patient/diagnostic/complaint.jsp</result>
 		</action>
 		<!--diagnostic btn action end-->
 

@@ -4,8 +4,24 @@
 
 
 <head>
-<style>
 
+<script>
+function opennav(evt, cityName) {
+    var i, content, links;
+    content = document.getElementsByClassName("content");
+    for (i = 0; i < content.length; i++) {
+        content[i].style.display = "none";
+    }
+    links = document.getElementsByClassName("links");
+    for (i = 0; i < tablinks.length; i++) {
+        links[i].className = links[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+
+<style>
 
 .navbar-default{
 	overflow: auto;
@@ -41,8 +57,6 @@
 	
 }
 
-
-
 .navbar-default .navbar-nav > li > a:hover{
 
 	background-color: #258c44;
@@ -55,19 +69,6 @@
 	color: white;
 }
 </style>
-
-<script>
-	function openCity(evt, cityName) {
-		var i, tabcontent, tablinks;
-		tablinks = document.getElementsByClassName("tablinks");
-		for (i = 0; i < tablinks.length; i++) {
-			tablinks[i].className = tablinks[i].className
-					.replace(" active", "");
-		}
-		document.getElementById(cityName).style.display = "block";
-		evt.currentTarget.className += " active";
-	}
-</script>
 
 </head>
 <body>
@@ -92,13 +93,13 @@
       <ul class="nav navbar-nav">
 
 				<li>	<s:url var="complaint" action="complaint" namespace="/patient"></s:url>
-					<s:a href="%{#complaint}" id="Home" class="tablinks"
-						onclick="openCity(event, 'Home')"><br>Home</s:a></li>
+					<s:a href="%{#complaint}" id="Home" class="links"
+						onclick="opennav(event, 'Home')"><br>Home</s:a></li>
 
 				<li>	<s:url var="past_dental_history" action="past_dental_history"
 						namespace="/patient"></s:url>
 					<s:a href="%{#past_dental_history}" id="PastDentalHistory"
-						class="tablinks" onclick="openCity(event, 'PastDentalHistory')"><br>Past Dental<br> History</s:a></li>
+						class="links" onclick="opennav(event, 'PastDentalHistory')"><br>Past Dental<br> History</s:a></li>
 
 				<li>	<s:url var="medical_record" action="medical_record"
 						namespace="/patient"></s:url>

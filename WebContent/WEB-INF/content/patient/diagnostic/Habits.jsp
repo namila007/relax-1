@@ -61,7 +61,7 @@ function openCity(evt, cityName) {
 					<s:form namespace="/patient" action="processRegister.html"
 						method="post">
 
-						<div id="London" class="tabcontent" style="overflow-y: scroll; height:500px;">
+						<div id="London" class="tabcontent" style="overflow-y: scroll; height:400px;">
 							<div class="containerbody">
 
 								<div class="row">
@@ -197,7 +197,7 @@ function openCity(evt, cityName) {
 							</div>
 						</div>
 
-						<div id="Paris" class="tabcontent" style="overflow-y: scroll; height:500px;">
+						<div id="Paris" class="tabcontent" style="overflow-y: scroll; height:400px;">
 
 							<div class="containerbody">
 
