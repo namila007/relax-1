@@ -144,7 +144,7 @@ public class PdfReportInformation {
 	private PdfPTable createDistrictCounts() throws DocumentException, IOException{
 		
 		PdfPTable table = new PdfPTable(8);
-		table.setWidths(new float[] { 3, 1, 3, 1, 3, 1, 3, 1});
+		table.setWidths(new float[] { 4, 1, 4, 1, 4, 1, 4, 1});
 		table.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
 				
 		
