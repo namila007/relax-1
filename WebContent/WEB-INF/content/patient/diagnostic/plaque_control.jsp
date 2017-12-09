@@ -35,7 +35,7 @@
 				<s:include
 					value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"></s:include>
 
-				<div class="containerbody" style="overflow-y: scroll; height:400px;">
+				<div class="containerbody" style="overflow-y: scroll; height:500px;">
 
 					<div class="col-sm-6">
 
