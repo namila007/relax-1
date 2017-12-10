@@ -65,7 +65,7 @@ div.tab button.active {
 .containerbody	input[type=text] {
 		   font-size:20;
 		   padding-left:8px;
-		   width:250px;
+		   width:150px;
 		   border-radius:5px;
 		   border-color:black;
 		   border-width:1px;
