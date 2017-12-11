@@ -120,6 +120,13 @@
 			<result name="success">/WEB-INF/content/patient/diagnostic/past_dental_history.jsp</result>
 		</action>
 		<!--diagnostic btn action end-->
+		<!--radiology btn action start-->
+		<action name="radio-upload" class="com.doerit.action.patient.PatientAction" method="registrationForm">
+			<result name="success">/WEB-INF/content/radiology/uploadForm.jsp</result>
+		</action>
+		
+		<!--radiology btn action end-->
+		
 
 		
 	</package>
