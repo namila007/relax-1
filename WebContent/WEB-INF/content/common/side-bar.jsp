@@ -33,7 +33,7 @@
 			<li>
 				<s:url var="radiology" action="radio-upload.html" namespace="/patient"></s:url>
 				<s:a href="%{#radiology}">
-					<i class="fa fa-user-plus"></i>Radio
+					<i class="fa fa-medkit"></i>Radiology
 				</s:a>
 			</li>
 			

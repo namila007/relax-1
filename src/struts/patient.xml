@@ -126,6 +126,10 @@
 		</action>
 		
 		<!--radiology btn action end-->
+		<action name="uploading" class="com.doerit.upload.ImageUploader" method="imageUplod">
+			<result name="success">/WEB-INF/content/radiology/success.jsp</result>
+		</action>
+
 		
 
 		
