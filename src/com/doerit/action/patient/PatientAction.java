@@ -32,21 +32,20 @@ public class PatientAction extends AbstractDownloadManamentAction {
 	@Autowired DistrictService districtService;
 	@Autowired PatientAdditionalPropertyService patientAdditionalPropertyService;
 	@Autowired PatientGuardianService patientGuardianService;
-	
 	private Patient patient;
 	private List<Patient> patients;
 	private List<PatientAdditionalProperty> patientAdditionalProperties;
 	private List<PatientGuardianWithBLOBs> patientGuardians;
 	private String searchKey;
 	private String searchWord;
-	
+
 	public String registrationForm() {
 		return SUCCESS;
 	}
-	
+
 	public String view() {
-		//System.out.println(getId());
-		if(getId() != null) {
+		// System.out.println(getId());
+		if (getId() != null) {
 			patient = patientService.viewById(getId());
 			viewProperties();
 			viewGuardians();
@@ -55,34 +54,34 @@ public class PatientAction extends AbstractDownloadManamentAction {
 		}
 		return SUCCESS;
 	}
-	
+
 //	public String visits() {
 //		return SUCCESS;
-//	}
-	
+	// }
+
 	private String viewProperties() {
-		if(getId() != null) {
+		if (getId() != null) {
 			patientAdditionalProperties = patientAdditionalPropertyService.viewByPatientId(getId());
 		} else {
 			addActionError("Invalid access");
 		}
 		return SUCCESS;
 	}
-	
+
 	private String viewGuardians() {
-		if(getId() != null) {
+		if (getId() != null) {
 			patientGuardians = patientGuardianService.viewByPatientId(getId());
 		} else {
 			addActionError("Invalid access");
 		}
 		return SUCCESS;
 	}
-	
-	/*public String viewAll() {
-		this.patients = patientService.viewAll(State.ACTIVE);
-		return SUCCESS;
-	}*/
-	
+
+	/*
+	 * public String viewAll() { this.patients =
+	 * patientService.viewAll(State.ACTIVE); return SUCCESS; }
+	 */
+
 	public String viewAll() {
 		try {
 			beforeAction();
@@ -90,25 +89,24 @@ public class PatientAction extends AbstractDownloadManamentAction {
 			pager = setActionContext(pager);
 		} catch (Exception e) {
 			addActionError("Exception occur");
-			//logger
+			// logger
 			e.printStackTrace();
 		}
 		return SUCCESS;
 	}
-	
-	/*public String viewAllHidden() {
-		this.patients = patientService.viewAll(State.DELETED);
-		return SUCCESS;
-	}
-	*/
-	
+
+	/*
+	 * public String viewAllHidden() { this.patients =
+	 * patientService.viewAll(State.DELETED); return SUCCESS; }
+	 */
+
 	public String search() {
-		
-		try{
+
+		try {
 			beforeAction();
 			pager = patientService.search(pager, this.searchKey, this.searchWord);
 			pager = setActionContext(pager);
-		}catch (Exception e) {
+		} catch (Exception e) {
 			addActionError("Exception occur");
 			e.printStackTrace();
 		}
@@ -118,11 +116,10 @@ public class PatientAction extends AbstractDownloadManamentAction {
 	public String save() {
 
 		if (patient != null) {
-			
-			if (patient.getId() != null && !patient.getId().isEmpty()) {
-				
-				int updated = patientService.update(patient);
 
+			if (patient.getId() != null && !patient.getId().isEmpty()) {
+
+				int updated = patientService.update(patient);
 				if (updated == 1) {
 					addActionMessage("Updated");
 					addUpdateSettings(patient);
@@ -131,7 +128,7 @@ public class PatientAction extends AbstractDownloadManamentAction {
 				} else {
 					addActionError("Not updated");
 					return INPUT;
-				}
+				}				
 			} else {
 				patient.setId(generatePrimaryKey());
 				patient.setSerialNumber(createSerialNumber());
@@ -141,7 +138,7 @@ public class PatientAction extends AbstractDownloadManamentAction {
 				saveAdditionalProperties();
 				if (inserted == 1) {
 					addActionMessage("Inserted");
-					
+
 					this.id = patient.getId();
 					return view();
 				} else {
@@ -149,21 +146,21 @@ public class PatientAction extends AbstractDownloadManamentAction {
 					return INPUT;
 				}
 			}
-			
-			
+
 		} else {
 			return INPUT;
 		}
+
 	}
-	
+
 	private void saveAdditionalProperties() {
-		for(PatientAdditionalProperty p: patientAdditionalProperties) {
+		for (PatientAdditionalProperty p : patientAdditionalProperties) {
 			p.setPatientId(patient.getId());
 			p.setId(generatePrimaryKey());
 			addInsertSettings(p);
 			p.setStatus(State.ACTIVE.getDatabaseValue());
 			p.setName(p.getNameKey());
-			
+
 			patientAdditionalPropertyService.save(p);
 		}
 	}
@@ -171,36 +168,35 @@ public class PatientAction extends AbstractDownloadManamentAction {
 	public String edit() {
 		return view();
 	}
-	
-	public String deleteTemporary(){
-		
+
+	public String deleteTemporary() {
+
 		view();
-		
-		if(patient != null){
+
+		if (patient != null) {
 			patient.setStatus(State.DELETED.getDatabaseValue());
 			return save();
 		} 
-		
 		addActionError("Record was not updated");
 		return viewAll();
 	}
-	
-	public String deletePermonent(){
-		
-		if(getId() != null) {
+
+	public String deletePermonent() {
+
+		if (getId() != null) {
 			patientService.delete(getId());
 		}
-		
+
 		return viewAll();
 	}
-	
+
 	public String patientInformationPdf() {
-		
+
 		try {
 			view();
 			PdfPatientInformation pdfPatientInformation = new PdfPatientInformation();
 			ByteArrayOutputStream baos = pdfPatientInformation.createPdf(patient);
-			return download(baos, patient.getSerialNumber());			
+			return download(baos, patient.getSerialNumber());
 		} catch (DocumentException e) {
 			e.printStackTrace();
 			addActionError(e.getMessage());
@@ -210,11 +206,11 @@ public class PatientAction extends AbstractDownloadManamentAction {
 			addActionError(e.getMessage());
 			return INPUT;
 		}
-		
+
 	}
-	
+
 	public String patientStickerPdf() {
-		
+
 		try {
 			view();
 			PdfPatientSticker pdfPatientSticker = new PdfPatientSticker();
@@ -230,9 +226,9 @@ public class PatientAction extends AbstractDownloadManamentAction {
 			addActionError(e.getMessage());
 			return INPUT;
 		}
-		
+
 	}
-	
+
 	private String download(ByteArrayOutputStream baos, String prefix) {
 		byte[] pdfFile = baos.toByteArray();
 		setFileInputStream(new ByteArrayInputStream(pdfFile));
@@ -241,23 +237,23 @@ public class PatientAction extends AbstractDownloadManamentAction {
 		setFileName(prefix + dateString + ".pdf");
 		return SUCCESS;
 	}
-	
+
 	private String createSerialNumber() {
 		Calendar calendar = Calendar.getInstance();
-		int year = calendar.get(Calendar.YEAR) % 100; //take last two digits
-		int month = calendar.get(Calendar.MONTH) + 1; //java month zero basis
-		
+		int year = calendar.get(Calendar.YEAR) % 100; // take last two digits
+		int month = calendar.get(Calendar.MONTH) + 1; // java month zero basis
+
 		String serial = String.valueOf(year);
 		if(month < 10){		
 			serial += "0";  //make month two digits
 		}
 		serial += String.valueOf(month);
-			
+
 		int previousCount = patientService.findMonthlyCount(serial);
 		previousCount++;
-		
+
 		serial += String.format("%04d", previousCount);  //make count 4 digits
-				
+
 		return serial;
 	}
 
@@ -268,7 +264,7 @@ public class PatientAction extends AbstractDownloadManamentAction {
 	public void setPatient(Patient patient) {
 		this.patient = patient;
 	}
-	
+
 	public List<District> getDistricts() {
 		return districtService.viewAll();
 	}
@@ -312,5 +308,5 @@ public class PatientAction extends AbstractDownloadManamentAction {
 	public void setPatientGuardians(List<PatientGuardianWithBLOBs> patientGuardians) {
 		this.patientGuardians = patientGuardians;
 	}
-		
+
 }

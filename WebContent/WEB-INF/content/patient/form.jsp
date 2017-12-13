@@ -23,7 +23,6 @@
 				<s:include value="/WEB-INF/content/patient/header.jsp"></s:include>
 				<h4>Patient Registration</h4>
 				<hr>
-
 				<s:form namespace="/patient" action="registration-save" method="post">
 
 					<s:hidden name="patient.id" value="%{patient.id}"></s:hidden>
