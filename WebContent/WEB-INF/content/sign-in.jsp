@@ -15,7 +15,7 @@
 	<!-- <body class="login"> -->
 
 	<div class="container">
-	
+
 		<div class="login">
             <div class="form-head">
                 <img src="images/sign-in.png" alt="Relax Patients">
@@ -24,42 +24,41 @@
             <s:actionerror cssStyle=""/>
             
 		  <div id="signInDentalTitle" style="padding-top: 5px">Faculty of Dental Sciences</div>
-		  	          
-          <div class="form-body">
-          	
-            <s:form namespace="/" action="sign-in.html" method="post" id="signInFrm" >
-              <div class="form-group">
-                <input  type="text" 
-                		name="userAccount.userName"
-						placeholder='<s:property value="%{getText('user.login.email')}"/>'
-						class="form-control" required autofocus
-                		autocomplete="off"
+
+			<div class="form-body">
+
+				<s:form namespace="/" action="sign-in.html" method="post"
+					id="signInFrm">
+					<div class="form-group">
+						<input type="text" name="userAccount.userName"
+							placeholder='<s:property value="%{getText('user.login.email')}"/>'
+							class="form-control" required autofocus autocomplete="off"
                 		value="" />
               </div>
               <div class="form-group">
-                <input 
-                		type="password" 
-                		name="userAccount.userPassword"
-						class="form-control"
-						placeholder="<s:property value="%{getText('user.login.password')}"/>"
-						required 
-                		autocomplete="off"
-						value=""/>
-              </div>
-              <hr />
-              
-              <button type="submit" class="btn btn-success btn-block">  Sign In </button>
-              <br />
-			  <s:url var="forgotPasswordtUrl" action="forget-password-request.html" namespace="/" includeParams="none" />			
+						<input type="password" name="userAccount.userPassword"
+							class="form-control"
+							placeholder="<s:property value="%{getText('user.login.password')}"/>"
+							required autocomplete="off" value="" />
+					</div>
+					<hr />
+
+					<button type="submit" class="btn btn-success btn-block">
+						Sign In</button>
+					<br />
+					<s:url var="forgotPasswordtUrl"
+						action="forget-password-request.html" namespace="/"
+						includeParams="none" />
+					<s:a href="%{#forgotPasswordtUrl}"
 			  <s:a href="%{#forgotPasswordtUrl}" cssClass="btn btn-primary btn-block">
 			 	Forgot my password?
 			  </s:a>	
-			  
+
 			  <br />
 	       </s:form>
           </div>
         </div>
-	
+
 		<%-- <a class="hiddenanchor" id="signup"></a>
 		<div class="card card-container">
 			<section class="login_content">
@@ -96,7 +95,14 @@
 
 
 		</div>
- --%>		<!-- /card-container -->
+ --%>
+		<!-- /card-container -->
+	</div>
+	<div class="navbar navbar-fixed-bottom">
+		<p align='center' class="bg-danger">Please use Google Chrome
+			browser (Version 61.0.3163.100 or newest ) to access the system.</p>
+		<p align='center' class="bg-info">Visit module was added to record
+			patient visits.</p>
 	</div>
 
 	<s:include value="/WEB-INF/content/common/js-include.jsp"></s:include>
