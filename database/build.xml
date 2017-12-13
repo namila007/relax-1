@@ -31,13 +31,27 @@
 			<transaction src="${db.dir}/create/tbl_action_template_value.sql"/> 
 			<transaction src="${db.dir}/create/tbl_user_account_action.sql"/> 
 			<transaction src="${db.dir}/create/tbl_department.sql"/> 
-			<transaction src="${db.dir}/create/tbl_patient_visit.sql"/> 			
+			<transaction src="${db.dir}/create/tbl_patient_visit.sql"/> 
+
+
+			<transaction src="${db.dir}/create/tbl_complaint.sql"/>
+			<transaction src="${db.dir}/create/tbl_patient_past_dental_history.sql"/> 			 			
+			<transaction src="${db.dir}/create/tbl_patient_medical_record.sql"/> 			
+			<transaction src="${db.dir}/create/tbl_patient_dietary_history.sql"/> 			
+			<transaction src="${db.dir}/create/tbl_patient_plaque_control.sql"/> 			
+			<transaction src="${db.dir}/create/tbl_habit.sql"/>
+			<transaction src="${db.dir}/create/tbl_patient_habit.sql"/> 			
+			<transaction src="${db.dir}/create/tbl_drug.sql"/> 	
+			<transaction src="${db.dir}/create/tbl_patient_drug_history.sql"/> 
+			<transaction src="${db.dir}/create/tbl_patient_diagnostic_report.sql"/>
+			 			
 			
 			<transaction src="${db.dir}/data/tbl_province.sql"/>
 			<transaction src="${db.dir}/data/tbl_district.sql"/>
 			<transaction src="${db.dir}/data/tbl_employee.sql"/> 
 			<transaction src="${db.dir}/data/tbl_user_account.sql"/> 
 			<transaction src="${db.dir}/data/tbl_department.sql"/> 
+			
 		</sql>
 	</target>
 </project>
