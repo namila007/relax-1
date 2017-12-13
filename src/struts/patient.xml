@@ -17,9 +17,15 @@
 		</action> -->
 		
 		<action name="registration-save" class="com.doerit.action.patient.PatientAction" method="save">
-			<result name="success">/WEB-INF/content/patient/view.jsp</result>
-			<result name="input">/WEB-INF/content/patient/form.jsp</result>
+<!--  		<result name="success">/WEB-INF/content/patient/view.jsp</result>  -->
+			<result name="success" type="redirectAction">
+				<param name="actionName">view</param>
+				<param name="namespace">/patient</param>
+				<param name="id">${patient.id}</param>
+			</result>	
+			<result name="input">/WEB-INF/content/patient/form.jsp</result>				
 		</action>
+
 		
 		<action name="edit" class="com.doerit.action.patient.PatientAction" method="edit">
 			<result name="success">/WEB-INF/content/patient/form.jsp</result>
