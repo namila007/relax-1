@@ -8,6 +8,7 @@
 <s:include value="/WEB-INF/content/common/meta-tags.jsp"></s:include>
 <title><s:text name="global.application.title" /></title>
 <s:include value="/WEB-INF/content/common/css-include.jsp"></s:include>
+<s:include value="/WEB-INF/content/common/jquery-css.jsp"></s:include>
 </head>
 
 <body class="nav-md">
@@ -258,5 +259,6 @@
 	<s:include value="/WEB-INF/content/common/footer.jsp"></s:include>
 	<!-- Custom Theme Scripts -->
 	<s:include value="/WEB-INF/content/common/js-include.jsp"></s:include>
+	<s:include value="/WEB-INF/content/common/jquery-ajax.jsp"></s:include>
 </body>
 </html>

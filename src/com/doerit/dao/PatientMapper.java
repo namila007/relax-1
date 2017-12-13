@@ -150,7 +150,13 @@ public interface PatientMapper {
     @ResultMap("BaseResultMap")
 	List<? extends Object> viewAllByDateAndPage(@Param("pager")Pager p, @Param("date")String date);
 	
-    
-    
-	
+    //new search to get id
+    @Select("SELECT c.NIC " +
+            " FROM tbl_patient c " +
+            " WHERE c.NIC LIKE #{searchValue}")
+    @ResultMap("BaseResultMap")
+    List<Patient> searchByNICval(@Param("searchValue") String likeSearchValue);
+
+
+
 }

@@ -128,4 +128,9 @@ public class PatientService extends AbstractService {
 	public List<DistrictRegistrationMapper> viewAllBetweenRegDistricts(String start, String end){
 		return patientMapper.viewDistrictBetweenTotals(start, end);
 	}
+
+	//new getter for NIC
+	public List<Patient> getNICValues(String nic){
+		return patientMapper.searchByNICval(nic+"%");
+	}
 }
