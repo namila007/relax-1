@@ -30,6 +30,12 @@
 				
 			<li><a><i class="fa fa-user"></i>Users</a>
 			<li><a><i class="fa fa-calendar"></i>ICU</a>
+			<li>
+				<s:url var="radiology" action="radio-upload.html" namespace="/patient"></s:url>
+				<s:a href="%{#radiology}">
+					<i class="fa fa-medkit"></i>Radiology
+				</s:a>
+			</li>
 			
 			<s:if test="admin">
 				<li><a><i class="fa fa-cog"></i> Settings</a>
