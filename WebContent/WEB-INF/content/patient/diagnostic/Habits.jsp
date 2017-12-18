@@ -39,6 +39,8 @@
 		<!-- page content -->
 			<div class="right_col" role="main" style="margin-bottom:40px;">
                 <s:include value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"></s:include>
+                
+              <!-- form start -->
 				<s:form namespace="/patient" action="processRegister.html" method="post">
                         
 					<ul class="nav nav-tabs" id="myTab" role="tablist">

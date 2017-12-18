@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="upload" namespace="/upload" extends="struts-default">
+	
+	<!--radiology btn action end-->
+	
+		<action name="uploaded" class="com.doerit.upload.ImageUploader" method="doUpload">
+
+            <interceptor-ref name="fileUpload">
+       			<param name="allowedTypes">image/jpeg,image/png,image/gif</param>
+<!--        			<param name="maximumSize">5242880</param> -->
+				<param name="maximumSize">4194304</param>
+  	    	</interceptor-ref>
+  	    	<interceptor-ref name="params" />
+			<interceptor-ref name="validation" />
+			<interceptor-ref name="workflow" />
+			              	    		
+			<result name="success">/WEB-INF/content/radiology/success.jsp</result>
+			<result name="input">/upload.jsp</result>
+		</action>
+
+	</package>
+		
+</struts>
