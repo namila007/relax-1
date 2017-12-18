@@ -133,4 +133,7 @@ public class PatientService extends AbstractService {
 	public List<Patient> getNICValues(String nic){
 		return patientMapper.searchByNICval(nic+"%");
 	}
+
+	//get id from nic
+	public List<Patient> getIDbyNIC(String nic){return patientMapper.searchIDByNIC(nic);}
 }
