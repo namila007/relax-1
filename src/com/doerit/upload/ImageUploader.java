@@ -32,21 +32,23 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ImageUploader extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
-	public String PatientId;
-	public File fileUpload;
-	public String fileUploadContentType;
-	public String fileUploadFileName;
+	private String PatientId;
+	private File fileUpload;
+	private String fileUploadContentType;
+	private String fileUploadFileName;
 
-
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	
 	public String imageUpload() {
 		return SUCCESS;
 	}
-	
+
 	public String doUpload() {
-		
+
 		File saveFilePath = new File("E:/Upload/"+PatientId+"/" + fileUploadFileName);
-		
+
 		try {
 			FileUtils.copyFile(fileUpload, saveFilePath);
 		} catch (IOException ex) {
@@ -85,10 +87,6 @@ public class ImageUploader extends ActionSupport {
 
 	public void setFileUploadFileName(String fileUploadFileName) {
 		this.fileUploadFileName = fileUploadFileName;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 		
 		

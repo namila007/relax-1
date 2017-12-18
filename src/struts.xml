@@ -6,7 +6,7 @@
 
 <struts>
 
-    <package name="dit-default" extends="struts-default" abstract="true">
+	<package name="dit-default" extends="struts-default" abstract="true">
 		<global-results>
 			<result name="login" type="redirectAction">
 				<param name="namespace">/</param>
@@ -85,6 +85,8 @@
 	</package>
 	
 	
+
+
 
 	<include file="./struts/signin.xml" />
 	<include file="./struts/dash-board.xml" />
