@@ -10,8 +10,6 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
-import javax.servlet.http.HttpServletRequest;
-import org.apache.struts2.interceptor.ServletRequestAware;
 /*import org.springframework.beans.factory.annotation.Autowired;
 
 import com.doerit.action.AbstractDownloadManamentAction;
@@ -38,7 +36,6 @@ public class ImageUploader extends ActionSupport {
 	public File fileUpload;
 	public String fileUploadContentType;
 	public String fileUploadFileName;
-	private HttpServletRequest servletRequest;
 
 
 	
@@ -49,6 +46,7 @@ public class ImageUploader extends ActionSupport {
 	public String doUpload() {
 		
 		File saveFilePath = new File("E:/Upload/"+PatientId+"/" + fileUploadFileName);
+		
 		try {
 			FileUtils.copyFile(fileUpload, saveFilePath);
 		} catch (IOException ex) {
@@ -92,11 +90,7 @@ public class ImageUploader extends ActionSupport {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-
-	
-	
-	
+		
 		
 }
 
