@@ -71,10 +71,18 @@
 											<input class="form-control full-width" type="text"
 												name="Dose_Warfarin" placeholder="Dose Regime">
 										</div>
-										<div class="col-sm-5">
-											<input class="form-control half-width" type="text"
+										<div class="col-sm-3">
+											<input class="form-control full-width" type="text"
 												name="Duration_Warfarin" placeholder="Duration">
 										</div>
+											<div class="col-sm-2">
+											<select>
+ 										<option value="days">days</option>
+ 									<option value="weeks">weeks</option>
+									<option value="months">months</option>
+									<option value="years">years</option>
+								</select>
+								</div>
 									</div>
 
 									<div class="row top-space">
@@ -86,10 +94,18 @@
 											<input class="form-control full-width" type="text"
 												name="Dose_Clopidogrel" placeholder="Dose Regime">
 										</div>
-										<div class="col-sm-5">
+										<div class="col-sm-3">
 											<input class="form-control full-width" type="text"
 												name="Duration_Clopidogrel" placeholder="Duration">
 										</div>
+										<div class="col-sm-2">
+											<select>
+ 										<option value="days">days</option>
+ 									<option value="weeks">weeks</option>
+									<option value="months">months</option>
+									<option value="years">years</option>
+								</select>
+								</div>
 									</div>
 
 									<div class="row top-space">
@@ -101,10 +117,18 @@
 											<input class="form-control full-width" type="text"
 												name="Dose_Aspirin" placeholder="Dose Regime">
 										</div>
-										<div class="col-sm-5">
+										<div class="col-sm-3">
 											<input class="form-control full-width" type="text"
 												name="Duration_Aspirin" placeholder="Duration">
 										</div>
+										<div class="col-sm-2">
+											<select>
+ 										<option value="days">days</option>
+ 									<option value="weeks">weeks</option>
+									<option value="months">months</option>
+									<option value="years">years</option>
+								</select>
+								</div>
 									</div>
 
 									<div class="row top-space">
@@ -140,10 +164,18 @@
 										<input class="form-control full-width" type="text"
 											name="Dose_Antidiabetes" placeholder="Dose Regime">
 									</div>
-									<div class="col-sm-4">
+									<div class="col-sm-2">
 										<input class="form-control full-width" type="text"
 											name="Duration_Antidiabetes" placeholder="Duration">
 									</div>
+									<div class="col-sm-2">
+											<select>
+ 										<option value="days">days</option>
+ 									<option value="weeks">weeks</option>
+									<option value="months">months</option>
+									<option value="years">years</option>
+								</select>
+								</div>
 								</div>
 
 							</div>
@@ -160,10 +192,18 @@
 										<input class="form-control full-width" type="text"
 											name="Dose_AntiEpileptic" placeholder="Dose Regime">
 									</div>
-									<div class="col-sm-4">
+									<div class="col-sm-2">
 										<input class="form-control full-width" type="text"
 											name="Duration_AntiEpileptic" placeholder="Duration">
 									</div>
+									<div class="col-sm-2">
+											<select>
+ 										<option value="days">days</option>
+ 									<option value="weeks">weeks</option>
+									<option value="months">months</option>
+									<option value="years">years</option>
+								</select>
+								</div>
 								</div>
 
 							</div>
@@ -180,10 +220,18 @@
 										<input class="form-control full-width" type="text"
 											name="Dose_Antihypertensives" placeholder="Dose Regime">
 									</div>
-									<div class="col-sm-4">
+									<div class="col-sm-2">
 										<input class="form-control full-width" type="text"
 											name="Duration_Antihypertensives" placeholder="Duration">
 									</div>
+									<div class="col-sm-2">
+											<select>
+ 										<option value="days">days</option>
+ 									<option value="weeks">weeks</option>
+									<option value="months">months</option>
+									<option value="years">years</option>
+								</select>
+								</div>
 								</div>
 
 							</div>
@@ -200,10 +248,18 @@
 										<input class="form-control full-width" type="text"
 											name="Dose_NSAIDS" placeholder="Dose Regime">
 									</div>
-									<div class="col-sm-4">
+									<div class="col-sm-2">
 										<input class="form-control full-width" type="text"
 											name="Duration_NSAIDS" placeholder="Duration">
 									</div>
+									<div class="col-sm-2">
+											<select>
+ 										<option value="days">days</option>
+ 									<option value="weeks">weeks</option>
+									<option value="months">months</option>
+									<option value="years">years</option>
+								</select>
+								</div>
 								</div>
 
 							</div>
@@ -220,10 +276,18 @@
 										<input class="form-control full-width" type="text"
 											name="Dose_Steroids " placeholder="Dose Regime">
 									</div>
-									<div class="col-sm-4">
+									<div class="col-sm-2">
 										<input class="form-control full-width" type="text"
 											name="Duration_Steroids " placeholder="Duration">
 									</div>
+									<div class="col-sm-2">
+											<select>
+ 										<option value="days">days</option>
+ 									<option value="weeks">weeks</option>
+									<option value="months">months</option>
+									<option value="years">years</option>
+								</select>
+								</div>
 								</div>
 
 							</div>
@@ -240,10 +304,18 @@
 										<input class="form-control full-width" type="text"
 											name="Dose_Chemotherapy  " placeholder="Dose Regime">
 									</div>
-									<div class="col-sm-4">
+									<div class="col-sm-2">
 										<input class="form-control full-width" type="text"
 											name="Duration_Chemotherapy  " placeholder="Duration">
 									</div>
+									<div class="col-sm-2">
+											<select>
+ 										<option value="days">days</option>
+ 									<option value="weeks">weeks</option>
+									<option value="months">months</option>
+									<option value="years">years</option>
+								</select>
+								</div>
 								</div>
 
 							</div>
@@ -252,10 +324,18 @@
 
 								<label class="col-sm-2 control-label">Radiation therapy</label>
 								<div class=" col-sm-10 container-fluid">
-									<div class="col-sm-4">
+									<div class="col-sm-3">
 										<input class="form-control full-width" type="text"
 											name="Duration_RadiationTherapy  " placeholder="Duration">
 									</div>
+									<div class="col-sm-2">
+											<select>
+ 										<option value="days">days</option>
+ 									<option value="weeks">weeks</option>
+									<option value="months">months</option>
+									<option value="years">years</option>
+								</select>
+								</div>
 								</div>
 
 							</div>
