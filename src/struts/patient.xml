@@ -132,6 +132,12 @@
         </action>
 
 
+		<!--DIAGNOSTIC FORM ACRIONS-->
+		<action name="complaintsave" class="com.doerit.action.patient.DiagnosticAction" method="saveComplaint">
+			<!--code here-->
+		</action>
+
+
     </package>
     <!--THIS IS FOR JSON GENERATOR-->
     <package name="ajax" namespace="/patient" extends="json-default,authorized">
