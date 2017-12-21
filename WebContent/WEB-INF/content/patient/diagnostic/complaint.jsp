@@ -47,39 +47,47 @@ input[type=text] {
 			<!-- page content -->
 			<div class="addMenu">
 
-				<div class="right_col" role="main" style="margin-bottom:40px;">
+				<div class="right_col" role="main" style="margin-bottom: 40px;">
 
 					<s:include
 						value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"></s:include>
 					<div class="container">
 
-						<div style="margin-top:50px;">
+						<div style="margin-top: 50px;">
 
-						<form class="form-horizontal" action="/action_page.php">
-							<div class="form-group">
-								<label class="control-label col-sm-3" for="Complaint">Complaint:</label>
-								<div class="col-sm-7">
-									<input type="text" class="form-control" id="email"
-										placeholder="Complaint" name="Complaint">
+							<form class="form-horizontal" action="/action_page.php">
+								<div class="form-group">
+									<label class="control-label col-sm-3" for="Complaint">Complaint:</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="email"
+											placeholder="Complaint" name="Complaint">
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-3" for="Type">Type:</label>
-								<div class="col-sm-7">
-									<input type="text" class="form-control" id="pwd"
-										placeholder="Type" name="Type">
+								<div class="form-group">
+									<label class="control-label col-sm-3" for="Type">Type:</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="pwd"
+											placeholder="Type" name="Type">
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-3" for="History">History
-									of presenting complaint:</label>
-								<div class="col-sm-7">
-									<input type="text" class="form-control" id="text"
-										placeholder="History of Complaint" name="History">
+								<div class="form-group">
+									<label class="control-label col-sm-3" for="History">History
+										of presenting complaint:</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="text"
+											placeholder="History of Complaint" name="History">
+									</div>
 								</div>
-							</div>
 
-						</form>
+							</form>
+						</div>
+						<div class="col-sm-10">
+							<s:url var="medical_record" action="medical_record"
+								namespace="/patient"></s:url>
+							<s:a href="%{#medical_record}">
+								<button id="next-btn" type="button"
+									class="btn btn-success btn-lg pull-right  prabha-transform">Next</button>
+							</s:a>
 						</div>
 					</div>
 

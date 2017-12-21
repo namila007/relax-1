@@ -53,9 +53,8 @@ div.tab button.active {
 	
 }
 
-.containerbody p{
-	color:blue;
-	font-size:15px;
+label{
+	color:black;
 }
 
 .containerbody .row{

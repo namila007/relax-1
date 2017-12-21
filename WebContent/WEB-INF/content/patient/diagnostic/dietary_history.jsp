@@ -30,36 +30,36 @@
 			<div class="row"></div>
 
 			<!-- page content -->
-			<div class="right_col" role="main" style="margin-bottom:40px;">
+			<div class="right_col" role="main" style="margin-bottom: 40px;">
 
 				<s:include
 					value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"></s:include>
 
-				<div class="containerbody" style="overflow-y: scroll; height:500px;">
+				<div class="containerbody"
+					style="overflow-y: scroll; height: 500px;">
 
 					<div class="row">
 						<div class="col-md-3">
-							<p>Sugar consumption</p>
+							<label>Sugar consumption</label>
 						</div>
-						<h4 style="color: #27A4CA">
-							<div class="col-md-2">
-								<label><input type="radio" name="Sugar"> High</label>	
-							</div>
-							<div class="col-md-2">
-								<label><input type="radio" name="Sugar">
-									Moderate</label>
-							</div>
-							<div class="col-md-5">
-								<label><input type="radio" name="Sugar"> Low</label>
-							</div>
 
-						</h4>
+						<div class="col-md-2">
+							<label><input type="radio" name="Sugar"> High</label>
+						</div>
+						<div class="col-md-2">
+							<label><input type="radio" name="Sugar"> Moderate</label>
+						</div>
+						<div class="col-md-5">
+							<label><input type="radio" name="Sugar"> Low</label>
+						</div>
+
+
 					</div>
 					<br>
 					<div class="row">
 						<div class="col-md-3">
-							<p>Frequency of having sugary food/day apart from main
-								meals</p>
+							<label>Frequency of having sugary food/day apart from
+								main meals</label>
 						</div>
 						<div class="col-md-7">
 							<input class="input-lg" type="text" name=""
@@ -70,45 +70,60 @@
 					<br>
 					<div class="row">
 						<div class="col-md-3">
-							<p>Consumption of Beverages</p>
+							<label>Consumption of Beverages</label>
 						</div>
 
-						<h4 style="color: #27A4CA">
-							<div class="col-md-2">
-								<label><input type="checkbox"> Fruit Juices </label>
+
+						<div class="col-md-2">
+							<label><input type="checkbox"> Fruit Juices </label>
+						</div>
+						<div class="col-md-5">
+							<label><input type="checkbox"> Carbonic Drinks</label>
+
+
+							<div class="col-md-2"></div>
+						</div>
+						<br> <br>
+						<div class="row">
+							<div class="col-md-3">
+								<label>Other Comments</label>
 							</div>
-							<div class="col-md-5">
-								<label><input type="checkbox"> Carbonic Drinks</label>
-						</h4>
-
-						<div class="col-md-2"></div>
-					</div>
-					<br>
-					<br>
-					<div class="row">
-						<div class="col-md-3">
-							<p>Other Comments</p>
+							<div class="col-md-7">
+								<input class="input-lg" type="text" name=""
+									placeholder="Type here">
+							</div>
+							<div class="col-md-2"></div>
 						</div>
-						<div class="col-md-7">
-							<input class="input-lg" type="text" name=""
-								placeholder="Type here">
-						</div>
-						<div class="col-md-2"></div>
-					</div>
 
+					</div>
+					<div class="fixed-bottom">
+						<div class="col-sm-2">
+							<s:url var="past_dental_history" action="past_dental_history"
+								namespace="/patient"></s:url>
+							<s:a class="current" href="%{#past_dental_history}">
+								<button id="next-btn" type="button"
+									class="btn btn-success btn-lg pull-right  prabha-transform">Previous</button>
+						</div>
+						</s:a>
+						<div class="col-sm-10"></div>
+						<s:url var="drug_history" action="drug_history"
+							namespace="/patient"></s:url>
+						<s:a href="%{#drug_history}">
+							<button id="next-btn" type="button"
+								class="btn btn-success btn-lg pull-right  prabha-transform">Next</button>
+						</s:a>
+
+					</div>
 				</div>
+				<!-- /page content -->
 
 			</div>
-			<!-- /page content -->
-
 		</div>
-	</div>
 
-	<s:include value="/WEB-INF/content/common/footer.jsp"></s:include>
+		<s:include value="/WEB-INF/content/common/footer.jsp"></s:include>
 
-	<!-- Custom Theme Scripts -->
-	<s:include value="/WEB-INF/content/common/js-include.jsp"></s:include>
-
+		<!-- Custom Theme Scripts -->
+		<s:include value="/WEB-INF/content/common/js-include.jsp"></s:include>
 </body>
 </html>
 
