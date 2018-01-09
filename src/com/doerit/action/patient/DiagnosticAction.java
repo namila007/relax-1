@@ -23,16 +23,14 @@ public class DiagnosticAction extends AbstractDownloadManamentAction {
 
         if(complaint.getId()==null){
             complaint.setId(generatePrimaryKey());
-            System.out.println(complaint.getComplaint()+"   "+complaint.getId()+"   <<<complain");
-
             addInsertSettings(complaint);
             complaint.setStatus(State.ACTIVE.getDatabaseValue());
         }
 
          int i=diagnosticSerivce.insertComplaint(complaint);
-        System.out.println(i +" number");
+
         if(i==1) {
-            System.out.println("done");
+
             return "success";
         }
         else return "error";
