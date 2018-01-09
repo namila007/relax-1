@@ -29,5 +29,6 @@
 		<mapper resource="com/doerit/dao/xml/ProvinceMapper.xml" />
 		<mapper resource="com/doerit/dao/xml/UserAccountActionMapper.xml" />
 		<mapper resource="com/doerit/dao/xml/UserAccountMapper.xml" />
+		<mapper resource="com/doerit/dao/xml/ComplaintMapper.xml"/>
 	</mappers>
 </configuration>

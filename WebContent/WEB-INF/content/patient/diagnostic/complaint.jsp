@@ -54,32 +54,35 @@ input[type=text] {
 					<div class="container">
 
 						<div style="margin-top:50px;">
+							<s:form  action="complaintsave" method="post" namespace="/patient">
+								<div class="form-group">
+									<label class="control-label col-sm-3" for="Complaint">Complaint:</label>
+									<div class="col-sm-7">
 
-						<form class="form-horizontal" action="/action_page.php">
-							<div class="form-group">
-								<label class="control-label col-sm-3" for="Complaint">Complaint:</label>
-								<div class="col-sm-7">
-									<input type="text" class="form-control" id="email"
-										placeholder="Complaint" name="Complaint">
+										<s:textfield type="text" class="form-control" id="complaint"
+												 placeholder="Complaint" name="complaint.complaint"/>
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-3" for="Type">Type:</label>
-								<div class="col-sm-7">
-									<input type="text" class="form-control" id="pwd"
-										placeholder="Type" name="Type">
+								<div class="form-group">
+									<label class="control-label col-sm-3" for="Type">Type:</label>
+									<div class="col-sm-7">
+										<s:textfield type="text" class="form-control" id="type"
+												 placeholder="Type" name="complaint.type"/>
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-3" for="History">History
-									of presenting complaint:</label>
-								<div class="col-sm-7">
-									<input type="text" class="form-control" id="text"
-										placeholder="History of Complaint" name="History">
+								<div class="form-group">
+									<label class="control-label col-sm-3" for="History">History
+										of presenting complaint:</label>
+									<div class="col-sm-7">
+										<s:textfield type="text" class="form-control" id="complaintHistory"
+												 placeholder="History of Complaint" name="complaint.complaintHistory"/>
+									</div>
 								</div>
-							</div>
+								<div class="col-md-3 col-sm-3 col-xs-12">
+									<s:submit cssClass="btn btn-success" value="Save"></s:submit>
+								</div>
+							</s:form>
 
-						</form>
 						</div>
 					</div>
 

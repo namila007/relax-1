@@ -134,7 +134,7 @@
 
 		<!--DIAGNOSTIC FORM ACRIONS-->
 		<action name="complaintsave" class="com.doerit.action.patient.DiagnosticAction" method="saveComplaint">
-			<!--code here-->
+			<result name="success">/WEB-INF/content/department/dashboard.jsp</result>
 		</action>
 
 
