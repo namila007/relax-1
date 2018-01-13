@@ -54,20 +54,20 @@ input[type=text] {
 					<div class="container">
 
 						<div style="margin-top:50px;">
-							<s:form  action="complaintsave" method="post" namespace="/patient">
+							<s:form  action="complaint.save" method="post" namespace="/patient">
 								<div class="form-group">
 									<label class="control-label col-sm-3" for="Complaint">Complaint:</label>
 									<div class="col-sm-7">
 
 										<s:textfield type="text" class="form-control" id="complaint"
-												 placeholder="Complaint" name="complaint.complaint"/>
+													 placeholder="Complaint" name="complaint.complaint"/>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="control-label col-sm-3" for="Type">Type:</label>
 									<div class="col-sm-7">
 										<s:textfield type="text" class="form-control" id="type"
-												 placeholder="Type" name="complaint.type"/>
+													 placeholder="Type" name="complaint.type"/>
 									</div>
 								</div>
 								<div class="form-group">
@@ -75,11 +75,11 @@ input[type=text] {
 										of presenting complaint:</label>
 									<div class="col-sm-7">
 										<s:textfield type="text" class="form-control" id="complaintHistory"
-												 placeholder="History of Complaint" name="complaint.complaintHistory"/>
+													 placeholder="History of Complaint" name="complaint.complaintHistory"/>
 									</div>
 								</div>
 								<div class="col-md-3 col-sm-3 col-xs-12">
-									<s:submit cssClass="btn btn-success" value="Save"></s:submit>
+									<s:submit cssClass="btn btn-success" value="Save"/>
 								</div>
 							</s:form>
 

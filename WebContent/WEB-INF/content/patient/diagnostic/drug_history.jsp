@@ -65,7 +65,7 @@
 					<div id="London" class="tabcontent"
 						style="overflow-y: scroll; height: 500px;">
 						<div class="containerbody">
-
+							<s:form action="drug.save" namespace="/patient">
 							<div class="row">
 
 								<label class="col-sm-2"><p>Anticoagulants</p></label>
@@ -73,8 +73,8 @@
 									<input type="checkbox" name="Warfarin" value="Warfarin">Warfarin<br>
 								</div>
 								<div class="col-sm-4">
-									<input type="text" name="Dose_Warfarin"
-										placeholder="Dose Regime"><br>
+									<s:textfield type="text" name="drughistory.dose"
+										placeholder="Dose Regime"/><br>
 								</div>
 								<div class="col-sm-4">
 									<input type="text" name="Duration_Warfarin"
@@ -313,9 +313,14 @@
 						</div>
 
 					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<s:submit value="Save"/>
+						</div>
+					</div>
 
 				</div>
-
+				</s:form>
 			</div>
 			<!-- /page content -->
 

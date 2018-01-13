@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE html>
@@ -33,72 +33,78 @@
 			<div class="right_col" role="main" style="margin-bottom:40px;">
 
 				<s:include
-					value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"></s:include>
+					value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"/>
+
+
 
 				<div class="containerbody" style="overflow-y: scroll; height:500px;">
-
-					<div class="row">
-						<div class="col-md-3">
-							<p>Sugar consumption</p>
-						</div>
-						<h4 style="color: #27A4CA">
-							<div class="col-md-2">
-								<label><input type="radio" name="Sugar"> High</label>	
+					<s:form  action="dietarysave" method="post" namespace="/patient">
+						<div class="row">
+							<div class="col-md-3">
+								<p>Sugar consumption</p>
 							</div>
-							<div class="col-md-2">
-								<label><input type="radio" name="Sugar">
-									Moderate</label>
+								<%--<h4 style="color: #27A4CA">--%>
+							<div class="col-md-8">
+								<s:radio label="Suger" id="sugerConsumption" name="dietary.sugerConsumption" list="#{'High':'High','Moderate':'Moderate','Low':'Low'}" value=""/>
 							</div>
-							<div class="col-md-5">
-								<label><input type="radio" name="Sugar"> Low</label>
+								<%--<div class="col-md-2">
+                                    <label><input type="radio" name="Sugar">
+                                        Moderate</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <label><input type="radio" name="Sugar"> Low</label>
+                                </div>--%>
+
+								<%--</h4>--%>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-3">
+								<p>Frequency of having sugary food/day apart from main
+									meals</p>
+							</div>
+							<div class="col-md-7">
+								<s:textfield class="input-lg" id="otherFrequency" type="text" name="dietary.otherFrequency"
+											 placeholder="Type here"/>
+							</div>
+							<div class="col-md-2"></div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-3">
+								<p>Consumption of Beverages</p>
 							</div>
 
-						</h4>
-					</div>
-					<br>
-					<div class="row">
-						<div class="col-md-3">
-							<p>Frequency of having sugary food/day apart from main
-								meals</p>
-						</div>
-						<div class="col-md-7">
-							<input class="input-lg" type="text" name=""
-								placeholder="Type here">
-						</div>
-						<div class="col-md-2"></div>
-					</div>
-					<br>
-					<div class="row">
-						<div class="col-md-3">
-							<p>Consumption of Beverages</p>
-						</div>
+							<h4 style="color: #27A4CA">
+								<div class="col-md-4">
+										<%--<s:checkbox name="dietaryhistory.beverages" list="#{'Fruit Juices':'Fruit Juices','Carbonic Drinks':'Carbonic Drinks'}" value=""/>--%>
+									<s:checkbox name="dietary.beverages" fieldValue="Frit Juices" label="Fruit Juices"/>
+								</div>
+								<div class="col-md-5">
+									<s:checkbox name="dietary.beverages" fieldValue="Carbonic Drinks" label="Carbonic Drinks"/>
+								</div>
+							</h4>
 
-						<h4 style="color: #27A4CA">
-							<div class="col-md-2">
-								<label><input type="checkbox"> Fruit Juices </label>
+							<div class="col-md-2"></div>
+						</div>
+						<br>
+						<br>
+						<div class="row">
+							<div class="col-md-3">
+								<p>Other Comments</p>
 							</div>
-							<div class="col-md-5">
-								<label><input type="checkbox"> Carbonic Drinks</label>
-						</h4>
-
-						<div class="col-md-2"></div>
-					</div>
-					<br>
-					<br>
-					<div class="row">
-						<div class="col-md-3">
-							<p>Other Comments</p>
+							<div class="col-md-7">
+								<s:textfield class="input-lg" type="text" id="comment" name="dietary.comment"
+											 placeholder="Type here"/>
+							</div>
+							<div class="col-md-2"></div>
 						</div>
-						<div class="col-md-7">
-							<input class="input-lg" type="text" name=""
-								placeholder="Type here">
+						<div class="col-md-6">
+							<s:submit cssClass="btn btn-success" value="Save"/>
 						</div>
-						<div class="col-md-2"></div>
-					</div>
-
+					</s:form>
 				</div>
 
-			</div>
 			<!-- /page content -->
 
 		</div>
