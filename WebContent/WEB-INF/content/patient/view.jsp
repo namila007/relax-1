@@ -288,6 +288,29 @@
 							<s:else>
 								There is no guardian information.
 							</s:else>
+							<div>
+							<div class="row"><h4>X-ray images</h4></div>
+							<%@ page import="java.io.*" %>
+							<% 
+							try{
+							File folder = new File("D:/Academic/Computer Engineering/Projects/Dental/Git Project/relax-1/WebContent/upload/17120002"); //your path
+							//File folder = new File("/upload/"+patient.serialNumber);
+							File[] listOfFiles = folder.listFiles();
+							
+							for (int i = 0; i < listOfFiles.length; i++)
+							{
+							    if (listOfFiles[i].isFile())
+							    {
+    						%>
+    						
+    						<img src="<s:url value='/upload/%{patient.serialNumber}/Screenshot (5).png' />" style="width:50px;height:50px">
+    						<a href="<s:url value='/upload/%{patient.serialNumber}/Screenshot (5).png' />"><%=listOfFiles[i].getName()%><br></a> 
+    						
+    						<%}}}
+							catch(Exception e){%>
+								<p>No images available</p>
+							<% } %>
+							</div>
 					  </div> 
 					  
 					</div>
