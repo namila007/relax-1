@@ -155,7 +155,7 @@
 
     </package>
     <!--THIS IS FOR JSON GENERATOR-->
-    <package name="ajax" namespace="/patient" extends="json-default,authorized">
+    <!--<package name="ajax" namespace="/patient" extends="json-default,authorized">
         <interceptors>
             <interceptor-stack name="mystack">
                 <interceptor-ref name="json">
@@ -173,6 +173,6 @@
 
 
 
-    </package>
+    </package>-->
 		
 </struts>

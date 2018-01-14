@@ -7,7 +7,7 @@ $(document).ready(function() {
             minLength:5,
             source : function(request, response) {
                 $.ajax({
-                    url: "ajaxautocomplete.html",
+                    url: "/ajaxautocomplete.html",
                     type: "Post",
                     data:JSON.stringify({"nic": request.term}),
                     contentType: "application/json",
@@ -30,10 +30,10 @@ $(document).ready(function() {
                     content: 'This NIC ('+ ui.item.label+') was found.Go to Patient page?',
                     lazyOpen:false,
                     theme: 'bootstrap',
-                    onContentReady: function(){this.lazyOpen=a},
+                    // onContentReady: function(){this.lazyOpen=a},
                     buttons: {
                         confirm: function () {
-                            window.location.href=(window.location.protocol+window.location.hostname+window.location.port+"/patient/view.html?id="+ui.item.id)
+                            location.href=("/patient/view.html?id="+ui.item.id)
 
                         },
                         cancel: function () {
@@ -55,6 +55,12 @@ $(document).ready(function() {
         };
          */
     });
+
+
+
+
+
+
 
 });
 
