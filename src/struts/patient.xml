@@ -134,14 +134,14 @@
 
 		<!--BEGIN DIAGNOSTIC FORM ACRIONS-->
 		<action name="complaint.save" class="com.doerit.action.patient.DiagnosticAction" method="saveComplaint">
+			<result name="success">/WEB-INF/content/patient/diagnostic/dietary_history.jsp</result>
+		</action>
+
+		<action name="dietary.save" class="com.doerit.action.patient.DiagnosticAction" method="saveDietary">
 			<result name="success">/WEB-INF/content/department/dashboard.jsp</result>
 		</action>
 
-		<action name="dietarysave" class="com.doerit.action.patient.DiagnosticAction" method="saveDietary">
-			<result name="success">/WEB-INF/content/department/dashboard.jsp</result>
-		</action>
-
-		<action name="drug.save" class="com.doerit.action.patient.DiagnosticAction" method="saveDrug">
+		<action name="drughistory.save" class="com.doerit.action.patient.DiagnosticAction" method="saveDrug">
 			<result name="success">/WEB-INF/content/department/dashboard.jsp</result>
 		</action>
 

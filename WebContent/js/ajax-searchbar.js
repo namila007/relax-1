@@ -4,9 +4,7 @@ $(document).ready(function() {
     $('#drop li').on('click', function () {
         searchkey = document.getElementById("search_concept").innerText.trim();
 
-        console.log(searchkey);
         if (searchkey = "NIC") {
-            console.log("hello");
 
             $(function () {
                 $("#searchword").autocomplete({

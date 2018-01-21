@@ -38,7 +38,7 @@
 
 
 				<div class="containerbody" style="overflow-y: scroll; height:500px;">
-					<s:form  action="dietarysave" method="post" namespace="/patient">
+					<s:form  action="dietary.save" method="post" namespace="/patient">
 						<div class="row">
 							<div class="col-md-3">
 								<p>Sugar consumption</p>
@@ -78,10 +78,10 @@
 							<h4 style="color: #27A4CA">
 								<div class="col-md-4">
 										<%--<s:checkbox name="dietaryhistory.beverages" list="#{'Fruit Juices':'Fruit Juices','Carbonic Drinks':'Carbonic Drinks'}" value=""/>--%>
-									<s:checkbox name="dietary.beverages" fieldValue="Frit Juices" label="Fruit Juices"/>
+									<s:checkbox name="dietary.beverages" fieldValue="Frit Juices" label="Fruit Juices"/>Fruit Juices
 								</div>
 								<div class="col-md-5">
-									<s:checkbox name="dietary.beverages" fieldValue="Carbonic Drinks" label="Carbonic Drinks"/>
+									<s:checkbox name="dietary.beverages" fieldValue="Carbonic Drinks" label="Carbonic Drinks"/>Carbonic Drinks
 								</div>
 							</h4>
 

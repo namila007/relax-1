@@ -22,6 +22,7 @@ public class DiagnosticService extends AbstractService{
     private DrugHistoryMapper drugHistoryMapper;
 
 
+
     public int insertDietaryHistory(DietaryHistory dietary){
         return dietaryMapper.insert(dietary);
     }

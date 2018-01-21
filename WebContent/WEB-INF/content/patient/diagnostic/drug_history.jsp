@@ -65,12 +65,14 @@
 					<div id="London" class="tabcontent"
 						style="overflow-y: scroll; height: 500px;">
 						<div class="containerbody">
-							<s:form action="drug.save" namespace="/patient">
+							<s:form action="drughistory.save" namespace="/patient">
 							<div class="row">
 
 								<label class="col-sm-2"><p>Anticoagulants</p></label>
 								<div class="col-sm-2">
 									<input type="checkbox" name="Warfarin" value="Warfarin">Warfarin<br>
+									<s:checkbox name="dietary.beverages" fieldValue="Frit Juices" label="Fruit Juices"/>Fruit Juices
+
 								</div>
 								<div class="col-sm-4">
 									<s:textfield type="text" name="drughistory.dose"
