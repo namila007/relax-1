@@ -52,103 +52,43 @@
 
 				<s:include
 					value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"></s:include>
-				<div class="container-fluid"
-					style="overflow-y: scroll; height: 500px;">
-					<div class="container-fluid">
-						<form class="form-horizontal" action="/action_page.php">
-							<div class="form-group">
 
 
-								<label class="col-sm-2 control-label">Anticoagulants</label>
-								<div class="col-sm-10"
-									style="padding: 20px; padding-top: 0px !important;">
+				<div class="container">
 
-									<div class="row top-space">
-										<div class="checkbox col-sm-2">
-											<label><input type="checkbox" name="remember">Warfarin</label>
-										</div>
-										<div class="col-sm-5">
-											<input class="form-control full-width" type="text"
-												name="Dose_Warfarin" placeholder="Dose Regime">
-										</div>
-										<div class="col-sm-3">
-											<input class="form-control full-width" type="text"
-												name="Duration_Warfarin" placeholder="Duration">
-										</div>
-											<div class="col-sm-2">
-											<select>
- 										<option value="days">days</option>
- 									<option value="weeks">weeks</option>
-									<option value="months">months</option>
-									<option value="years">years</option>
-								</select>
+
+
+					<div class="tab">
+						<button class="tablinks" onclick="openCity(event, 'London')">FirstPage</button>
+						<button class="tablinks" onclick="openCity(event, 'Paris')">SecondPage</button>
+					</div>
+
+					<div id="London" class="tabcontent"
+						style="overflow-y: scroll; height: 500px;">
+						<div class="containerbody">
+							<s:form action="drughistory.save" namespace="/patient">
+							<div class="row">
+
+								<label class="col-sm-2"><p>Anticoagulants</p></label>
+								<div class="col-sm-2">
+									<input type="checkbox" name="Warfarin" value="Warfarin">Warfarin<br>
+									<s:checkbox name="dietary.beverages" fieldValue="Frit Juices" label="Fruit Juices"/>Fruit Juices
+
 								</div>
-									</div>
-
-									<div class="row top-space">
-										<div class="checkbox col-sm-2">
-											<label><input type="checkbox" name="Clopidogrel"
-												value="Clopidogrel">Clopidogrel</label>
-										</div>
-										<div class="col-sm-5">
-											<input class="form-control full-width" type="text"
-												name="Dose_Clopidogrel" placeholder="Dose Regime">
-										</div>
-										<div class="col-sm-3">
-											<input class="form-control full-width" type="text"
-												name="Duration_Clopidogrel" placeholder="Duration">
-										</div>
-										<div class="col-sm-2">
-											<select>
- 										<option value="days">days</option>
- 									<option value="weeks">weeks</option>
-									<option value="months">months</option>
-									<option value="years">years</option>
-								</select>
+								<div class="col-sm-4">
+									<s:textfield type="text" name="drughistory.dose"
+										placeholder="Dose Regime"/><br>
 								</div>
-									</div>
+								<div class="col-sm-4">
+									<input type="text" name="Duration_Warfarin"
+										placeholder="Duration">&nbsp<select>
+										<option value="days">days</option>
+										<option value="weeks">weeks</option>
+										<option value="months">months</option>
+										<option value="years">years</option>
+									</select><br>
 
-									<div class="row top-space">
-										<div class="checkbox col-sm-2">
-											<label><input type="checkbox" name="Aspirin"
-												value="Aspirin">Aspirin</label>
-										</div>
-										<div class="col-sm-5">
-											<input class="form-control full-width" type="text"
-												name="Dose_Aspirin" placeholder="Dose Regime">
-										</div>
-										<div class="col-sm-3">
-											<input class="form-control full-width" type="text"
-												name="Duration_Aspirin" placeholder="Duration">
-										</div>
-										<div class="col-sm-2">
-											<select>
- 										<option value="days">days</option>
- 									<option value="weeks">weeks</option>
-									<option value="months">months</option>
-									<option value="years">years</option>
-								</select>
-								</div>
-									</div>
-
-									<div class="row top-space">
-										<div class="checkbox col-sm-2">
-											<label><input type="checkbox" name="Other"
-												value="Other">Other</label>
-										</div>
-										<div class="col-sm-3">
-											<input class="form-control full-width" type="text"
-												name="Dose_Other" placeholder="Dose Regime">
-										</div>
-										<div class="col-sm-3">
-											<input class="form-control full-width" type="text"
-												name="Duration_Other" placeholder="Duration">
-										</div>
-										<div class="col-sm-4">
-											<input class="form-control full-width" name="Comments"
-												placeholder="Type if any other comments">
-										</div>
-									</div>
+				
 								</div>
 							</div>
 
@@ -375,7 +315,16 @@
 
 						</form>
 					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<s:submit value="Save"/>
+						</div>
+					</div>
+
 				</div>
+				</s:form>
+
 			</div>
 			<!-- /page content -->
 

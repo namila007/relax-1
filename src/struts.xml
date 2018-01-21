@@ -83,8 +83,8 @@
 		  <result name="success">/jsp/result.jsp</result>
 		</action>
 	</package>
-	
-	
+
+
 
 
 
@@ -95,6 +95,7 @@
 	<include file="./struts/report.xml" />
 	<include file="./struts/patient-guardian.xml" />
 	<include file="./struts/upload.xml" />
+	<include file="./struts/ajax-auto.xml"/>
 	
 </struts>
 

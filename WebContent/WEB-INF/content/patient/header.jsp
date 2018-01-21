@@ -10,10 +10,10 @@
 		<div class="input-group">
                
                 <div class="input-group-btn search-panel">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <button type="button"  class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     	<span id="search_concept">Search By</span> <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu" role="menu">
+                    <ul class="dropdown-menu" id="drop" role="menu">
                       <li><a href="#serial">Serial Number</a></li>	
                       <li><a href="#surname">Surname</a></li>
                       <li><a href="#firstname">First name</a></li>
@@ -25,7 +25,7 @@
                     </ul>
                 </div>
                 <input type="hidden" name="searchKey" value="serial" id="search_param">     
-                <input type="text" class="form-control" name="searchWord" placeholder="default is serial" autofocus>
+                <input type="text" class="form-control" id="searchword" name="searchWord" placeholder="default is serial" autofocus>
                 <span class="input-group-btn">
                     <s:submit cssClass="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></s:submit>
                 </span>
@@ -41,5 +41,4 @@
 			<s:a href="%{#patientListUrl}" cssClass="btn btn-success" role="button">List</s:a>
 			<%-- <s:a href="%{#patientHiddenUrl}" cssClass="btn btn-info" role="button">Deleted</s:a> --%>
 		</div>
-
 </div>

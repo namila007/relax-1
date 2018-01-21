@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE html>
@@ -33,92 +33,85 @@
 			<div class="right_col" role="main" style="margin-bottom: 40px;">
 
 				<s:include
-					value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"></s:include>
-
-				<div class="containerbody"
-					style="overflow-y: scroll; height: 500px;">
-
-					<div class="row">
-						<div class="col-md-3">
-							<label>Sugar consumption</label>
-						</div>
-
-						<div class="col-md-2">
-							<label><input type="radio" name="Sugar"> High</label>
-						</div>
-						<div class="col-md-2">
-							<label><input type="radio" name="Sugar"> Moderate</label>
-						</div>
-						<div class="col-md-5">
-							<label><input type="radio" name="Sugar"> Low</label>
-						</div>
+					value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"/>
 
 
-					</div>
-					<br>
-					<div class="row">
-						<div class="col-md-3">
-							<label>Frequency of having sugary food/day apart from
-								main meals</label>
-						</div>
-						<div class="col-md-7">
-							<input class="input-lg" type="text" name=""
-								placeholder="Type here">
-						</div>
-						<div class="col-md-2"></div>
-					</div>
-					<br>
-					<div class="row">
-						<div class="col-md-3">
-							<label>Consumption of Beverages</label>
-						</div>
 
 
-						<div class="col-md-2">
-							<label><input type="checkbox"> Fruit Juices </label>
-						</div>
-						<div class="col-md-5">
-							<label><input type="checkbox"> Carbonic Drinks</label>
-
-
-							<div class="col-md-2"></div>
-						</div>
-						<br> <br>
+				<div class="containerbody" style="overflow-y: scroll; height:500px;">
+					<s:form  action="dietary.save" method="post" namespace="/patient">
 						<div class="row">
 							<div class="col-md-3">
-								<label>Other Comments</label>
+								<p>Sugar consumption</p>
+							</div>
+								<%--<h4 style="color: #27A4CA">--%>
+							<div class="col-md-8">
+								<s:radio label="Suger" id="sugerConsumption" name="dietary.sugerConsumption" list="#{'High':'High','Moderate':'Moderate','Low':'Low'}" value=""/>
+							</div>
+								<%--<div class="col-md-2">
+                                    <label><input type="radio" name="Sugar">
+                                        Moderate</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <label><input type="radio" name="Sugar"> Low</label>
+                                </div>--%>
+
+								<%--</h4>--%>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-3">
+								<p>Frequency of having sugary food/day apart from main
+									meals</p>
 							</div>
 							<div class="col-md-7">
-								<input class="input-lg" type="text" name=""
-									placeholder="Type here">
+								<s:textfield class="input-lg" id="otherFrequency" type="text" name="dietary.otherFrequency"
+											 placeholder="Type here"/>
 							</div>
 							<div class="col-md-2"></div>
 						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-3">
+								<p>Consumption of Beverages</p>
+							</div>
 
-					</div>
-					<div class="fixed-bottom">
-						<div class="col-sm-2">
-							<s:url var="past_dental_history" action="past_dental_history"
-								namespace="/patient"></s:url>
-							<s:a class="current" href="%{#past_dental_history}">
-								<button id="next-btn" type="button"
-									class="btn btn-success btn-lg pull-right  prabha-transform">Previous</button>
+							<h4 style="color: #27A4CA">
+								<div class="col-md-4">
+										<%--<s:checkbox name="dietaryhistory.beverages" list="#{'Fruit Juices':'Fruit Juices','Carbonic Drinks':'Carbonic Drinks'}" value=""/>--%>
+									<s:checkbox name="dietary.beverages" fieldValue="Frit Juices" label="Fruit Juices"/>Fruit Juices
+								</div>
+								<div class="col-md-5">
+									<s:checkbox name="dietary.beverages" fieldValue="Carbonic Drinks" label="Carbonic Drinks"/>Carbonic Drinks
+								</div>
+							</h4>
+
+							<div class="col-md-2"></div>
 						</div>
-						</s:a>
-						<div class="col-sm-10"></div>
-						<s:url var="drug_history" action="drug_history"
-							namespace="/patient"></s:url>
-						<s:a href="%{#drug_history}">
-							<button id="next-btn" type="button"
-								class="btn btn-success btn-lg pull-right  prabha-transform">Next</button>
-						</s:a>
+						<br>
+						<br>
+						<div class="row">
+							<div class="col-md-3">
+								<p>Other Comments</p>
+							</div>
+							<div class="col-md-7">
+								<s:textfield class="input-lg" type="text" id="comment" name="dietary.comment"
+											 placeholder="Type here"/>
+							</div>
+							<div class="col-md-2"></div>
+						</div>
+						<div class="col-md-6">
+							<s:submit cssClass="btn btn-success" value="Save"/>
+						</div>
+					</s:form>
 
-					</div>
 				</div>
 				<!-- /page content -->
 
-			</div>
-		</div>
+
+			<!-- /page content -->
+
+
 
 		<s:include value="/WEB-INF/content/common/footer.jsp"></s:include>
 

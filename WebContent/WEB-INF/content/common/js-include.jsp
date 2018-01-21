@@ -10,3 +10,8 @@
 <script src="<s:url value="/js/bootstrap-confirmation.min.js" includeParams="none"/>"></script>
 <script src="<s:url value="/js/custom.min.js" includeParams="none"/>"></script>
 <script src="<s:url value="/js/print-view.js" includeParams="none"/>"></script>
+
+<script src="<s:url value="/js/jquery.min.js" includeParams="none"/>"></script>
+<script src="<s:url value="/js/jquery-confirm.js" includeParams="none"/>"></script>
+<script src="<s:url value="/js/jquery-ui.min.js" includeParams="none"/>"></script>
+<script src="<s:url value="/js/ajax-searchbar.js" includeParams="none"/>"></script>
