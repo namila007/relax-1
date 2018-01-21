@@ -53,6 +53,7 @@
 				<s:include
 					value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"></s:include>
 
+
 				<div class="container">
 
 
@@ -86,235 +87,235 @@
 										<option value="months">months</option>
 										<option value="years">years</option>
 									</select><br>
-								</div>
-							</div>
-							<div class="row">
 
-								<div class="col-sm-2"></div>
-								<div class="col-sm-2">
-									<input type="checkbox" name="Clopidogrel" value="Clopidogrel">Clopidogrel<br>
-								</div>
-								<div class="col-sm-4">
-									<input type="text" name="Dose_Clopidogrel"
-										placeholder="Dose Regime"><br>
-								</div>
-								<div class="col-sm-4">
-									<input type="text" name="Duration_Clopidogrel"
-										placeholder="Duration">&nbsp<select>
-										<option value="days">days</option>
-										<option value="weeks">weeks</option>
-										<option value="months">months</option>
-										<option value="years">years</option>
-									</select><br>
-								</div>
-							</div>
-							<div class="row">
-
-								<div class="col-sm-2"></div>
-								<div class="col-sm-2">
-									<input type="checkbox" name="Aspirin" value="Aspirin">Aspirin<br>
-								</div>
-								<div class="col-sm-4">
-									<input type="text" name="Dose_Aspirin"
-										placeholder="Dose Regime"><br>
-								</div>
-								<div class="col-sm-4">
-									<input type="text" name="Duration_Aspirin"
-										placeholder="Duration">&nbsp<select>
-										<option value="days">days</option>
-										<option value="weeks">weeks</option>
-										<option value="months">months</option>
-										<option value="years">years</option>
-									</select><br>
+				
 								</div>
 							</div>
 
-							<div class="row">
+							<div class="form-group">
 
-								<div class="col-sm-2"></div>
-								<div class="col-sm-2">
-									<input type="checkbox" name="Other" value="Other">Other<br>
+								<label class="col-sm-2 control-label">Antidiabetes</label>
+								<div class=" col-sm-10 container-fluid">
+									<div class="col-sm-4">
+										<input class="form-control full-width" type="text"
+											name="Antidiabetes" placeholder="Antidiabetes">
+									</div>
+									<div class="col-sm-4">
+										<input class="form-control full-width" type="text"
+											name="Dose_Antidiabetes" placeholder="Dose Regime">
+									</div>
+									<div class="col-sm-2">
+										<input class="form-control full-width" type="text"
+											name="Duration_Antidiabetes" placeholder="Duration">
+									</div>
+									<div class="col-sm-2">
+											<select>
+ 										<option value="days">days</option>
+ 									<option value="weeks">weeks</option>
+									<option value="months">months</option>
+									<option value="years">years</option>
+								</select>
 								</div>
-
-								<div class="col-sm-4">
-									<input type="text" id="text1" name="Comments"
-										placeholder="Type if any other comments">
-								</div>
-
-								<div class="col-sm-4">
-									<input type="text" name="Duration_Other" placeholder="Duration">&nbsp<select>
-										<option value="days">days</option>
-										<option value="weeks">weeks</option>
-										<option value="months">months</option>
-										<option value="years">years</option>
-									</select>
 								</div>
 
 							</div>
 
-							<div class="row">
+							<div class="form-group">
 
-								<label class="col-sm-3"><p>Antidiabetes</p></label>
-								<div class="col-sm-3">
-									<input type="text" name="Antidiabetes"
-										placeholder="Antidiabetes"><br>
+								<label class="col-sm-2 control-label">Anti Epileptic</label>
+								<div class=" col-sm-10 container-fluid">
+									<div class="col-sm-4">
+										<input class="form-control full-width" type="text"
+											name="Anti Epileptic" placeholder="Anti Epileptic">
+									</div>
+									<div class="col-sm-4">
+										<input class="form-control full-width" type="text"
+											name="Dose_AntiEpileptic" placeholder="Dose Regime">
+									</div>
+									<div class="col-sm-2">
+										<input class="form-control full-width" type="text"
+											name="Duration_AntiEpileptic" placeholder="Duration">
+									</div>
+									<div class="col-sm-2">
+											<select>
+ 										<option value="days">days</option>
+ 									<option value="weeks">weeks</option>
+									<option value="months">months</option>
+									<option value="years">years</option>
+								</select>
 								</div>
-								<div class="col-sm-3">
-									<input type="text" name="Dose_Antidiabetes"
-										placeholder="Dose Regime"><br>
 								</div>
-								<div class="col-sm-3">
-									<input type="text" name="Duration_Antidiabetes"
-										placeholder="Duration">&nbsp<select>
-										<option value="days">days</option>
-										<option value="weeks">weeks</option>
-										<option value="months">months</option>
-										<option value="years">years</option>
-									</select><br>
-								</div>
+
 							</div>
 
-							<div class="row">
+							<div class="form-group">
 
-								<label class="col-sm-3"><p>Anti Epileptic</p></label>
-								<div class="col-sm-3">
-									<input type="text" name="Anti Epileptic"
-										placeholder="Anti Epileptic"><br>
+								<label class="col-sm-2 control-label">Antihypertensives</label>
+								<div class=" col-sm-10 container-fluid">
+									<div class="col-sm-4">
+										<input class="form-control full-width" type="text"
+											name="Antihypertensivesc" placeholder="Antihypertensivesc">
+									</div>
+									<div class="col-sm-4">
+										<input class="form-control full-width" type="text"
+											name="Dose_Antihypertensives" placeholder="Dose Regime">
+									</div>
+									<div class="col-sm-2">
+										<input class="form-control full-width" type="text"
+											name="Duration_Antihypertensives" placeholder="Duration">
+									</div>
+									<div class="col-sm-2">
+											<select>
+ 										<option value="days">days</option>
+ 									<option value="weeks">weeks</option>
+									<option value="months">months</option>
+									<option value="years">years</option>
+								</select>
 								</div>
-								<div class="col-sm-3">
-									<input type="text" name="Dose_AntiEpileptic"
-										placeholder="Dose Regime"><br>
 								</div>
-								<div class="col-sm-3">
-									<input type="text" name="Duration_AntiEpileptic"
-										placeholder="Duration">&nbsp<select>
-										<option value="days">days</option>
-										<option value="weeks">weeks</option>
-										<option value="months">months</option>
-										<option value="years">years</option>
-									</select><br>
-								</div>
+
 							</div>
-						</div>
+
+							<div class="form-group">
+
+								<label class="col-sm-2 control-label">NSAIDS</label>
+								<div class=" col-sm-10 container-fluid">
+									<div class="col-sm-4">
+										<input class="form-control full-width" type="text"
+											name="NSAIDS" placeholder="NSAIDS">
+									</div>
+									<div class="col-sm-4">
+										<input class="form-control full-width" type="text"
+											name="Dose_NSAIDS" placeholder="Dose Regime">
+									</div>
+									<div class="col-sm-2">
+										<input class="form-control full-width" type="text"
+											name="Duration_NSAIDS" placeholder="Duration">
+									</div>
+									<div class="col-sm-2">
+											<select>
+ 										<option value="days">days</option>
+ 									<option value="weeks">weeks</option>
+									<option value="months">months</option>
+									<option value="years">years</option>
+								</select>
+								</div>
+								</div>
+
+							</div>
+
+							<div class="form-group">
+
+								<label class="col-sm-2 control-label">Steroids</label>
+								<div class=" col-sm-10 container-fluid">
+									<div class="col-sm-4">
+										<input class="form-control full-width" type="text"
+											name="Steroids " placeholder="Steroids ">
+									</div>
+									<div class="col-sm-4">
+										<input class="form-control full-width" type="text"
+											name="Dose_Steroids " placeholder="Dose Regime">
+									</div>
+									<div class="col-sm-2">
+										<input class="form-control full-width" type="text"
+											name="Duration_Steroids " placeholder="Duration">
+									</div>
+									<div class="col-sm-2">
+											<select>
+ 										<option value="days">days</option>
+ 									<option value="weeks">weeks</option>
+									<option value="months">months</option>
+									<option value="years">years</option>
+								</select>
+								</div>
+								</div>
+
+							</div>
+
+							<div class="form-group">
+
+								<label class="col-sm-2 control-label">Chemotherapy</label>
+								<div class=" col-sm-10 container-fluid">
+									<div class="col-sm-4">
+										<input class="form-control full-width" type="text"
+											name="Chemotherapy  " placeholder="Chemotherapy  ">
+									</div>
+									<div class="col-sm-4">
+										<input class="form-control full-width" type="text"
+											name="Dose_Chemotherapy  " placeholder="Dose Regime">
+									</div>
+									<div class="col-sm-2">
+										<input class="form-control full-width" type="text"
+											name="Duration_Chemotherapy  " placeholder="Duration">
+									</div>
+									<div class="col-sm-2">
+											<select>
+ 										<option value="days">days</option>
+ 									<option value="weeks">weeks</option>
+									<option value="months">months</option>
+									<option value="years">years</option>
+								</select>
+								</div>
+								</div>
+
+							</div>
+
+							<div class="form-group">
+
+								<label class="col-sm-2 control-label">Radiation therapy</label>
+								<div class=" col-sm-10 container-fluid">
+									<div class="col-sm-3">
+										<input class="form-control full-width" type="text"
+											name="Duration_RadiationTherapy  " placeholder="Duration">
+									</div>
+									<div class="col-sm-2">
+											<select>
+ 										<option value="days">days</option>
+ 									<option value="weeks">weeks</option>
+									<option value="months">months</option>
+									<option value="years">years</option>
+								</select>
+								</div>
+								</div>
+
+							</div>
+
+							<div class="form-group">
+
+								<label class="col-sm-2 control-label">Others</label>
+								<div class=" col-sm-10 container-fluid">
+									<div class="col-sm-4">
+										<input class="form-control full-width" type="text"
+											name="Others" placeholder="Type if any other details">
+									</div>
+								</div>
+
+							</div>
+							<div class="fixed-bottom">
+								<div class="col-sm-1">
+									<s:url var="dietary_history" action="dietary_history"
+										namespace="/patient"></s:url>
+									<s:a href="%{#dietary_history}">
+										<button id="next-btn" type="button"
+											class="btn btn-success btn-lg pull-right  prabha-transform">Previous</button>
+								</div>
+								</s:a>
+								<div class="col-sm-10"></div>
+								<s:url var="complaint" action="complaint" namespace="/patient"></s:url>
+								<s:a href="%{#complaint}">
+									<button id="next-btn" type="button"
+										class="btn btn-success btn-lg pull-right  prabha-transform">Next</button>
+								</s:a>
+
+							</div>
+
+
+
+
+
+						</form>
 					</div>
-					<div id="Paris" class="tabcontent"
-						style="overflow-y: scroll; height: 500px;">
 
-						<div class="containerbody">
-							<div class="row">
-
-								<label class="col-sm-3"><p>Antihypertensives</p></label>
-								<div class="col-sm-3">
-									<input type="text" name="Antihypertensivesc"
-										placeholder="Antihypertensivesc"><br>
-								</div>
-								<div class="col-sm-3">
-									<input type="text" name="Dose_Antihypertensives"
-										placeholder="Dose Regime"><br>
-								</div>
-								<div class="col-sm-3">
-									<input type="text" name="Duration_Antihypertensives"
-										placeholder="Duration">&nbsp<select>
-										<option value="days">days</option>
-										<option value="weeks">weeks</option>
-										<option value="months">months</option>
-										<option value="years">years</option>
-									</select><br>
-								</div>
-							</div>
-
-							<div class="row">
-
-								<label class="col-sm-3"><p>NSAIDS</p></label>
-								<div class="col-sm-3">
-									<input type="text" name="NSAIDS" placeholder="NSAIDS"><br>
-								</div>
-								<div class="col-sm-3">
-									<input type="text" name="Dose_NSAIDS" placeholder="Dose Regime"><br>
-								</div>
-								<div class="col-sm-3">
-									<input type="text" name="Duration_NSAIDS"
-										placeholder="Duration">&nbsp<select>
-										<option value="days">days</option>
-										<option value="weeks">weeks</option>
-										<option value="months">months</option>
-										<option value="years">years</option>
-									</select><br>
-								</div>
-							</div>
-
-							<div class="row">
-
-								<label class="col-sm-3"><p>Steroids</p></label>
-								<div class="col-sm-3">
-									<input type="text" name="Steroids " placeholder="Steroids "><br>
-								</div>
-								<div class="col-sm-3">
-									<input type="text" name="Dose_Steroids "
-										placeholder="Dose Regime"><br>
-								</div>
-								<div class="col-sm-3">
-									<input type="text" name="Duration_Steroids "
-										placeholder="Duration">&nbsp<select>
-										<option value="days">days</option>
-										<option value="weeks">weeks</option>
-										<option value="months">months</option>
-										<option value="years">years</option>
-									</select><br>
-								</div>
-							</div>
-
-							<div class="row">
-
-								<label class="col-sm-3"><p>Chemotherapy</p></label>
-								<div class="col-sm-3">
-									<input type="text" name="Chemotherapy  "
-										placeholder="Chemotherapy  "><br>
-								</div>
-								<div class="col-sm-3">
-									<input type="text" name="Dose_Chemotherapy  "
-										placeholder="Dose Regime"><br>
-								</div>
-								<div class="col-sm-3">
-									<input type="text" name="Duration_Chemotherapy  "
-										placeholder="Duration">&nbsp<select>
-										<option value="days">days</option>
-										<option value="weeks">weeks</option>
-										<option value="months">months</option>
-										<option value="years">years</option>
-									</select><br>
-								</div>
-							</div>
-
-							<div class="row">
-
-								<label class="col-sm-3"><p>Radiation therapy</p></label>
-								<div class="col-sm-3">
-									<input type="text" name="Duration_RadiationTherapy  "
-										placeholder="Duration">&nbsp<select>
-										<option value="days">days</option>
-										<option value="weeks">weeks</option>
-										<option value="months">months</option>
-										<option value="years">years</option>
-									</select><br>
-								</div>
-							</div>
-
-							<div class="row">
-
-								<label class="col-sm-3">Others</label>
-								<div class="col-sm-8">
-									<input type="text" id="text2" name="Others"
-										placeholder="Type if any other details"><br>
-								</div>
-
-							</div>
-							
-
-
-						</div>
-
-					</div>
 					<div class="row">
 						<div class="col-md-6">
 							<s:submit value="Save"/>
@@ -323,6 +324,7 @@
 
 				</div>
 				</s:form>
+
 			</div>
 			<!-- /page content -->
 

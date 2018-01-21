@@ -30,10 +30,11 @@
 			<div class="row"></div>
 
 			<!-- page content -->
-			<div class="right_col" role="main" style="margin-bottom:40px;">
+			<div class="right_col" role="main" style="margin-bottom: 40px;">
 
 				<s:include
 					value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"/>
+
 
 
 
@@ -103,18 +104,19 @@
 							<s:submit cssClass="btn btn-success" value="Save"/>
 						</div>
 					</s:form>
+
 				</div>
+				<!-- /page content -->
+
 
 			<!-- /page content -->
 
-		</div>
-	</div>
 
-	<s:include value="/WEB-INF/content/common/footer.jsp"></s:include>
 
-	<!-- Custom Theme Scripts -->
-	<s:include value="/WEB-INF/content/common/js-include.jsp"></s:include>
+		<s:include value="/WEB-INF/content/common/footer.jsp"></s:include>
 
+		<!-- Custom Theme Scripts -->
+		<s:include value="/WEB-INF/content/common/js-include.jsp"></s:include>
 </body>
 </html>
 

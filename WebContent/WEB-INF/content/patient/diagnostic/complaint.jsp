@@ -47,11 +47,12 @@ input[type=text] {
 			<!-- page content -->
 			<div class="addMenu">
 
-				<div class="right_col" role="main" style="margin-bottom:40px;">
+				<div class="right_col" role="main" style="margin-bottom: 40px;">
 
 					<s:include
 						value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"></s:include>
 					<div class="container">
+
 
 						<div style="margin-top:50px;">
 							<s:form  action="complaint.save" method="post" namespace="/patient">
@@ -90,6 +91,7 @@ input[type=text] {
 								</div>
 								</div>
 							</s:form>
+
 
 						</div>
 					</div>
