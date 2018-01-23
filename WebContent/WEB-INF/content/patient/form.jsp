@@ -39,7 +39,7 @@
 										
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12">
-									<s:textfield required="required" title="Surname" type="text" cssClass="form-control" id="name" 
+									<s:textfield required="required" title="Surname" type="text" cssClass="form-control" id="name"
 									name="patient.surname" placeholder="Surname" style="text-transform:capitalize"/>
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12">
@@ -73,7 +73,7 @@
 								</s:if>
 								<div class="col-md-2 col-sm-2 col-xs-12">
 									<label for="checkbox">Child</label> 
-										<s:checkbox 
+										<s:checkbox
 										name="patient.child" cssClass="checkbox-inline" id="check_child"
 										value="child" />
 								</div>
@@ -84,6 +84,10 @@
 								<div class="col-md-3 col-sm-3 col-xs-12">
 									<s:textfield type="text" pattern=".{10,15}" title="NIC should be between 10 to 15 digits!" cssClass="form-control" id="nic" name="patient.nic"
 										placeholder="NIC number" />
+
+								</div>
+								<div class="col-md-1 col-sm-1 col-xs-12">
+
 								</div>
 
 							</div>
@@ -227,7 +231,7 @@
 									<!--diagno button start-->
 									<center>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-											<s:submit cssClass="btn btn-success" value="Register and Finish"></s:submit>									
+											<s:submit cssClass="btn btn-success" value="Register and Finish"></s:submit>
 										</div>		
 										<s:url var="diagno" action="diagnostic" namespace="/patient"></s:url>
 										<s:a href="%{#diagno}">
@@ -258,5 +262,6 @@
 	<s:include value="/WEB-INF/content/common/footer.jsp"></s:include>
 	<!-- Custom Theme Scripts -->
 	<s:include value="/WEB-INF/content/common/js-include.jsp"></s:include>
+	<s:include value="/WEB-INF/content/common/jquery-ajax.jsp"></s:include>
 </body>
 </html>

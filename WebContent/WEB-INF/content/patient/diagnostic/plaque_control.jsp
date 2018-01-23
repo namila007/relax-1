@@ -30,19 +30,20 @@
 			<div class="row"></div>
 
 			<!-- page content -->
-			<div class="right_col" role="main" style="margin-bottom:40px;">
+			<div class="right_col" role="main" style="margin-bottom: 45px;">
 
 				<s:include
 					value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"></s:include>
 
-				<div class="containerbody" style="overflow-y: scroll; height:500px;">
+				<div class="containerbody"
+					style="overflow-y: scroll; height: 480px;">
 
 					<div class="col-sm-6">
 
 						<div class="row">
 
 							<div class="col-sm-4 col-xs-12">
-								<p>Tooth Brushing tool</p>
+								<label>Tooth Brushing tool</label>
 							</div>
 
 							<div class="col-sm-8 col-xs-12">
@@ -66,7 +67,7 @@
 						<div class="row">
 
 							<div class="col-sm-4 col-xs-12">
-								<p>Frequency of brushing</p>
+								<label>Frequency of brushing</label>
 							</div>
 
 							<div class="col-sm-8 col-xs-12">
@@ -97,7 +98,7 @@
 						<div class="row">
 
 							<div class="col-sm-4 col-xs-12">
-								<p>Bristles</p>
+								<label>Bristles</label>
 							</div>
 
 							<div class="col-sm-8 col-xs-12">
@@ -121,7 +122,7 @@
 						<div class="row">
 
 							<div class="col-sm-4 col-xs-12">
-								<p>Duration of brushing</p>
+								<label>Duration of brushing</label>
 							</div>
 
 							<div class="col-sm-8 col-xs-12">
@@ -145,7 +146,7 @@
 						<div class="row">
 
 							<div class="col-sm-4 col-xs-12">
-								<p>Dentifrices/Tooth pastes</p>
+								<label>Dentifrices/Tooth pastes</label>
 							</div>
 
 							<div class="col-sm-8 col-xs-12">
@@ -167,7 +168,7 @@
 						<div class="row">
 
 							<div class="col-sm-6 col-xs-12">
-								<p>Use of Interdental/supplementary cleaning aids</p>
+								<label>Use of Interdental/supplementary cleaning aids</label>
 							</div>
 
 							<div class="col-sm-6 col-xs-12">
@@ -196,10 +197,30 @@
 									<label class="checkbox"> Other</label> <input type="text"
 										style="width: 100%">
 								</div>
+								<br>
 
 							</div>
 
 						</div>
+
+					</div>
+					<div class="fixed-bottom">
+						<div class="col-sm-2">
+							<s:url var="medical_record" action="medical_record"
+								namespace="/patient"></s:url>
+							<s:a href="%{#medical_record}">
+								<button id="next-btn" type="button"
+									class="btn btn-success btn-lg pull-right  prabha-transform">Previous</button>
+						</div>
+						</s:a>
+						<div class="col-sm-10"></div>
+						<s:url var="diagnoseform" action="diagnose-form"
+							namespace="/patient"></s:url>
+						<s:a href="%{#diagnoseform}">
+							<button id="next-btn" type="button"
+								class="btn btn-success btn-lg pull-right  prabha-transform">Next</button>
+						</s:a>
+
 					</div>
 
 

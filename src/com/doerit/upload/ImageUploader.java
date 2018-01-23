@@ -2,11 +2,17 @@ package com.doerit.upload;
 
 import java.io.File;
 import java.io.IOException;
-import javax.servlet.http.HttpServletRequest;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.ResourceBundle;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import com.opensymphony.xwork2.ActionSupport;
-
+import org.apache.struts2.interceptor.SessionAware;
 
 
 public class ImageUploader extends ActionSupport {
@@ -14,28 +20,29 @@ public class ImageUploader extends ActionSupport {
 
 
 	private static final long serialVersionUID = 1L;
-	public String PatientId;
-	public File fileUpload;
-	public String fileUploadContentType;
-	public String fileUploadFileName;
-//	private HttpServletRequest servletRequest;
 
+	private String PatientId;
+	private File fileUpload;
+	private String fileUploadContentType;
+	private String fileUploadFileName;
+	private List<String> imglist;
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	
 	public String imageUpload() {
 		return SUCCESS;
 	}
-	
-//	@Override
-//	public void setServletRequest(HttpServletRequest servletRequest) {
-//		this.servletRequest = servletRequest;
-//
-//	}
-	
+
+
+	public String viewImage(){return SUCCESS ;}
+
 	public String doUpload() {
-		
-//		File saveFilePath = new File("E:/Upload/"+PatientId+"/" + fileUploadFileName);
-		File saveFilePath = new File("D:/Academic/Computer Engineering/Projects/Dental/Git Project/relax-1/WebContent/upload/"+PatientId+"/" + fileUploadFileName);
-		
+
+		File saveFilePath = new File("E:/Upload/"+PatientId+"/" + fileUploadFileName);
+
+
 		try {
 			FileUtils.copyFile(fileUpload, saveFilePath);
 		} catch (IOException ex) {
@@ -61,6 +68,28 @@ public class ImageUploader extends ActionSupport {
 //		}
 //		return SUCCESS;
 //	}
+
+	public String imagelist(){
+		System.out.println("dsfd");
+		List<File> list=(List<File>)FileUtils.listFiles(new File("E:/Upload/234234234234/"),new String[]{"jpeg","jpg","png"},true);
+
+	try {
+		for (File f : list) {
+			imglist.add(f.getCanonicalPath().toString());
+			System.out.printf(f.getCanonicalPath());
+		}
+	}catch(IOException e){
+		e.printStackTrace();
+	}
+
+		return SUCCESS;
+	}
+
+
+
+	public void getText() {
+
+	}
 
 	public String getPatientId() {
 		return PatientId;
@@ -94,11 +123,13 @@ public class ImageUploader extends ActionSupport {
 		this.fileUploadFileName = fileUploadFileName;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public List<String> getImglist() {
+		return imglist;
 	}
-		
-		
+
+	public void setImglist(List<String> imglist) {
+		this.imglist = imglist;
+	}
 }
 
 
