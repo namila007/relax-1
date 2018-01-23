@@ -1,9 +1,8 @@
 package com.doerit.upload;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -11,28 +10,17 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import org.apache.commons.io.FileUtils;
-/*import org.springframework.beans.factory.annotation.Autowired;
-
-import com.doerit.action.AbstractDownloadManamentAction;
-import com.doerit.model.District;
-import com.doerit.model.Patient;
-import com.doerit.model.PatientAdditionalProperty;
-import com.doerit.model.PatientGuardianWithBLOBs;
-import com.doerit.service.DistrictService;
-import com.doerit.service.PatientAdditionalPropertyService;
-import com.doerit.service.PatientGuardianService;
-import com.doerit.service.PatientService;
-import com.doerit.util.PdfPatientInformation;
-import com.doerit.util.PdfPatientSticker;
-import com.doerit.util.State;
-import com.itextpdf.text.DocumentException;*/
+import org.apache.struts2.interceptor.ServletRequestAware;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.SessionAware;
 
 
 public class ImageUploader extends ActionSupport {
+//	implements ServletRequestAware {
+
 
 	private static final long serialVersionUID = 1L;
+
 	private String PatientId;
 	private File fileUpload;
 	private String fileUploadContentType;
@@ -47,11 +35,13 @@ public class ImageUploader extends ActionSupport {
 		return SUCCESS;
 	}
 
+
 	public String viewImage(){return SUCCESS ;}
 
 	public String doUpload() {
 
 		File saveFilePath = new File("E:/Upload/"+PatientId+"/" + fileUploadFileName);
+
 
 		try {
 			FileUtils.copyFile(fileUpload, saveFilePath);
@@ -60,6 +50,24 @@ public class ImageUploader extends ActionSupport {
 		}
 		return SUCCESS;
 	}
+	
+//	public String doUpload() {
+//		try {
+//
+////			String filePath = servletRequest.getSession().getServletContext().getRealPath("/")+PatientId;
+////			System.out.println("Server path:" + filePath);
+//			System.out.println(servletRequest.getPart(PatientId));
+////			File fileToCreate = new File(filePath, this.fileUploadFileName);
+//
+////			FileUtils.copyFile(this.fileUpload, fileToCreate);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			addActionError(e.getMessage());
+//
+//			return INPUT;
+//		}
+//		return SUCCESS;
+//	}
 
 	public String imagelist(){
 		System.out.println("dsfd");

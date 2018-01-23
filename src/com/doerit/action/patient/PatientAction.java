@@ -2,8 +2,10 @@ package com.doerit.action.patient;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -24,6 +26,9 @@ import com.doerit.util.PdfPatientSticker;
 import com.doerit.util.State;
 import com.itextpdf.text.DocumentException;
 
+import com.doerit.model.XrayFileNames;
+
+
 public class PatientAction extends AbstractDownloadManamentAction {
 
 	private static final long serialVersionUID = 1L;
@@ -39,6 +44,7 @@ public class PatientAction extends AbstractDownloadManamentAction {
 	private List<PatientGuardianWithBLOBs> patientGuardians;
 	private String searchKey;
 	private String searchWord;
+	private ArrayList<XrayFileNames> xrayFileNames = null;
 	
 	public String registrationForm() {
 		return SUCCESS;
@@ -50,6 +56,32 @@ public class PatientAction extends AbstractDownloadManamentAction {
 			patient = patientService.viewById(getId());
 			viewProperties();
 			viewGuardians();
+			
+			xrayFileNames = new ArrayList<XrayFileNames>();
+			try{
+				File folder = new File("D:/Academic/Computer Engineering/Projects/Dental/Git Project/relax-1/WebContent/upload/"+patient.getSerialNumber()); //your path
+				//File folder = new File("/upload/"+patient.serialNumber);
+				File[] listOfFiles = folder.listFiles();
+				
+				for (int i = 0; i < listOfFiles.length; i++)
+				{
+					XrayFileNames temp = new XrayFileNames();
+					
+				    if (listOfFiles[i].isFile())
+				    {
+				    	temp.setName(listOfFiles[i].getName());
+				    	xrayFileNames.add(temp);		    	
+  	
+				    	
+				
+				}}}
+			catch(Exception e){
+				//test.add("no images");
+				XrayFileNames tempError = new XrayFileNames();
+				tempError.setName("No images");
+		    	xrayFileNames.add(tempError);
+			} 	
+			
 		} else {
 			addActionError("Invalid access");
 		}
@@ -312,5 +344,14 @@ public class PatientAction extends AbstractDownloadManamentAction {
 	public void setPatientGuardians(List<PatientGuardianWithBLOBs> patientGuardians) {
 		this.patientGuardians = patientGuardians;
 	}
+
+	public ArrayList<XrayFileNames> getXrayFileNames() {
+		return xrayFileNames;
+	}
+
+	public void setXrayFileNames(ArrayList<XrayFileNames> xrayFileNames) {
+		this.xrayFileNames = xrayFileNames;
+	}
+	
 		
 }
