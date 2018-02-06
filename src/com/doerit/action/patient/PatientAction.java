@@ -60,7 +60,7 @@ public class PatientAction extends AbstractDownloadManamentAction {
 			xrayFileNames = new ArrayList<XrayFileNames>();
 			try{
 				File folder = new File("D:/Academic/Computer Engineering/Projects/Dental/Git Project/relax-1/WebContent/upload/"+patient.getSerialNumber()); //your path
-				//File folder = new File("/upload/"+patient.serialNumber);
+//				File folder = new File("E:/upload/"+patient.getSerialNumber());
 				File[] listOfFiles = folder.listFiles();
 				
 				for (int i = 0; i < listOfFiles.length; i++)

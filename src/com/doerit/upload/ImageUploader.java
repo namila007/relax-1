@@ -9,6 +9,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import com.opensymphony.xwork2.ActionSupport;
@@ -16,7 +18,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 
 public class ImageUploader extends ActionSupport {
-//	implements ServletRequestAware {
+//implements ServletRequestAware {
 
 
 	private static final long serialVersionUID = 1L;
@@ -40,8 +42,8 @@ public class ImageUploader extends ActionSupport {
 
 	public String doUpload() {
 
-		File saveFilePath = new File("E:/Upload/"+PatientId+"/" + fileUploadFileName);
-
+		File saveFilePath = new File("D:/Academic/Computer Engineering/Projects/Dental/Git Project/relax-1/WebContent/upload/"+PatientId+"/" + fileUploadFileName);
+//		File saveFilePath = new File("E:/upload/"+PatientId+"/" + fileUploadFileName);
 
 		try {
 			FileUtils.copyFile(fileUpload, saveFilePath);
@@ -54,12 +56,12 @@ public class ImageUploader extends ActionSupport {
 //	public String doUpload() {
 //		try {
 //
-////			String filePath = servletRequest.getSession().getServletContext().getRealPath("/")+PatientId;
-////			System.out.println("Server path:" + filePath);
+//			HttpServletRequest servletRequest = null;
+//			String filePath = servletRequest.getSession().getServletContext().getRealPath("/")+PatientId;
+//			System.out.println("Server path:" + filePath);
 //			System.out.println(servletRequest.getPart(PatientId));
-////			File fileToCreate = new File(filePath, this.fileUploadFileName);
-//
-////			FileUtils.copyFile(this.fileUpload, fileToCreate);
+//			File fileToCreate = new File(filePath, this.fileUploadFileName);
+//			FileUtils.copyFile(this.fileUpload, fileToCreate);
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //			addActionError(e.getMessage());
@@ -130,6 +132,12 @@ public class ImageUploader extends ActionSupport {
 	public void setImglist(List<String> imglist) {
 		this.imglist = imglist;
 	}
+//
+//	@Override
+//	public void setServletRequest(HttpServletRequest arg0) {
+//		// TODO Auto-generated method stub
+//		
+//	}
 }
 
 
