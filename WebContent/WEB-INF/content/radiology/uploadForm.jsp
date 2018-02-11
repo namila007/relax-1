@@ -86,13 +86,15 @@
 	        <s:submit cssClass="btn btn-lg btn-primary btn-block" value="Upload"></s:submit>
       	</s:form>
 
+    
 
-				<s:url var="view" action="viewimages" namespace="/upload"/>
+
+				<!--<s:url var="view" action="viewimages" namespace="/upload"/>
 				<s:a  href="%{#view}">
 					<div class="col-md-12" >
 						<button  type="button" class="btn btn-primary "> View Images</button>
 					</div>
-				</s:a>
+				</s:a>-->
 
 
       	</div>
