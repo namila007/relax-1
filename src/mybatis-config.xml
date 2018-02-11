@@ -29,5 +29,14 @@
 		<mapper resource="com/doerit/dao/xml/ProvinceMapper.xml" />
 		<mapper resource="com/doerit/dao/xml/UserAccountActionMapper.xml" />
 		<mapper resource="com/doerit/dao/xml/UserAccountMapper.xml" />
+		<mapper resource="com/doerit/dao/xml/ComplaintMapper.xml"/>
+		<mapper resource="com/doerit/dao/xml/DiagnosticReportMapper.xml"/>
+		<mapper resource="com/doerit/dao/xml/DietaryHistoryMapper.xml"/>
+		<mapper resource="com/doerit/dao/xml/DrugMapper.xml"/>
+		<mapper resource="com/doerit/dao/xml/HabitsMapper.xml"/>
+		<mapper resource="com/doerit/dao/xml/MedicalRecordMapper.xml"/>
+		<mapper resource="com/doerit/dao/xml/PastDentalHistoryMapper.xml"/>
+		<mapper resource="com/doerit/dao/xml/PatientHabitMapper.xml"/>
+		<mapper resource="com/doerit/dao/xml/PlaqueControlMapper.xml"/>
 	</mappers>
 </configuration>

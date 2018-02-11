@@ -19,6 +19,7 @@ public class AutoCompleteNIC extends ActionSupport {
 
 
     private String nic;
+
     private List<Patient> patient;
 
 

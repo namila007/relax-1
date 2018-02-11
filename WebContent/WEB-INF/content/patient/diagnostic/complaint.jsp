@@ -47,39 +47,52 @@ input[type=text] {
 			<!-- page content -->
 			<div class="addMenu">
 
-				<div class="right_col" role="main" style="margin-bottom:40px;">
+				<div class="right_col" role="main" style="margin-bottom: 40px;">
 
 					<s:include
 						value="/WEB-INF/content/patient/diagnostic/common/navbar.jsp"></s:include>
 					<div class="container">
 
+
 						<div style="margin-top:50px;">
+							<s:form  action="complaint.save" method="post" namespace="/patient">
+								<div class="row">
+								<div class="form-group">
+									<label class="control-label col-sm-3 col-md-3" for="Complaint">Complaint:</label>
+									<div class="col-sm-7 col-md-3">
 
-						<form class="form-horizontal" action="/action_page.php">
-							<div class="form-group">
-								<label class="control-label col-sm-3" for="Complaint">Complaint:</label>
-								<div class="col-sm-7">
-									<input type="text" class="form-control" id="email"
-										placeholder="Complaint" name="Complaint">
+										<s:textfield type="text" class="form-control" id="complaint"
+													 placeholder="Complaint" name="complaint.complaint"/>
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-3" for="Type">Type:</label>
-								<div class="col-sm-7">
-									<input type="text" class="form-control" id="pwd"
-										placeholder="Type" name="Type">
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-3" for="History">History
-									of presenting complaint:</label>
-								<div class="col-sm-7">
-									<input type="text" class="form-control" id="text"
-										placeholder="History of Complaint" name="History">
+								<div class="row">
+								<div class="form-group">
+									<label class="control-label col-sm-3 col-md-3" for="Type">Type:</label>
+									<div class="col-sm-7 col-md-3">
+										<s:textfield type="text" class="form-control" id="type"
+													 placeholder="Type" name="complaint.type"/>
+									</div>
 								</div>
-							</div>
+								</div>
+								<div class="row">
+								<div class="form-group">
+									<label class="control-label col-sm-3 col-md-3" for="History">History
+										of presenting complaint:</label>
+									<div class="col-sm-7 col-md-7">
+										<s:textfield type="text" class="form-control" id="complaintHistory"
+													 placeholder="History of Complaint" name="complaint.complaintHistory"/>
+									</div>
+								</div>
+								</div>
+								<div class="row">
+								<div class="col-md-3 col-sm-3 col-xs-12">
+									<s:submit cssClass="btn btn-success" value="Save"/>
+								</div>
+								</div>
+							</s:form>
 
-						</form>
+
 						</div>
 					</div>
 

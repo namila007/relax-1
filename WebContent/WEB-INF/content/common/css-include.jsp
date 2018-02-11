@@ -9,6 +9,7 @@
 <link href="<s:url value="/vendors/font-awesome/css/font-awesome.min.css" includeParams="none"/>" rel="stylesheet">
 <link href="<s:url value="/vendors/nprogress/nprogress.css" includeParams="none"/>" rel="stylesheet" type="text/css">
 <link href="<s:url value="/css/custom.min.css" includeParams="none"/>" rel="stylesheet" type="text/css">
+<s:include value="/WEB-INF/content/common/jquery-css.jsp"></s:include>
 
 <%-- <link href="<s:url value="/css/drughistory.css" includeParams="none"/>" rel="stylesheet" type="text/css"> --%>
 

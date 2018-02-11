@@ -288,6 +288,27 @@
 							<s:else>
 								There is no guardian information.
 							</s:else>
+							<div>
+							<div class="row"><h4>X-ray images</h4></div>
+							
+							
+							
+							<table>
+								<s:iterator value="xrayFileNames" status="stat">
+								  <tr> 
+		 					  		<s:if test="Name.equals('No images')">
+		 					  			<td><img src="<s:url value='/upload/noImages/noImage.jpg' />" style="width:50px;height:50px"></td>
+								      	<td style="padding-left:10px"><s:property value="Name"/><br></td>
+										
+									</s:if>
+									<s:else>
+										<td><img src="<s:url value='/upload/%{patient.serialNumber}/%{Name}' />" style="width:50px;height:50px"></td>
+								      	<td style="padding-left:10px"><a href="<s:url value='/upload/%{patient.serialNumber}/%{Name}' />"><s:property value="Name"/><br></a></td>
+									</s:else>
+								  </tr>
+								</s:iterator>
+							</table>
+							</div>
 					  </div> 
 					  
 					</div>

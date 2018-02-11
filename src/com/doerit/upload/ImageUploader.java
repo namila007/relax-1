@@ -1,41 +1,33 @@
 package com.doerit.upload;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.ResourceBundle;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.FileUtils;
-/*import org.springframework.beans.factory.annotation.Autowired;
-
-import com.doerit.action.AbstractDownloadManamentAction;
-import com.doerit.model.District;
-import com.doerit.model.Patient;
-import com.doerit.model.PatientAdditionalProperty;
-import com.doerit.model.PatientGuardianWithBLOBs;
-import com.doerit.service.DistrictService;
-import com.doerit.service.PatientAdditionalPropertyService;
-import com.doerit.service.PatientGuardianService;
-import com.doerit.service.PatientService;
-import com.doerit.util.PdfPatientInformation;
-import com.doerit.util.PdfPatientSticker;
-import com.doerit.util.State;
-import com.itextpdf.text.DocumentException;*/
+import org.apache.struts2.interceptor.ServletRequestAware;
 import com.opensymphony.xwork2.ActionSupport;
-
+import org.apache.struts2.interceptor.SessionAware;
 
 
 public class ImageUploader extends ActionSupport {
+//implements ServletRequestAware {
+
 
 	private static final long serialVersionUID = 1L;
+
 	private String PatientId;
 	private File fileUpload;
 	private String fileUploadContentType;
 	private String fileUploadFileName;
+	private List<String> imglist;
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -45,9 +37,13 @@ public class ImageUploader extends ActionSupport {
 		return SUCCESS;
 	}
 
+
+	public String viewImage(){return SUCCESS ;}
+
 	public String doUpload() {
 
-		File saveFilePath = new File("E:/Upload/"+PatientId+"/" + fileUploadFileName);
+		File saveFilePath = new File("D:/Academic/Computer Engineering/Projects/Dental/Git Project/relax-1/WebContent/upload/"+PatientId+"/" + fileUploadFileName);
+//		File saveFilePath = new File("E:/upload/"+PatientId+"/" + fileUploadFileName);
 
 		try {
 			FileUtils.copyFile(fileUpload, saveFilePath);
@@ -55,6 +51,46 @@ public class ImageUploader extends ActionSupport {
 			System.out.println("Couldn't save file: " + ex.getMessage());
 		}
 		return SUCCESS;
+	}
+	
+//	public String doUpload() {
+//		try {
+//
+//			HttpServletRequest servletRequest = null;
+//			String filePath = servletRequest.getSession().getServletContext().getRealPath("/")+PatientId;
+//			System.out.println("Server path:" + filePath);
+//			System.out.println(servletRequest.getPart(PatientId));
+//			File fileToCreate = new File(filePath, this.fileUploadFileName);
+//			FileUtils.copyFile(this.fileUpload, fileToCreate);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			addActionError(e.getMessage());
+//
+//			return INPUT;
+//		}
+//		return SUCCESS;
+//	}
+
+	public String imagelist(){
+		System.out.println("dsfd");
+		List<File> list=(List<File>)FileUtils.listFiles(new File("E:/Upload/234234234234/"),new String[]{"jpeg","jpg","png"},true);
+
+	try {
+		for (File f : list) {
+			imglist.add(f.getCanonicalPath().toString());
+			System.out.printf(f.getCanonicalPath());
+		}
+	}catch(IOException e){
+		e.printStackTrace();
+	}
+
+		return SUCCESS;
+	}
+
+
+
+	public void getText() {
+
 	}
 
 	public String getPatientId() {
@@ -88,8 +124,20 @@ public class ImageUploader extends ActionSupport {
 	public void setFileUploadFileName(String fileUploadFileName) {
 		this.fileUploadFileName = fileUploadFileName;
 	}
-		
-		
+
+	public List<String> getImglist() {
+		return imglist;
+	}
+
+	public void setImglist(List<String> imglist) {
+		this.imglist = imglist;
+	}
+//
+//	@Override
+//	public void setServletRequest(HttpServletRequest arg0) {
+//		// TODO Auto-generated method stub
+//		
+//	}
 }
 
 

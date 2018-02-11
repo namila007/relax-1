@@ -2,6 +2,7 @@ package com.doerit.model;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Patient implements InsertUpdate {
@@ -37,9 +38,7 @@ public class Patient implements InsertUpdate {
 	private String updateUserId;
 	private Date insertDatetime;
 	private Date updateDatetime;	
-	
 	private String birthDayString;
-
 	
 	public String getId() {
 		return id;
@@ -361,6 +360,7 @@ public class Patient implements InsertUpdate {
 		
 		return title + " " + surname + " " + initials.toUpperCase();
 	}
-	
+
+
 	
 }
